@@ -8,6 +8,35 @@
 </head>
 <body>
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="dropdown" id="groupAction">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                        分组
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="active"><a href="area">地域</a></li>
+                        <li><a href="regional">区域</a></li>
+                        <li class="active"><a href="functionA">功能区</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="dropdown" id="showHidden">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                        显示字段
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="active"><a href="interfaceTotal">接口总数</a></li>
+                        <li><a href="usedInterface">已用接口总数</a></li>
+                        <li class="active"><a href="manageIp">管理IP</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
         <div class="table-responsive">
             <table class="table table-striped" id="list_table">
                 <!-- 动态添加-->
@@ -29,8 +58,45 @@
                 "interfaceTotal":"接口总数",
                 "usedInterface":"已用接口总数"
             }
-            $.get("json/jsonData1.json",function(data){
-                $("#list_table").drawTable(data,col);//调用渲染函数
+            var showClo={//用来约束字段是否显示
+                "groupName":true,
+                "area":true,
+                "regional":true,
+                "functionA":true,
+                "deviceName":true,
+                "manageIp":true,
+                "interfaceTotal":true,
+                "usedInterface":false
+            }
+            $.get("json/jsonData2.json",function(data){
+                $("#list_table").drawTable(data,col,showClo);//调用渲染函数
+                $("#showHidden a").click(function(e){
+                    var e=e||event;
+                    if(e.preventDefault){
+                        e.preventDefault();
+                    }else{
+                        e.returnValue = false;
+                    }
+                    e.stopPropagation();
+                    $(this).parent("li").toggleClass("active");
+                    var pro=$(this).attr("href");
+                    if($(this).parent("li.active").length){
+                        showClo[pro]=true;
+                    }else{
+                        showClo[pro]=false;
+                    }
+                    $("#list_table").drawTable(data,col,showClo)
+                });
+                $("#groupAction a").click(function(e){
+                    var e=e||event;
+                    if(e.preventDefault){
+                        e.preventDefault();
+                    }else{
+                        e.returnValue = false;
+                    }
+                    e.stopPropagation();
+
+                });
             },"json");
         });
     </script>

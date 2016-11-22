@@ -8,15 +8,20 @@
         throw new Error("依赖的jQuery函数不存在！");
     }
     var dataObj={};
-    function drawTable(data,colHead){//依次传入需要渲染的数据和表头对象
+    var s=null;
+    function drawTable(data,colHead,showCol){//依次传入需要渲染的数据、表头对象和需要显示的列
+        s=showCol
+        this.html("");//清空表格
         var thead=$("<thead></thead>");
         var hTr=$("<tr></tr>");
         var tbody=$('<tbody></tbody>');
         if(data[0].groupName==""){
             $.each(data[0],function(i,v){
-                if(i!=="groupName"){
-                    var th=$('<th>'+colHead[i]+'</th>');
-                    hTr.append(th);
+                if(showCol[i]){
+                    if(i!=="groupName"){
+                        var th=$('<th>'+colHead[i]+'</th>');
+                        hTr.append(th);
+                    }
                 }
             });
             $.each(data,function(i,v){
@@ -25,9 +30,11 @@
             });
         }else{
             $.each(data[0],function(i,v){
-                if(i!=="level"&&i!=="data"){
-                    var th=$('<th>'+colHead[i]+'</th>');
-                    hTr.append(th);
+                if(showCol[i]) {
+                    if (i !== "level" && i !== "data") {
+                        var th = $('<th>' + colHead[i] + '</th>');
+                        hTr.append(th);
+                    }
                 }
             });
             $.each(data,function(i,v){
@@ -58,13 +65,15 @@
         if(data.groupName){
             var bTr=$('<tr class="group_header" data-tar="'+i+'"></tr>');
             $.each(data,function(item,val){
-                if(item!=="level"&&item!=="data"){
-                    if(item=="groupName"){
-                        var td=$('<td class="list_group_name space'+l+'">'+val+'</td>');
-                    }else{
-                        var td=$('<td>'+val+'</td>');
+                if(s[item]){
+                    if(item!=="level"&&item!=="data"){
+                        if(item=="groupName"){
+                            var td=$('<td class="list_group_name space'+l+'">'+val+'</td>');
+                        }else{
+                            var td=$('<td>'+val+'</td>');
+                        }
+                        bTr.append(td);
                     }
-                    bTr.append(td);
                 }
             });
         }else{
@@ -75,11 +84,13 @@
     function drawTableList(isGroup,data,i){
         var bTr=$('<tr data-tar="'+i+'" data-act="mianban"></tr>');
         $.each(data,function(item,val){
-            if(isGroup){
-                var td=$("<td>"+val+"</td>");
-            }else{
-                if(item!=="groupName"){
+            if(s[item]){
+                if(isGroup){
                     var td=$("<td>"+val+"</td>");
+                }else{
+                    if(item!=="groupName"){
+                        var td=$("<td>"+val+"</td>");
+                    }
                 }
             }
             bTr.append(td);
