@@ -10,13 +10,15 @@
     var dataObj={};
     var s=null;
     function drawTable(data,colHead,showCol){//依次传入需要渲染的数据、表头对象和需要显示的列
-        s=showCol
+        s=showCol;
         this.html("");//清空表格
         var thead=$("<thead></thead>");
         var hTr=$("<tr></tr>");
         var tbody=$('<tbody></tbody>');
-        if(data[0].groupName==""){
-            $.each(data[0],function(i,v){
+        //用来判断传入的数据类型
+        var proto=Object.prototype.toString.call(data);
+        if(proto=="[object Array]"){
+            $.each(colHead,function(i,v){
                 if(showCol[i]){
                     if(i!=="groupName"){
                         var th=$('<th>'+colHead[i]+'</th>');
@@ -29,12 +31,10 @@
                 tbody.append(bTr);
             });
         }else{
-            $.each(data[0],function(i,v){
+            $.each(colHead,function(i,v){
                 if(showCol[i]) {
-                    if (i !== "level" && i !== "data") {
-                        var th = $('<th>' + colHead[i] + '</th>');
-                        hTr.append(th);
-                    }
+                    var th = $('<th>'+v+'</th>');
+                    hTr.append(th);
                 }
             });
             $.each(data,function(i,v){
@@ -43,9 +43,9 @@
                 dataObj["d"+v.level+i]= v.data;
             });
         }
-        this.append(tbody);
         thead.append(hTr).appendTo(this);
-        this.on("click","tr.group_header",function(){
+        this.append(tbody);
+        tbody.on("click","tr.group_header",function(){
             $(this).find(".list_group_name")
                 .toggleClass("showChild");
             var tar=$(this).attr("data-tar");
