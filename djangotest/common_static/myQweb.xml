@@ -1,0 +1,24 @@
+<templates>
+        <div t-name="example_template" t-attf-class="base #{cls}">
+            <h4 t-if="title">
+                <t t-esc="title"/>
+            </h4>
+            <ul>
+                <li t-foreach="items" t-as="item" t-att-class="item_parity">
+                    <t t-call="example_template.sub">
+                    <t t-set="arg" t-value="item_value"/>
+                    </t>
+                </li>
+            </ul>
+        </div>
+
+        <t t-name="example_template.sub">
+            <t t-esc="arg.name"/>
+            <dl>
+                <t t-foreach="arg.tags" t-as="tag" t-if="tag_index lt 5">
+                    <dt>   <t t-esc="tag"/>   </dt>
+                    <dd>   <t t-esc="tag_value"/>   </dd>
+                </t>
+            </dl>
+        </t>
+</templates>

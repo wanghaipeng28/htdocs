@@ -1,0 +1,2086 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Javascript &mdash; odoo 8.0 documentation</title>
+    
+    <link rel="stylesheet" href="odoo.css" tppabs="https://www.odoo.com/documentation/8.0/_static/odoo.css" type="text/css" />
+    <link rel="stylesheet" href="pygments.css" tppabs="https://www.odoo.com/documentation/8.0/_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="patchqueue.css" tppabs="https://www.odoo.com/documentation/8.0/_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="jquery.js" tppabs="https://www.odoo.com/documentation/8.0/_static/jquery.js"></script>
+    <script type="text/javascript" src="underscore.js" tppabs="https://www.odoo.com/documentation/8.0/_static/underscore.js"></script>
+    <script type="text/javascript" src="doctools.js" tppabs="https://www.odoo.com/documentation/8.0/_static/doctools.js"></script>
+    <script type="text/javascript" src="patchqueue.js" tppabs="https://www.odoo.com/documentation/8.0/_static/patchqueue.js"></script>
+    <script type="text/javascript" src="scrollspy.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/scrollspy.js"></script>
+    <script type="text/javascript" src="affix.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/affix.js"></script>
+    <script type="text/javascript" src="tooltip.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/tooltip.js"></script>
+    <script type="text/javascript" src="collapse.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/collapse.js"></script>
+    <script type="text/javascript" src="dropdown.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/dropdown.js"></script>
+    <script type="text/javascript" src="ZeroClipboard.min.js" tppabs="https://www.odoo.com/documentation/8.0/_static/zeroclipboard-2.1.6/ZeroClipboard.min.js"></script>
+    <script type="text/javascript" src="app.js" tppabs="https://www.odoo.com/documentation/8.0/_static/app.js"></script>
+    <link rel="top" title="odoo 8.0 documentation" href="../index.html" />
+    <link rel="up" title="Reference" href="../reference.html" />
+    <link rel="next" title="Translating Modules" href="translations.html" />
+    <link rel="prev" title="QWeb" href="qweb.html" /><link rel="canonical" href="https://www.odoo.com/documentation/8.0/reference/javascript.html"/>
+  </head>
+  <body><header class="navbar navbar-default navbar-static-top docs-nav" id="top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-main">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html" tppabs="https://www.odoo.com/documentation/8.0/index.html" class="o_logo navbar-brand">
+        <span class="o_logo_main">odoo</span><span class="o_logo_app">doc</span>
+      </a>
+      
+        <div class="versions navbar-brand">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            8.0 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            
+              <li><a href="javascript:if(confirm('https://www.odoo.com/documentation/master/reference/javascript.html  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://www.odoo.com/documentation/master/reference/javascript.html'" tppabs="https://www.odoo.com/documentation/master/reference/javascript.html">master</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+    <nav class="collapse navbar-collapse navbar-main" role="navigation">
+      <ul class="current nav navbar-nav navbar-right">
+<li class="toctree-l1 dropdown"><a class="dropdown-toggle reference internal" data-toggle="dropdown" href="tutorials.html" tppabs="https://www.odoo.com/documentation/8.0/tutorials.html">Tutorials</a><ul class="dropdown-menu">
+<li class="toctree-l2"><a class="reference internal" href="website.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html">Building a Website</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backend.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html">Building a Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="themes.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html">Building Themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html">Building Interface Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 dropdown"><a class="dropdown-toggle reference internal" data-toggle="dropdown" href="setup.html" tppabs="https://www.odoo.com/documentation/8.0/setup.html">Setting Up</a><ul class="dropdown-menu">
+<li class="toctree-l2"><a class="reference internal" href="install.html" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html">Installing Odoo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html">Deploying Odoo</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current dropdown"><a class="dropdown-toggle reference internal" data-toggle="dropdown" href="reference.html" tppabs="https://www.odoo.com/documentation/8.0/reference.html">Reference</a><ul class="current dropdown-menu">
+<li class="toctree-l2"><a class="reference internal" href="orm.html" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html">ORM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html">Data Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actions.html" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html">Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html" tppabs="https://www.odoo.com/documentation/8.0/reference/module.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html">Command-line interface: odoo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html">Security in Odoo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html" tppabs="https://www.odoo.com/documentation/8.0/reference/testing.html">Testing Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http.html" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html">Web Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qweb.html" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html">QWeb</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Javascript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translations.html" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html">Translating Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html">QWeb Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html">Workflows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_integration.html" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html">Web Service</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+    </nav>
+  </div>
+</header><div class="document-super ">
+    
+
+    <div class="document"><div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+      <ul class="current nav">
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html" tppabs="https://www.odoo.com/documentation/8.0/tutorials.html">Tutorials</a><ul class="nav">
+<li class="toctree-l2"><a class="reference internal" href="website.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html">Building a Website</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="website.html#creating-a-basic-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#creating-a-basic-module">Creating a basic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#a-demonstration-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#a-demonstration-module">A demonstration module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#to-the-browser" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#to-the-browser">To the browser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#templates" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#templates">Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#storing-data-in-odoo" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#storing-data-in-odoo">Storing data in Odoo</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="website.html#defining-the-data-model" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#defining-the-data-model">Defining the data model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#demonstration-data" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#demonstration-data">Demonstration data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#accessing-the-data" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#accessing-the-data">Accessing the data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#website-support" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#website-support">Website support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#urls-and-routing" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#urls-and-routing">URLs and routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#field-edition" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#field-edition">Field edition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#administration-and-erp-integration" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#administration-and-erp-integration">Administration and ERP integration</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="website.html#a-brief-and-incomplete-introduction-to-the-odoo-administration" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#a-brief-and-incomplete-introduction-to-the-odoo-administration">A brief and incomplete introduction to the Odoo administration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#editing-in-the-odoo-administration" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#editing-in-the-odoo-administration">Editing in the Odoo administration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#relations-between-models" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#relations-between-models">Relations between models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#discussions-and-notifications" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#discussions-and-notifications">Discussions and notifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#selling-courses" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#selling-courses">Selling courses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#altering-existing-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#altering-existing-views">Altering existing views</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="backend.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html">Building a Module</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="backend.html#start-stop-the-odoo-server" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#start-stop-the-odoo-server">Start/Stop the Odoo server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#build-an-odoo-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#build-an-odoo-module">Build an Odoo module</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#composition-of-a-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#composition-of-a-module">Composition of a module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#module-structure" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#module-structure">Module structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#object-relational-mapping" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#object-relational-mapping">Object-Relational Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#model-fields" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#model-fields">Model fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#data-files" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#data-files">Data files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#actions-and-menus" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#actions-and-menus">Actions and Menus</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#basic-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#basic-views">Basic views</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#generic-view-declaration" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#generic-view-declaration">Generic view declaration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#tree-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#tree-views">Tree views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#form-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#form-views">Form views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#search-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#search-views">Search views</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#relations-between-models" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#relations-between-models">Relations between models</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#relational-fields" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#relational-fields">Relational fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#inheritance" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#inheritance">Inheritance</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#model-inheritance" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#model-inheritance">Model inheritance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#view-inheritance" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#view-inheritance">View inheritance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#computed-fields-and-default-values" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#computed-fields-and-default-values">Computed fields and default values</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#dependencies" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#default-values" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#default-values">Default values</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#onchange" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#onchange">Onchange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#model-constraints" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#model-constraints">Model constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#advanced-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#advanced-views">Advanced Views</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#id3" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#id3">Tree views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#calendars" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#calendars">Calendars</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#id4" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#id4">Search views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#gantt" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#gantt">Gantt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#graph-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#graph-views">Graph views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#kanban" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#kanban">Kanban</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#workflows" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#workflows">Workflows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#security" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#security">Security</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#group-based-access-control-mechanisms" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#group-based-access-control-mechanisms">Group-based access control mechanisms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#access-rights" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#access-rights">Access rights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#record-rules" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#record-rules">Record rules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#wizards" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#wizards">Wizards</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#launching-wizards" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#launching-wizards">Launching wizards</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#internationalization" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#internationalization">Internationalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#reporting" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#reporting">Reporting</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#printed-reports" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#printed-reports">Printed reports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#dashboards" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#dashboards">Dashboards</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#webservices" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#webservices">WebServices</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#xml-rpc-library" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#xml-rpc-library">XML-RPC Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#json-rpc-library" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#json-rpc-library">JSON-RPC Library</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="themes.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html">Building Themes</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="themes.html#basic-set-up" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#basic-set-up">Basic set up</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="themes.html#static-page" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#static-page">Static Page</a></li>
+<li class="toctree-l4"><a class="reference internal" href="themes.html#pimp-your-theme" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#pimp-your-theme">Pimp Your Theme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="themes.html#build-your-first-snippet" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#build-your-first-snippet">Build Your First Snippet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="themes.html#advanced-customization" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#advanced-customization">Advanced Customization</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="themes.html#defining-your-theme-options" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#defining-your-theme-options">Defining Your Theme Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="themes.html#the-image-database" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#the-image-database">The Image Database</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="themes.html#theme-selector" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#theme-selector">Theme Selector</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="themes.html#set-up" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#set-up">Set Up</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="web.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html">Building Interface Extensions</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="web.html#a-simple-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#a-simple-module">A Simple Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#odoo-javascript-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#odoo-javascript-module">Odoo JavaScript Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#classes" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#widgets-basics" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widgets-basics">Widgets Basics</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#your-first-widget" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#your-first-widget">Your First Widget</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#display-content" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#display-content">Display Content</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#widget-parents-and-children" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widget-parents-and-children">Widget Parents and Children</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#destroying-widgets" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#destroying-widgets">Destroying Widgets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#the-qweb-template-engine" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#the-qweb-template-engine">The QWeb Template Engine</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#using-qweb" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#using-qweb">Using QWeb</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#widget-helpers" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widget-helpers">Widget Helpers</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#widget-s-jquery-selector" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widget-s-jquery-selector"><tt class="docutils literal"><span class="pre">Widget</span></tt>&#8216;s jQuery Selector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#easier-dom-events-binding" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#easier-dom-events-binding">Easier DOM Events Binding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#widget-events-and-properties" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widget-events-and-properties">Widget Events and Properties</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#events" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#events">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#properties" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#id3" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#id3">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#modify-existing-widgets-and-classes" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#modify-existing-widgets-and-classes">Modify existing widgets and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#translations" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#translations">Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#communication-with-the-odoo-server" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#communication-with-the-odoo-server">Communication with the Odoo Server</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#contacting-models" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#contacting-models">Contacting Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#compoundcontext" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#compoundcontext">CompoundContext</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#queries" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#queries">Queries</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#exercises" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#exercises">Exercises</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#existing-web-components" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#existing-web-components">Existing web components</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#the-action-manager" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#the-action-manager">The Action Manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#client-actions" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#client-actions">Client Actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#architecture-of-the-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#architecture-of-the-views">Architecture of the Views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#the-form-view-fields" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#the-form-view-fields">The Form View Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#the-form-view-custom-widgets" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#the-form-view-custom-widgets">The Form View Custom Widgets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html" tppabs="https://www.odoo.com/documentation/8.0/setup.html">Setting Up</a><ul class="nav">
+<li class="toctree-l2"><a class="reference internal" href="install.html" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html">Installing Odoo</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="install.html#demo" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#demo">Demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#saas" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#saas">SaaS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#packaged-installers" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#packaged-installers">Packaged installers</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="install.html#windows" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#windows">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install.html#deb" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#deb">Deb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install.html#rpm" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#rpm">RPM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#source-install" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#source-install">Source Install</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="install.html#installing-dependencies" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#installing-dependencies">Installing dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install.html#running-odoo" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#running-odoo">Running Odoo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html">Deploying Odoo</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#dbfilter" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#dbfilter">dbfilter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#postgresql" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#postgresql">PostgreSQL</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#configuring-odoo" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#configuring-odoo">Configuring Odoo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#https" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#https">HTTPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#builtin-server" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#builtin-server">Builtin server</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#livechat" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#livechat">LiveChat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#odoo-as-a-wsgi-application" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#odoo-as-a-wsgi-application">Odoo as a WSGI Application</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#cron-workers" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#cron-workers">Cron Workers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#id4" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#id4">LiveChat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#serving-static-files" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#serving-static-files">Serving Static Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#security" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#security">Security</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#super-admin-password" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#super-admin-password">&#8220;Super-admin&#8221; password</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="reference.html" tppabs="https://www.odoo.com/documentation/8.0/reference.html">Reference</a><ul class="current nav">
+<li class="toctree-l2"><a class="reference internal" href="orm.html" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html">ORM</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="orm.html#recordsets" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#recordsets">Recordsets</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#field-access" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#field-access">Field access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#set-operations" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#set-operations">Set operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#other-recordset-operations" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#other-recordset-operations">Other recordset operations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#environment" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#environment">Environment</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#altering-the-environment" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#altering-the-environment">Altering the environment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#common-orm-methods" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#common-orm-methods">Common ORM methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#creating-models" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#creating-models">Creating Models</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#computed-fields" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#computed-fields">Computed fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#onchange-updating-ui-on-the-fly" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#onchange-updating-ui-on-the-fly">onchange: updating UI on the fly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#low-level-sql" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#low-level-sql">Low-level SQL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#old-api-compatibility" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#old-api-compatibility">Old API compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#model-reference" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#model-reference">Model Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#module-openerp.api" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#module-openerp.api">Method decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#fields" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#fields">Fields</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#basic-fields" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#basic-fields">Basic fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#relational-fields" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#relational-fields">Relational fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#inheritance-and-extension" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#inheritance-and-extension">Inheritance and extension</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#classical-inheritance" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#classical-inheritance">Classical inheritance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#extension" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#extension">Extension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#delegation" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#delegation">Delegation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#domains" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#domains">Domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#porting-from-the-old-api" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#porting-from-the-old-api">Porting from the old API</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#automatic-bridging-of-old-api-methods" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#automatic-bridging-of-old-api-methods">Automatic bridging of old API methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data.html" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html">Data Files</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="data.html#structure" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#core-operations" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#core-operations">Core operations</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="data.html#record" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#record"><tt class="docutils literal"><span class="pre">record</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#delete" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#delete"><tt class="docutils literal"><span class="pre">delete</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#function" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#function"><tt class="docutils literal"><span class="pre">function</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#workflow" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#workflow"><tt class="docutils literal"><span class="pre">workflow</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#shortcuts" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#shortcuts">Shortcuts</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="data.html#menuitem" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#menuitem"><tt class="docutils literal"><span class="pre">menuitem</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#template" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#template"><tt class="docutils literal"><span class="pre">template</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#report" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#report"><tt class="docutils literal"><span class="pre">report</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#csv-data-files" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#csv-data-files">CSV data files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="actions.html" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html">Actions</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="actions.html#window-actions-ir-actions-act-window" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#window-actions-ir-actions-act-window">Window Actions (<tt class="docutils literal"><span class="pre">ir.actions.act_window</span></tt>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html#url-actions-ir-actions-act-url" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#url-actions-ir-actions-act-url">URL Actions (<tt class="docutils literal"><span class="pre">ir.actions.act_url</span></tt>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html#server-actions-ir-actions-server" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#server-actions-ir-actions-server">Server Actions (<tt class="docutils literal"><span class="pre">ir.actions.server</span></tt>)</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="actions.html#code" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#code"><tt class="docutils literal"><span class="pre">code</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#object-create" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#object-create"><tt class="docutils literal"><span class="pre">object_create</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#object-write" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#object-write"><tt class="docutils literal"><span class="pre">object_write</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#multi" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#multi"><tt class="docutils literal"><span class="pre">multi</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#trigger" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#trigger"><tt class="docutils literal"><span class="pre">trigger</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#client-action" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#client-action"><tt class="docutils literal"><span class="pre">client_action</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#evaluation-context" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#evaluation-context">Evaluation context</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html#report-actions" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#report-actions">Report Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html#client-actions-ir-actions-client" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#client-actions-ir-actions-client">Client Actions (<tt class="docutils literal"><span class="pre">ir.actions.client</span></tt>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="views.html" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html">Views</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="views.html#common-structure" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#common-structure">Common Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#inheritance" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#inheritance">Inheritance</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="views.html#view-matching" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#view-matching">View matching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#view-resolution" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#view-resolution">View resolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#inheritance-specs" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#inheritance-specs">Inheritance specs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#lists" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#lists">Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#forms" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#forms">Forms</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="views.html#structural-components" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#structural-components">Structural components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#semantic-components" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#semantic-components">Semantic components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#business-views-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#business-views-guidelines">Business Views guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#configuration-forms-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#configuration-forms-guidelines">Configuration forms guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#dialog-forms-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#dialog-forms-guidelines">Dialog forms guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#configuration-wizards-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#configuration-wizards-guidelines">Configuration Wizards guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#graphs" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#graphs">Graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#kanban" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#kanban">Kanban</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="views.html#javascript-api" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#javascript-api">Javascript API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#calendar" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#calendar">Calendar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#gantt" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#gantt">Gantt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#diagram" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#diagram">Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#search" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#search">Search</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="views.html#search-defaults" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#search-defaults">Search defaults</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#qweb" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#qweb">QWeb</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html" tppabs="https://www.odoo.com/documentation/8.0/reference/module.html">Modules</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="module.html#manifest" tppabs="https://www.odoo.com/documentation/8.0/reference/module.html#manifest">Manifest</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html">Command-line interface: odoo.py</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#running-the-server" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#running-the-server">Running the server</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="cmdline.html#database" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#database">database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmdline.html#built-in-http" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#built-in-http">built-in HTTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmdline.html#logging" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#logging">logging</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#scaffolding" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#scaffolding">Scaffolding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#configuration-file" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#configuration-file">Configuration file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security.html" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html">Security in Odoo</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="security.html#access-control" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html#access-control">Access Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#record-rules" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html#record-rules">Record Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#field-access" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html#field-access">Field Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#workflow-transition-rules" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html#workflow-transition-rules">Workflow transition rules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html" tppabs="https://www.odoo.com/documentation/8.0/reference/testing.html">Testing Modules</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="testing.html#running-tests" tppabs="https://www.odoo.com/documentation/8.0/reference/testing.html#running-tests">Running tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http.html" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html">Web Controllers</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="http.html#routing" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#routing">Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#request" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#response" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#response">Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#controllers" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#controllers">Controllers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qweb.html" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html">QWeb</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#data-output" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#data-output">data output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#conditionals" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#conditionals">conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#loops" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#loops">loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#attributes" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#attributes">attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#setting-variables" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#setting-variables">setting variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#calling-sub-templates" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#calling-sub-templates">calling sub-templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#python" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#python">Python</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#exclusive-directives" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#exclusive-directives">Exclusive directives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#helpers" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#helpers">Helpers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#api" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#javascript" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#javascript">Javascript</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#id3" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#id3">Exclusive directives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#debugging" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#debugging">debugging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#id4" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#id4">Helpers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#id5" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#id5">API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Javascript</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="#widgets">Widgets</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="#dom-root">DOM Root</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dom-events-handling">DOM events handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subclassing-widget">Subclassing Widget</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#development-guidelines">Development Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rpc">RPC</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="#high-level-api-calling-into-odoo-models">High-level API: calling into Odoo models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#low-level-api-rpc-calls-to-python-side">Low-level API: RPC calls to Python side</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#web-client">Web Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-in-odoo-web-client">Testing in Odoo Web Client</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="#javascript-unit-testing">Javascript Unit Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#writing-a-test-case">Writing a test case</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#assertions">Assertions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getting-an-odoo-instance">Getting an Odoo instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dom-scratchpad">DOM Scratchpad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loading-templates">Loading templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asynchronous-cases">Asynchronous cases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">RPC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing-api">Testing API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-through-python">Running through Python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="translations.html" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html">Translating Modules</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="translations.html#exporting-translatable-term" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html#exporting-translatable-term">Exporting translatable term</a></li>
+<li class="toctree-l3"><a class="reference internal" href="translations.html#implicit-exports" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html#implicit-exports">Implicit exports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="translations.html#explicit-exports" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html#explicit-exports">Explicit exports</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html">QWeb Reports</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="reports.html#paper-formats" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html#paper-formats">Paper Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#expressions-used-in-odoo-report-templates" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html#expressions-used-in-odoo-report-templates">Expressions used in Odoo report templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#custom-report" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html#custom-report">Custom report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html">Workflows</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="workflows.html#basics" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#basics">Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workflows.html#activities" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#activities">Activities</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#flow-start-and-flow-stop" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#flow-start-and-flow-stop">Flow start and flow stop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#subflow" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#subflow">Subflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#sending-a-signal-from-a-subflow" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#sending-a-signal-from-a-subflow">Sending a signal from a subflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#server-actions" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#server-actions">Server actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#python-action" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#python-action">Python action</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#split-mode" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#split-mode">Split mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#join-mode" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#join-mode">Join mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#kinds" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#kinds">Kinds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="workflows.html#transitions" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#transitions">Transitions</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#conditions" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#conditions">Conditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#signals" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#signals">Signals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#triggers" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#triggers">Triggers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_integration.html" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html">Web Service</a><ul class="nav">
+<li class="toctree-l2"><a class="reference internal" href="api_integration.html#connection" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#connection">Connection</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#configuration" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#logging-in" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#logging-in">Logging in</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_integration.html#calling-methods" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#calling-methods">Calling methods</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#list-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#list-records">List records</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="api_integration.html#pagination" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#pagination">Pagination</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#count-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#count-records">Count records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#read-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#read-records">Read records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#listing-record-fields" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#listing-record-fields">Listing record fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#search-and-read" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#search-and-read">Search and read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#create-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#create-records">Create records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#update-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#update-records">Update records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#delete-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#delete-records">Delete records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#inspection-and-introspection" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#inspection-and-introspection">Inspection and introspection</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="api_integration.html#ir-model" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#ir-model"><tt class="docutils literal"><span class="pre">ir.model</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_integration.html#ir-model-fields" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#ir-model-fields"><tt class="docutils literal"><span class="pre">ir.model.fields</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#workflow-manipulations" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#workflow-manipulations">Workflow manipulations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#report-printing" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#report-printing">Report printing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+        <p><a href="javascript:if(confirm('https://github.com/odoo/odoo/edit/8.0/doc/reference/javascript.rst  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/odoo/odoo/edit/8.0/doc/reference/javascript.rst'" tppabs="https://github.com/odoo/odoo/edit/8.0/doc/reference/javascript.rst" class="github">
+          Edit on GitHub
+        </a></p>
+      
+    </div>
+  </div>
+  
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="javascript">
+<h1>Javascript</h1>
+<div class="section" id="widgets">
+<h2>Widgets</h2>
+<dl class="class">
+<dt id="openerp.Widget">
+<em class="property">class </em><tt class="descclassname">openerp.</tt><tt class="descname">Widget</tt><big>(</big><big>)</big></dt>
+<dd><p>The base class for all visual components. It corresponds to an MVC
+view, and provides a number of service to simplify handling of a section
+of a page:</p>
+<ul class="simple">
+<li>Handles parent/child relationships between widgets</li>
+<li>Provides extensive lifecycle management with safety features (e.g.
+automatically destroying children widgets during the destruction of a
+parent)</li>
+<li>Automatic rendering with <a class="reference internal" href="qweb.html#reference-qweb" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#reference-qweb"><em>qweb</em></a></li>
+<li>Backbone-compatible shortcuts</li>
+</ul>
+</dd></dl>
+
+<div class="section" id="dom-root">
+<h3>DOM Root</h3>
+<p>A <a class="reference internal" href="#openerp.Widget" title="openerp.Widget"><tt class="xref js js-class docutils literal"><span class="pre">Widget()</span></tt></a> is responsible for a section of the page
+materialized by the DOM root of the widget.</p>
+<p>A widget&#8217;s DOM root is available via two attributes:</p>
+<dl class="attribute">
+<dt id="openerp.Widget.el">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">el</tt></dt>
+<dd><p>raw DOM element set as root to the widget</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="openerp.Widget._S_el">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">$el</tt></dt>
+<dd><p>jQuery wrapper around <a class="reference internal" href="#openerp.Widget.el" title="openerp.Widget.el"><tt class="xref js js-attr docutils literal"><span class="pre">el</span></tt></a></p>
+</dd></dl>
+
+<p>There are two main ways to define and generate this DOM root:</p>
+<dl class="attribute">
+<dt id="openerp.Widget.template">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">template</tt></dt>
+<dd><p>Should be set to the name of a <a class="reference internal" href="qweb.html#reference-qweb" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#reference-qweb"><em>QWeb template</em></a>.
+If set, the template will be rendered after the widget has been
+initialized but before it has been started. The root element generated by
+the template will be set as the DOM root of the widget.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="openerp.Widget.tagName">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">tagName</tt></dt>
+<dd><p>Used if the widget has no template defined. Defaults to <tt class="docutils literal"><span class="pre">div</span></tt>,
+will be used as the tag name to create the DOM element to set as
+the widget&#8217;s DOM root. It is possible to further customize this
+generated DOM root with the following attributes:</p>
+<dl class="attribute">
+<dt id="openerp.Widget.id">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">id</tt></dt>
+<dd><p>Used to generate an <tt class="docutils literal"><span class="pre">id</span></tt> attribute on the generated DOM
+root.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="openerp.Widget.className">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">className</tt></dt>
+<dd><p>Used to generate a <tt class="docutils literal"><span class="pre">class</span></tt> attribute on the generated DOM root.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="openerp.Widget.attributes">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">attributes</tt></dt>
+<dd><p>Mapping (object literal) of attribute names to attribute
+values. Each of these k:v pairs will be set as a DOM attribute
+on the generated DOM root.</p>
+</dd></dl>
+
+<p>None of these is used in case a template is specified on the widget.</p>
+</dd></dl>
+
+<p>The DOM root can also be defined programmatically by overridding</p>
+<dl class="function">
+<dt id="openerp.Widget.renderElement">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">renderElement</tt><big>(</big><big>)</big></dt>
+<dd><p>Renders the widget&#8217;s DOM root and sets it. The default
+implementation will render a set template or generate an element
+as described above, and will call
+<a class="reference internal" href="#openerp.Widget.setElement" title="openerp.Widget.setElement"><tt class="xref js js-func docutils literal"><span class="pre">setElement()</span></tt></a> on the result.</p>
+<p>Any override to <a class="reference internal" href="#openerp.Widget.renderElement" title="openerp.Widget.renderElement"><tt class="xref js js-func docutils literal"><span class="pre">renderElement()</span></tt></a> which
+does not call its <tt class="docutils literal"><span class="pre">_super</span></tt> <strong>must</strong> call
+<a class="reference internal" href="#openerp.Widget.setElement" title="openerp.Widget.setElement"><tt class="xref js js-func docutils literal"><span class="pre">setElement()</span></tt></a> with whatever it
+generated or the widget&#8217;s behavior is undefined.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The default <a class="reference internal" href="#openerp.Widget.renderElement" title="openerp.Widget.renderElement"><tt class="xref js js-func docutils literal"><span class="pre">renderElement()</span></tt></a> can
+be called repeatedly, it will <em>replace</em> the previous DOM root
+(using <tt class="docutils literal"><span class="pre">replaceWith</span></tt>). However, this requires that the
+widget correctly sets and unsets its events (and children
+widgets). Generally, <a class="reference internal" href="#openerp.Widget.renderElement" title="openerp.Widget.renderElement"><tt class="xref js js-func docutils literal"><span class="pre">renderElement()</span></tt></a> should
+not be called repeatedly unless the widget advertizes this feature.</p>
+</div>
+</dd></dl>
+
+<div class="section" id="using-a-widget">
+<h4>Using a widget</h4>
+<p>A widget&#8217;s lifecycle has 3 main phases:</p>
+<ul>
+<li><p class="first">creation and initialization of the widget instance</p>
+<dl class="function">
+<dt id="openerp.Widget.init">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">init</tt><big>(</big><em>parent</em><big>)</big></dt>
+<dd><p>initialization method of widgets, synchronous, can be overridden to
+take more parameters from the widget&#8217;s creator/parent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="#openerp.Widget" title="openerp.Widget"><tt class="xref js js-class docutils literal"><span class="pre">Widget()</span></tt></a>) &#8211; the new widget&#8217;s parent, used to handle automatic
+destruction and event propagation. Can be <tt class="docutils literal"><span class="pre">null</span></tt> for
+the widget to have no parent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</li>
+<li><p class="first">DOM injection and startup, this is done by calling one of:</p>
+<dl class="function">
+<dt id="openerp.Widget.appendTo">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">appendTo</tt><big>(</big><em>element</em><big>)</big></dt>
+<dd><p>Renders the widget and inserts it as the last child of the target, uses
+<a class="reference external" href="javascript:if(confirm('http://api.jquery.com/appendTo/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/appendTo/'" tppabs="http://api.jquery.com/appendTo/">.appendTo()</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.Widget.prependTo">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">prependTo</tt><big>(</big><em>element</em><big>)</big></dt>
+<dd><p>Renders the widget and inserts it as the first child of the target, uses
+<a class="reference external" href="javascript:if(confirm('http://api.jquery.com/prependTo/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/prependTo/'" tppabs="http://api.jquery.com/prependTo/">.prependTo()</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.Widget.insertAfter">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">insertAfter</tt><big>(</big><em>element</em><big>)</big></dt>
+<dd><p>Renders the widget and inserts it as the preceding sibling of the target,
+uses <a class="reference external" href="javascript:if(confirm('http://api.jquery.com/insertAfter/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/insertAfter/'" tppabs="http://api.jquery.com/insertAfter/">.insertAfter()</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.Widget.insertBefore">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">insertBefore</tt><big>(</big><em>element</em><big>)</big></dt>
+<dd><p>Renders the widget and inserts it as the following sibling of the target,
+uses <a class="reference external" href="javascript:if(confirm('http://api.jquery.com/insertBefore/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/insertBefore/'" tppabs="http://api.jquery.com/insertBefore/">.insertBefore()</a></p>
+</dd></dl>
+
+<p>All of these methods accept whatever the corresponding jQuery method accepts
+(CSS selectors, DOM nodes or jQuery objects). They all return a <a class="reference external" href="javascript:if(confirm('http://api.jquery.com/category/deferred-object/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/category/deferred-object/'" tppabs="http://api.jquery.com/category/deferred-object/">deferred</a>
+and are charged with three tasks:</p>
+<ul>
+<li><p class="first">rendering the widget&#8217;s root element via
+<a class="reference internal" href="#openerp.Widget.renderElement" title="openerp.Widget.renderElement"><tt class="xref js js-func docutils literal"><span class="pre">renderElement()</span></tt></a></p>
+</li>
+<li><p class="first">inserting the widget&#8217;s root element in the DOM using whichever jQuery
+method they match</p>
+</li>
+<li><p class="first">starting the widget, and returning the result of starting it</p>
+<dl class="function">
+<dt id="openerp.Widget.start">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">start</tt><big>(</big><big>)</big></dt>
+<dd><p>asynchronous startup of the widget once it&#8217;s been injected in the DOM,
+generally used to perform asynchronous RPC calls to fetch whatever
+remote data is necessary for the widget to do its work.</p>
+<p>Must return a <a class="reference external" href="javascript:if(confirm('http://api.jquery.com/category/deferred-object/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/category/deferred-object/'" tppabs="http://api.jquery.com/category/deferred-object/">deferred</a> to indicate when its work is done.</p>
+<p>A widget is <em>not guaranteed</em> to work correctly until its
+<a class="reference internal" href="#openerp.Widget.start" title="openerp.Widget.start"><tt class="xref js js-func docutils literal"><span class="pre">start()</span></tt></a> method has finished executing. The
+widget&#8217;s parent/creator must wait for a widget to be fully started
+before interacting with it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="javascript:if(confirm('http://api.jquery.com/category/deferred-object/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/category/deferred-object/'" tppabs="http://api.jquery.com/category/deferred-object/">deferred</a> object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</li>
+</ul>
+</li>
+<li><p class="first">widget destruction and cleanup</p>
+<dl class="function">
+<dt id="openerp.Widget.destroy">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">destroy</tt><big>(</big><big>)</big></dt>
+<dd><p>destroys the widget&#8217;s children, unbinds its events and removes its root
+from the DOM. Automatically called when the widget&#8217;s parent is destroyed,
+must be called explicitly if the widget has no parents or if it is
+removed but its parent remains.</p>
+<p>A widget being destroyed is automatically unlinked from its parent.</p>
+</dd></dl>
+
+</li>
+</ul>
+<p>Related to widget destruction is an important utility method:</p>
+<dl class="function">
+<dt id="openerp.Widget.alive">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">alive</tt><big>(</big><em>deferred</em><span class="optional">[</span>, <em>reject=false</em><span class="optional">]</span><big>)</big></dt>
+<dd><p>A significant issue with RPC and destruction is that an RPC call may take
+a long time to execute and return while a widget is being destroyed or
+after it has been destroyed, trying to execute its operations on a widget
+in a broken/invalid state.</p>
+<p>This is a frequent source of errors or strange behaviors.</p>
+<p><a class="reference internal" href="#openerp.Widget.alive" title="openerp.Widget.alive"><tt class="xref js js-func docutils literal"><span class="pre">alive()</span></tt></a> can be used to wrap an RPC call,
+ensuring that whatever operations should be executed when the call ends
+are only executed if the widget is still alive:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">alive</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">query</span><span class="p">().</span><span class="nx">all</span><span class="p">()).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">records</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// would break if executed after the widget is destroyed, wrapping</span>
+    <span class="c1">// rpc in alive() prevents execution</span>
+    <span class="nx">_</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">records</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">record</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">record</span><span class="p">));</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>deferred</strong> &#8211; a <a class="reference external" href="javascript:if(confirm('http://api.jquery.com/category/deferred-object/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/category/deferred-object/'" tppabs="http://api.jquery.com/category/deferred-object/">deferred</a> object to wrap</li>
+<li><strong>reject</strong> &#8211; by default, if the RPC call returns after the widget has
+been destroyed the returned <a class="reference external" href="javascript:if(confirm('http://api.jquery.com/category/deferred-object/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/category/deferred-object/'" tppabs="http://api.jquery.com/category/deferred-object/">deferred</a> is left in limbo
+(neither resolved nor rejected). If <tt class="docutils literal"><span class="pre">reject</span></tt> is set to
+<tt class="docutils literal"><span class="pre">true</span></tt>, the <a class="reference external" href="javascript:if(confirm('http://api.jquery.com/category/deferred-object/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/category/deferred-object/'" tppabs="http://api.jquery.com/category/deferred-object/">deferred</a> will be rejected instead.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference external" href="javascript:if(confirm('http://api.jquery.com/category/deferred-object/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/category/deferred-object/'" tppabs="http://api.jquery.com/category/deferred-object/">deferred</a> object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.Widget.isDestroyed">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">isDestroyed</tt><big>(</big><big>)</big></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">true</span></tt> if the widget is being or has been destroyed, <tt class="docutils literal"><span class="pre">false</span></tt>
+otherwise</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="accessing-dom-content">
+<h4>Accessing DOM content</h4>
+<dl class="docutils">
+<dt>Because a widget is only responsible for the content below its DOM root, there</dt>
+<dd>is a shortcut for selecting sub-sections of a widget&#8217;s DOM:</dd>
+</dl>
+<dl class="function">
+<dt id="openerp.Widget._S_">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">$</tt><big>(</big><em>selector</em><big>)</big></dt>
+<dd><p>Applies the CSS selector specified as parameter to the widget&#8217;s
+DOM root:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="nx">selector</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>is functionally identical to:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">selector</span><span class="p">);</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>selector</strong> (<em>String</em>) &#8211; CSS selector</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">jQuery object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">this helper method is similar to <tt class="docutils literal"><span class="pre">Backbone.View.$</span></tt></p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="resetting-the-dom-root">
+<h4>Resetting the DOM root</h4>
+<dl class="function">
+<dt id="openerp.Widget.setElement">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">setElement</tt><big>(</big><em>element</em><big>)</big></dt>
+<dd><p>Re-sets the widget&#8217;s DOM root to the provided element, also
+handles re-setting the various aliases of the DOM root as well as
+unsetting and re-setting delegated events.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>element</strong> (<em>Element</em>) &#8211; a DOM element or jQuery object to set as
+the widget&#8217;s DOM root</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">should be mostly compatible with <a class="reference external" href="javascript:if(confirm('http://backbonejs.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://backbonejs.org/#View-setElement'" tppabs="http://backbonejs.org/#View-setElement">Backbone&#8217;s
+setElement</a></p>
+</div>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="dom-events-handling">
+<h3>DOM events handling</h3>
+<p>A widget will generally need to respond to user action within its
+section of the page. This entails binding events to DOM elements.</p>
+<p>To this end, <a class="reference internal" href="#openerp.Widget" title="openerp.Widget"><tt class="xref js js-class docutils literal"><span class="pre">Widget()</span></tt></a> provides a shortcut:</p>
+<dl class="attribute">
+<dt id="openerp.Widget.events">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">events</tt></dt>
+<dd><p>Events are a mapping of an event selector (an event name and an optional
+CSS selector separated by a space) to a callback. The callback can
+be the name of a widget&#8217;s method or a function object. In either case, the
+<tt class="docutils literal"><span class="pre">this</span></tt> will be set to the widget:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s1">&#39;click p.oe_some_class a&#39;</span><span class="o">:</span> <span class="s1">&#39;some_method&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;change input&#39;</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>The selector is used for jQuery&#8217;s <a class="reference external" href="javascript:if(confirm('http://api.jquery.com/delegate/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/delegate/'" tppabs="http://api.jquery.com/delegate/">event delegation</a>, the
+callback will only be triggered for descendants of the DOM root
+matching the selector<a class="footnote-reference" href="#eventsdelegation" id="id1">[1]</a>. If the selector is left out
+(only an event name is specified), the event will be set directly on the
+widget&#8217;s DOM root.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.Widget.delegateEvents">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">delegateEvents</tt><big>(</big><big>)</big></dt>
+<dd><p>This method is in charge of binding <a class="reference internal" href="#openerp.Widget.events" title="openerp.Widget.events"><tt class="xref js js-attr docutils literal"><span class="pre">events</span></tt></a> to the
+DOM. It is automatically called after setting the widget&#8217;s DOM root.</p>
+<p>It can be overridden to set up more complex events than the
+<a class="reference internal" href="#openerp.Widget.events" title="openerp.Widget.events"><tt class="xref js js-attr docutils literal"><span class="pre">events</span></tt></a> map allows, but the parent should always be
+called (or <a class="reference internal" href="#openerp.Widget.events" title="openerp.Widget.events"><tt class="xref js js-attr docutils literal"><span class="pre">events</span></tt></a> won&#8217;t be handled correctly).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.Widget.undelegateEvents">
+<tt class="descclassname">openerp.Widget.</tt><tt class="descname">undelegateEvents</tt><big>(</big><big>)</big></dt>
+<dd><p>This method is in charge of unbinding <a class="reference internal" href="#openerp.Widget.events" title="openerp.Widget.events"><tt class="xref js js-attr docutils literal"><span class="pre">events</span></tt></a> from
+the DOM root when the widget is destroyed or the DOM root is reset, in
+order to avoid leaving &#8220;phantom&#8221; events.</p>
+<p>It should be overridden to un-set any event set in an override of
+<a class="reference internal" href="#openerp.Widget.delegateEvents" title="openerp.Widget.delegateEvents"><tt class="xref js js-func docutils literal"><span class="pre">delegateEvents()</span></tt></a>.</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">this behavior should be compatible with <a class="reference external" href="javascript:if(confirm('http://backbonejs.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://backbonejs.org/#View-delegateEvents'" tppabs="http://backbonejs.org/#View-delegateEvents">Backbone&#8217;s
+delegateEvents</a>, apart from not accepting any argument.</p>
+</div>
+</div>
+<div class="section" id="subclassing-widget">
+<h3>Subclassing Widget</h3>
+<p><a class="reference internal" href="#openerp.Widget" title="openerp.Widget"><tt class="xref js js-class docutils literal"><span class="pre">Widget()</span></tt></a> is subclassed in the standard manner (via the
+<tt class="xref js js-func docutils literal"><span class="pre">extend()</span></tt> method), and provides a number of
+abstract properties and concrete methods (which you may or may not want to
+override). Creating a subclass looks like this:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">MyWidget</span> <span class="o">=</span> <span class="nx">openerp</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="c1">// QWeb template to use when rendering the object</span>
+    <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;MyQWebTemplate&quot;</span><span class="p">,</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+        <span class="c1">// events binding example</span>
+        <span class="s1">&#39;click .my-button&#39;</span><span class="o">:</span> <span class="s1">&#39;handle_click&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+
+    <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">parent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">(</span><span class="nx">parent</span><span class="p">);</span>
+        <span class="c1">// insert code to execute before rendering, for object</span>
+        <span class="c1">// initialization</span>
+    <span class="p">},</span>
+    <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">sup</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">();</span>
+        <span class="c1">// post-rendering initialization code, at this point</span>
+
+        <span class="c1">// allows multiplexing deferred objects</span>
+        <span class="k">return</span> <span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span>
+            <span class="c1">// propagate asynchronous signal from parent class</span>
+            <span class="nx">sup</span><span class="p">,</span>
+            <span class="c1">// return own&#39;s asynchronous signal</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">rpc</span><span class="p">(</span><span class="cm">/* â€¦ */</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>The new class can then be used in the following manner:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// Create the instance</span>
+<span class="kd">var</span> <span class="nx">my_widget</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyWidget</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="c1">// Render and insert into DOM</span>
+<span class="nx">my_widget</span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="s2">&quot;.some-div&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>After these two lines have executed (and any promise returned by
+<a class="reference internal" href="#openerp.Widget.appendTo" title="openerp.Widget.appendTo"><tt class="xref js js-func docutils literal"><span class="pre">appendTo()</span></tt></a> has been resolved if needed), the widget is
+ready to be used.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>the insertion methods will start the widget themselves, and will
+return the result of <a class="reference internal" href="#openerp.Widget.start" title="openerp.Widget.start"><tt class="xref js js-func docutils literal"><span class="pre">start()</span></tt></a>.</p>
+<p class="last">If for some reason you do not want to call these methods, you will
+have to first call <tt class="xref js js-func docutils literal"><span class="pre">render()</span></tt> on the
+widget, then insert it into your DOM and start it.</p>
+</div>
+<p>If the widget is not needed anymore (because it&#8217;s transient), simply terminate
+it:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">my_widget</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will unbind all DOM events, remove the widget&#8217;s content from the DOM and
+destroy all widget data.</p>
+</div>
+<div class="section" id="development-guidelines">
+<h3>Development Guidelines</h3>
+<ul>
+<li><p class="first">Identifiers (<tt class="docutils literal"><span class="pre">id</span></tt> attribute) should be avoided. In generic applications
+and modules, <tt class="docutils literal"><span class="pre">id</span></tt> limits the re-usability of components and tends to make
+code more brittle. Most of the time, they can be replaced with nothing,
+classes or keeping a reference to a DOM node or jQuery element.</p>
+<p>If an <tt class="docutils literal"><span class="pre">id</span></tt> is absolutely necessary (because a third-party library requires
+one), the id should be partially generated using <tt class="docutils literal"><span class="pre">_.uniqueId()</span></tt> e.g.:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">uniqueId</span><span class="p">(</span><span class="s1">&#39;my-widget-&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Avoid predictable/common CSS class names. Class names such as &#8220;content&#8221; or
+&#8220;navigation&#8221; might match the desired meaning/semantics, but it is likely an
+other developer will have the same need, creating a naming conflict and
+unintended behavior. Generic class names should be prefixed with e.g. the
+name of the component they belong to (creating &#8220;informal&#8221; namespaces, much
+as in C or Objective-C).</p>
+</li>
+<li><p class="first">Global selectors should be avoided. Because a component may be used several
+times in a single page (an example in Odoo is dashboards), queries should be
+restricted to a given component&#8217;s scope. Unfiltered selections such as
+<tt class="docutils literal"><span class="pre">$(selector)</span></tt> or <tt class="docutils literal"><span class="pre">document.querySelectorAll(selector)</span></tt> will generally
+lead to unintended or incorrect behavior.  Odoo Web&#8217;s
+<tt class="xref js js-class docutils literal"><span class="pre">Widget()</span></tt> has an attribute providing its DOM root
+(<tt class="xref js js-attr docutils literal"><span class="pre">$el</span></tt>), and a shortcut to select nodes directly
+(<tt class="xref js js-func docutils literal"><span class="pre">$()</span></tt>).</p>
+</li>
+<li><p class="first">More generally, never assume your components own or controls anything beyond
+its own personal <tt class="xref js js-attr docutils literal"><span class="pre">$el</span></tt></p>
+</li>
+<li><p class="first">html templating/rendering should use QWeb unless absolutely trivial.</p>
+</li>
+<li><p class="first">All interactive components (components displaying information to the screen
+or intercepting DOM events) must inherit from <tt class="xref js js-class docutils literal"><span class="pre">Widget()</span></tt>
+and correctly implement and use its API and life cycle.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="rpc">
+<h2>RPC</h2>
+<p>To display and interact with data, calls to the Odoo server are necessary.
+This is performed using <abbr>RPC &lt;Remote Procedure Call&gt;</abbr>.</p>
+<p>Odoo Web provides two primary APIs to handle this: a low-level
+JSON-RPC based API communicating with the Python section of Odoo
+Web (and of your module, if you have a Python part) and a high-level
+API above that allowing your code to talk directly to high-level Odoo models.</p>
+<p>All networking APIs are <a class="reference internal" href="async.html#reference-async" tppabs="https://www.odoo.com/documentation/8.0/reference/async.html#reference-async"><em>asynchronous</em></a>. As a result,
+all of them will return <a class="reference external" href="javascript:if(confirm('http://api.jquery.com/category/deferred-object/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/category/deferred-object/'" tppabs="http://api.jquery.com/category/deferred-object/">Deferred</a> objects (whether they resolve those with
+values or not). Understanding how those work before before moving on is
+probably necessary.</p>
+<div class="section" id="high-level-api-calling-into-odoo-models">
+<h3>High-level API: calling into Odoo models</h3>
+<p>Access to Odoo object methods (made available through XML-RPC from the server)
+is done via <a class="reference internal" href="#openerp.Model" title="openerp.Model"><tt class="xref js js-class docutils literal"><span class="pre">openerp.Model()</span></tt></a>. It maps onto the Odoo server objects via
+two primary methods, <a class="reference internal" href="#openerp.Model.call" title="openerp.Model.call"><tt class="xref js js-func docutils literal"><span class="pre">call()</span></tt></a> and
+<a class="reference internal" href="#openerp.Model.query" title="openerp.Model.query"><tt class="xref js js-func docutils literal"><span class="pre">query()</span></tt></a>.</p>
+<p><a class="reference internal" href="#openerp.Model.call" title="openerp.Model.call"><tt class="xref js js-func docutils literal"><span class="pre">call()</span></tt></a> is a direct mapping to the corresponding method of
+the Odoo server object. Its usage is similar to that of the Odoo Model API,
+with three differences:</p>
+<ul>
+<li><p class="first">The interface is <a class="reference internal" href="async.html#reference-async" tppabs="https://www.odoo.com/documentation/8.0/reference/async.html#reference-async"><em>asynchronous</em></a>, so instead of
+returning results directly RPC method calls will return
+<a class="reference external" href="javascript:if(confirm('http://api.jquery.com/category/deferred-object/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.jquery.com/category/deferred-object/'" tppabs="http://api.jquery.com/category/deferred-object/">Deferred</a> instances, which will themselves resolve to the
+result of the matching RPC call.</p>
+</li>
+<li><p class="first">Because ECMAScript 3/Javascript 1.5 doesnt feature any equivalent to
+<tt class="docutils literal"><span class="pre">__getattr__</span></tt> or <tt class="docutils literal"><span class="pre">method_missing</span></tt>, there needs to be an explicit
+method to dispatch RPC methods.</p>
+</li>
+<li><p class="first">No notion of pooler, the model proxy is instantiated where needed,
+not fetched from an other (somewhat global) object:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Users</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">openerp</span><span class="p">.</span><span class="nx">Model</span><span class="p">(</span><span class="s1">&#39;res.users&#39;</span><span class="p">);</span>
+
+<span class="nx">Users</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">&#39;change_password&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;oldpassword&#39;</span><span class="p">,</span> <span class="s1">&#39;newpassword&#39;</span><span class="p">],</span>
+                  <span class="p">{</span><span class="nx">context</span><span class="o">:</span> <span class="nx">some_context</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something with change_password result</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><a class="reference internal" href="#openerp.Model.query" title="openerp.Model.query"><tt class="xref js js-func docutils literal"><span class="pre">query()</span></tt></a> is a shortcut for a builder-style
+interface to searches (<tt class="docutils literal"><span class="pre">search</span></tt> + <tt class="docutils literal"><span class="pre">read</span></tt> in Odoo RPC terms). It
+returns a <a class="reference internal" href="#openerp.web.Query" title="openerp.web.Query"><tt class="xref js js-class docutils literal"><span class="pre">Query()</span></tt></a> object which is immutable but
+allows building new <a class="reference internal" href="#openerp.web.Query" title="openerp.web.Query"><tt class="xref js js-class docutils literal"><span class="pre">Query()</span></tt></a> instances from the
+first one, adding new properties or modifiying the parent object&#8217;s:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Users</span><span class="p">.</span><span class="nx">query</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="s1">&#39;user_email&#39;</span><span class="p">,</span> <span class="s1">&#39;signature&#39;</span><span class="p">])</span>
+     <span class="p">.</span><span class="nx">filter</span><span class="p">([[</span><span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;company_id&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="nx">main_company</span><span class="p">]])</span>
+     <span class="p">.</span><span class="nx">limit</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+     <span class="p">.</span><span class="nx">all</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">users</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do work with users records</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>The query is only actually performed when calling one of the query
+serialization methods, <a class="reference internal" href="#openerp.web.Query.all" title="openerp.web.Query.all"><tt class="xref js js-func docutils literal"><span class="pre">all()</span></tt></a> and
+<a class="reference internal" href="#openerp.web.Query.first" title="openerp.web.Query.first"><tt class="xref js js-func docutils literal"><span class="pre">first()</span></tt></a>. These methods will perform a new
+RPC call every time they are called.</p>
+<p>For that reason, it&#8217;s actually possible to keep &#8220;intermediate&#8221; queries
+around and use them differently/add new specifications on them.</p>
+<dl class="class">
+<dt id="openerp.Model">
+<em class="property">class </em><tt class="descclassname">openerp.</tt><tt class="descname">Model</tt><big>(</big><em>name</em><big>)</big></dt>
+<dd><dl class="attribute">
+<dt id="openerp.Model.name">
+<tt class="descclassname">openerp.Model.</tt><tt class="descname">name</tt></dt>
+<dd><p>name of the OpenERP model this object is bound to</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.Model.call">
+<tt class="descclassname">openerp.Model.</tt><tt class="descname">call</tt><big>(</big><em>method[, args][, kwargs]</em><big>)</big></dt>
+<dd><p>Calls the <tt class="docutils literal"><span class="pre">method</span></tt> method of the current model, with the
+provided positional and keyword arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>method</strong> (<em>String</em>) &#8211; method to call over rpc on the
+<a class="reference internal" href="#openerp.Model.name" title="openerp.Model.name"><tt class="xref js js-attr docutils literal"><span class="pre">name</span></tt></a></li>
+<li><strong>args</strong> (<em>Array&lt;&gt;</em>) &#8211; positional arguments to pass to the
+method, optional</li>
+<li><strong>kwargs</strong> (<em>Object&lt;&gt;</em>) &#8211; keyword arguments to pass to the
+method, optional</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Deferred&lt;&gt;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.Model.query">
+<tt class="descclassname">openerp.Model.</tt><tt class="descname">query</tt><big>(</big><em>fields</em><big>)</big></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>fields</strong> (<em>Array&lt;String&gt;</em>) &#8211; list of fields to fetch during
+the search</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a <a class="reference internal" href="#openerp.web.Query" title="openerp.web.Query"><tt class="xref js js-class docutils literal"><span class="pre">Query()</span></tt></a> object
+representing the search to perform</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="openerp.web.Query">
+<em class="property">class </em><tt class="descclassname">openerp.web.</tt><tt class="descname">Query</tt><big>(</big><em>fields</em><big>)</big></dt>
+<dd><p>The first set of methods is the &#8220;fetching&#8221; methods. They perform
+RPC queries using the internal data of the object they&#8217;re called
+on.</p>
+<dl class="function">
+<dt id="openerp.web.Query.all">
+<tt class="descclassname">openerp.web.Query.</tt><tt class="descname">all</tt><big>(</big><big>)</big></dt>
+<dd><p>Fetches the result of the current <a class="reference internal" href="#openerp.web.Query" title="openerp.web.Query"><tt class="xref js js-class docutils literal"><span class="pre">Query()</span></tt></a> object&#8217;s
+search.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Deferred&lt;Array&lt;&gt;&gt;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.web.Query.first">
+<tt class="descclassname">openerp.web.Query.</tt><tt class="descname">first</tt><big>(</big><big>)</big></dt>
+<dd><p>Fetches the <strong>first</strong> result of the current
+<a class="reference internal" href="#openerp.web.Query" title="openerp.web.Query"><tt class="xref js js-class docutils literal"><span class="pre">Query()</span></tt></a>, or <tt class="docutils literal"><span class="pre">null</span></tt> if the current
+<a class="reference internal" href="#openerp.web.Query" title="openerp.web.Query"><tt class="xref js js-class docutils literal"><span class="pre">Query()</span></tt></a> does have any result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Deferred&lt;Object | null&gt;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.web.Query.count">
+<tt class="descclassname">openerp.web.Query.</tt><tt class="descname">count</tt><big>(</big><big>)</big></dt>
+<dd><p>Fetches the number of records the current
+<a class="reference internal" href="#openerp.web.Query" title="openerp.web.Query"><tt class="xref js js-class docutils literal"><span class="pre">Query()</span></tt></a> would retrieve.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Deferred&lt;Number&gt;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.web.Query.group_by">
+<tt class="descclassname">openerp.web.Query.</tt><tt class="descname">group_by</tt><big>(</big><em>grouping...</em><big>)</big></dt>
+<dd><p>Fetches the groups for the query, using the first specified
+grouping parameter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>grouping</strong> (<em>Array&lt;String&gt;</em>) &#8211; Lists the levels of grouping
+asked of the server. Grouping
+can actually be an array or
+varargs.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Deferred&lt;Array&lt;openerp.web.QueryGroup&gt;&gt; | null</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>The second set of methods is the &#8220;mutator&#8221; methods, they create a
+<strong>new</strong> <a class="reference internal" href="#openerp.web.Query" title="openerp.web.Query"><tt class="xref js js-class docutils literal"><span class="pre">Query()</span></tt></a> object with the relevant
+(internal) attribute either augmented or replaced.</p>
+<dl class="function">
+<dt id="openerp.web.Query.context">
+<tt class="descclassname">openerp.web.Query.</tt><tt class="descname">context</tt><big>(</big><em>ctx</em><big>)</big></dt>
+<dd><p>Adds the provided <tt class="docutils literal"><span class="pre">ctx</span></tt> to the query, on top of any existing
+context</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.web.Query.filter">
+<tt class="descclassname">openerp.web.Query.</tt><tt class="descname">filter</tt><big>(</big><em>domain</em><big>)</big></dt>
+<dd><p>Adds the provided domain to the query, this domain is
+<tt class="docutils literal"><span class="pre">AND</span></tt>-ed to the existing query domain.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="opeenrp.web.Query.offset">
+<tt class="descclassname">opeenrp.web.Query.</tt><tt class="descname">offset</tt><big>(</big><em>offset</em><big>)</big></dt>
+<dd><p>Sets the provided offset on the query. The new offset
+<em>replaces</em> the old one.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.web.Query.limit">
+<tt class="descclassname">openerp.web.Query.</tt><tt class="descname">limit</tt><big>(</big><em>limit</em><big>)</big></dt>
+<dd><p>Sets the provided limit on the query. The new limit <em>replaces</em>
+the old one.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.web.Query.order_by">
+<tt class="descclassname">openerp.web.Query.</tt><tt class="descname">order_by</tt><big>(</big><em>fieldsâ€¦</em><big>)</big></dt>
+<dd><p>Overrides the model&#8217;s natural order with the provided field
+specifications. Behaves much like Django&#8217;s <a class="reference external" href="javascript:if(confirm('https://django.readthedocs.org/en/latest/ref/models/querysets.html  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://django.readthedocs.org/en/latest/ref/models/querysets.html#django.db.models.query.QuerySet.order_by'" tppabs="https://django.readthedocs.org/en/latest/ref/models/querysets.html#django.db.models.query.QuerySet.order_by" title="(in Django v1.8)"><tt class="xref py py-meth docutils literal"><span class="pre">QuerySet.order_by</span></tt></a>:</p>
+<ul class="simple">
+<li>Takes 1..n field names, in order of most to least importance
+(the first field is the first sorting key). Fields are
+provided as strings.</li>
+<li>A field specifies an ascending order, unless it is prefixed
+with the minus sign &#8220;<tt class="docutils literal"><span class="pre">-</span></tt>&#8221; in which case the field is used
+in the descending order</li>
+</ul>
+<p>Divergences from Django&#8217;s sorting include a lack of random sort
+(<tt class="docutils literal"><span class="pre">?</span></tt> field) and the inability to &#8220;drill down&#8221; into relations
+for sorting.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="aggregation-grouping">
+<h4>Aggregation (grouping)</h4>
+<p>Odoo has powerful grouping capacities, but they are kind-of strange
+in that they&#8217;re recursive, and level n+1 relies on data provided
+directly by the grouping at level n. As a result, while
+<tt class="xref py py-meth docutils literal"><span class="pre">openerp.models.Model.read_group()</span></tt> works it&#8217;s not a very intuitive
+API.</p>
+<p>Odoo Web eschews direct calls to <tt class="xref py py-meth docutils literal"><span class="pre">read_group()</span></tt>
+in favor of calling a method of <a class="reference internal" href="#openerp.web.Query" title="openerp.web.Query"><tt class="xref js js-class docutils literal"><span class="pre">Query()</span></tt></a>, <a class="reference external" href="javascript:if(confirm('http://docs.sqlalchemy.org/en/rel_0_9/orm/query.html  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://docs.sqlalchemy.org/en/rel_0_9/orm/query.html#sqlalchemy.orm.query.Query.group_by'" tppabs="http://docs.sqlalchemy.org/en/rel_0_9/orm/query.html#sqlalchemy.orm.query.Query.group_by" title="(in SQLAlchemy v0.9)"><tt class="xref py py-meth docutils literal"><span class="pre">much</span>
+<span class="pre">in</span> <span class="pre">the</span> <span class="pre">way</span> <span class="pre">it</span> <span class="pre">is</span> <span class="pre">one</span> <span class="pre">in</span> <span class="pre">SQLAlchemy</span></tt></a>
+<a class="footnote-reference" href="#terminal" id="id2">[2]</a>:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">some_query</span><span class="p">.</span><span class="nx">group_by</span><span class="p">([</span><span class="s1">&#39;field1&#39;</span><span class="p">,</span> <span class="s1">&#39;field2&#39;</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">groups</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do things with the fetched groups</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>This method is asynchronous when provided with 1..n fields (to group
+on) as argument, but it can also be called without any field (empty
+fields collection or nothing at all). In this case, instead of
+returning a Deferred object it will return <tt class="docutils literal"><span class="pre">null</span></tt>.</p>
+<p>When grouping criterion come from a third-party and may or may not
+list fields (e.g. could be an empty list), this provides two ways to
+test the presence of actual subgroups (versus the need to perform a
+regular query for records):</p>
+<ul>
+<li><p class="first">A check on <tt class="docutils literal"><span class="pre">group_by</span></tt>&#8216;s result and two completely separate code
+paths:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">groups</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">groups</span> <span class="o">=</span> <span class="nx">some_query</span><span class="p">.</span><span class="nx">group_by</span><span class="p">(</span><span class="nx">gby</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">groups</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">gs</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// groups</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+<span class="c1">// no groups</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Or a more coherent code path using <a class="reference internal" href="async.html#when" tppabs="https://www.odoo.com/documentation/8.0/reference/async.html#when" title="when"><tt class="xref js js-func docutils literal"><span class="pre">when()</span></tt></a>&#8216;s ability to
+coerce values into deferreds:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="nx">some_query</span><span class="p">.</span><span class="nx">group_by</span><span class="p">(</span><span class="nx">gby</span><span class="p">)).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">groups</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">groups</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// No grouping</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// grouping, even if there are no groups (groups</span>
+        <span class="c1">// itself could be an empty array)</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>The result of a (successful) <a class="reference internal" href="#openerp.web.Query.group_by" title="openerp.web.Query.group_by"><tt class="xref js js-func docutils literal"><span class="pre">group_by()</span></tt></a> is
+an array of <a class="reference internal" href="#openerp.web.QueryGroup" title="openerp.web.QueryGroup"><tt class="xref js js-class docutils literal"><span class="pre">QueryGroup()</span></tt></a>:</p>
+<dl class="class">
+<dt id="openerp.web.QueryGroup">
+<em class="property">class </em><tt class="descclassname">openerp.web.</tt><tt class="descname">QueryGroup</tt><big>(</big><big>)</big></dt>
+<dd><dl class="function">
+<dt id="openerp.web.QueryGroup.get">
+<tt class="descclassname">openerp.web.QueryGroup.</tt><tt class="descname">get</tt><big>(</big><em>key</em><big>)</big></dt>
+<dd><p>returns the group&#8217;s attribute <tt class="docutils literal"><span class="pre">key</span></tt>. Known attributes are:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">grouped_on</span></tt></dt>
+<dd>which grouping field resulted from this group</dd>
+<dt><tt class="docutils literal"><span class="pre">value</span></tt></dt>
+<dd><tt class="docutils literal"><span class="pre">grouped_on</span></tt>&#8216;s value for this group</dd>
+<dt><tt class="docutils literal"><span class="pre">length</span></tt></dt>
+<dd>the number of records in the group</dd>
+<dt><tt class="docutils literal"><span class="pre">aggregates</span></tt></dt>
+<dd>a {field: value} mapping of aggregations for the group</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.web.QueryGroup.query">
+<tt class="descclassname">openerp.web.QueryGroup.</tt><tt class="descname">query</tt><big>(</big><span class="optional">[</span><em>fields...</em><span class="optional">]</span><big>)</big></dt>
+<dd><p>equivalent to <tt class="xref js js-func docutils literal"><span class="pre">openerp.web.Model.query()</span></tt> but pre-filtered to
+only include the records within this group. Returns a
+<a class="reference internal" href="#openerp.web.Query" title="openerp.web.Query"><tt class="xref js js-class docutils literal"><span class="pre">Query()</span></tt></a> which can be further manipulated as
+usual.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.web.QueryGroup.subgroups">
+<tt class="descclassname">openerp.web.QueryGroup.</tt><tt class="descname">subgroups</tt><big>(</big><big>)</big></dt>
+<dd><p>returns a deferred to an array of <a class="reference internal" href="#openerp.web.QueryGroup" title="openerp.web.QueryGroup"><tt class="xref js js-class docutils literal"><span class="pre">QueryGroup()</span></tt></a>
+below this one</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="low-level-api-rpc-calls-to-python-side">
+<h3>Low-level API: RPC calls to Python side</h3>
+<p>While the previous section is great for calling core OpenERP code
+(models code), it does not work if you want to call the Python side of
+Odoo Web.</p>
+<p>For this, a lower-level API exists on on
+<tt class="xref js js-class docutils literal"><span class="pre">Session()</span></tt> objects (usually available through
+<tt class="docutils literal"><span class="pre">openerp.session</span></tt>): the <tt class="docutils literal"><span class="pre">rpc</span></tt> method.</p>
+<p>This method simply takes an absolute path (the absolute URL of the JSON
+<a class="reference internal" href="http.html#reference-http-routing" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#reference-http-routing"><em>route</em></a> to call) and a mapping of attributes to
+values (passed as keyword arguments to the Python method). This function
+fetches the return value of the Python methods, converted to JSON.</p>
+<p>For instance, to call the <tt class="docutils literal"><span class="pre">resequence</span></tt> of the
+<tt class="xref js js-class docutils literal"><span class="pre">DataSet()</span></tt> controller:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">openerp</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">rpc</span><span class="p">(</span><span class="s1">&#39;/web/dataset/resequence&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">model</span><span class="o">:</span> <span class="nx">some_model</span><span class="p">,</span>
+    <span class="nx">ids</span><span class="o">:</span> <span class="nx">array_of_ids</span><span class="p">,</span>
+    <span class="nx">offset</span><span class="o">:</span> <span class="mi">42</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// resequence didn&#39;t error out</span>
+<span class="p">},</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// an error occured during during call</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="web-client">
+<span id="reference-javascript-client"></span><h2>Web Client</h2>
+</div>
+<div class="section" id="testing-in-odoo-web-client">
+<h2>Testing in Odoo Web Client</h2>
+<div class="section" id="javascript-unit-testing">
+<h3>Javascript Unit Testing</h3>
+<p>Odoo Web includes means to unit-test both the core code of
+Odoo Web and your own javascript modules. On the javascript side,
+unit-testing is based on <a class="reference external" href="javascript:if(confirm('http://qunitjs.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://qunitjs.com/'" tppabs="http://qunitjs.com/">QUnit</a> with a number of helpers and
+extensions for better integration with Odoo.</p>
+<p>To see what the runner looks like, find (or start) an Odoo server
+with the web client enabled, and navigate to <tt class="docutils literal"><span class="pre">/web/tests</span></tt>
+This will show the runner selector, which lists all modules with javascript
+unit tests, and allows starting any of them (or all javascript tests in all
+modules at once).</p>
+<img alt="../_images/runner.png" class="align-center" src="runner.png" tppabs="https://www.odoo.com/documentation/8.0/_images/runner.png" />
+<p>Clicking any runner button will launch the corresponding tests in the
+bundled <a class="reference external" href="javascript:if(confirm('http://qunitjs.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://qunitjs.com/'" tppabs="http://qunitjs.com/">QUnit</a> runner:</p>
+<img alt="../_images/tests.png" class="align-center" src="tests.png" tppabs="https://www.odoo.com/documentation/8.0/_images/tests.png" />
+</div>
+<div class="section" id="writing-a-test-case">
+<h3>Writing a test case</h3>
+<p>The first step is to list the test file(s). This is done through the
+<tt class="docutils literal"><span class="pre">test</span></tt> key of the Odoo manifest, by adding javascript files to it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&quot;Demonstration of web/javascript tests&quot;</span><span class="p">,</span>
+    <span class="s">&#39;category&#39;</span><span class="p">:</span> <span class="s">&#39;Hidden&#39;</span><span class="p">,</span>
+    <span class="s">&#39;depends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;web&#39;</span><span class="p">],</span>
+    <span class="s">&#39;test&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;static/test/demo.js&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>and to create the corresponding test file(s)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Test files which do not exist will be ignored, if all test files
+of a module are ignored (can not be found), the test runner will
+consider that the module has no javascript tests.</p>
+</div>
+<p>After that, refreshing the runner selector will display the new module
+and allow running all of its (0 so far) tests:</p>
+<img alt="../_images/runner2.png" class="align-center" src="runner2.png" tppabs="https://www.odoo.com/documentation/8.0/_images/runner2.png" />
+<p>The next step is to create a test case:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">openerp</span><span class="p">.</span><span class="nx">testing</span><span class="p">.</span><span class="nx">section</span><span class="p">(</span><span class="s1">&#39;basic section&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">test</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;my first test&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">ok</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s2">&quot;this test has run&quot;</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>All testing helpers and structures live in the <tt class="docutils literal"><span class="pre">openerp.testing</span></tt>
+module. Odoo tests live in a <a class="reference internal" href="#openerp.testing.section" title="openerp.testing.section"><tt class="xref js js-func docutils literal"><span class="pre">section()</span></tt></a>,
+which is itself part of a module. The first argument to a section is
+the name of the section, the second one is the section body.</p>
+<p><a class="reference internal" href="#openerp.testing.case" title="openerp.testing.case"><tt class="xref js js-func docutils literal"><span class="pre">test</span></tt></a>, provided by the
+<a class="reference internal" href="#openerp.testing.section" title="openerp.testing.section"><tt class="xref js js-func docutils literal"><span class="pre">section()</span></tt></a> to the callback, is used to
+register a given test case which will be run whenever the test runner
+actually does its job. Odoo Web test case use standard <a class="reference external" href="javascript:if(confirm('http://api.qunitjs.com/category/assert/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.qunitjs.com/category/assert/'" tppabs="http://api.qunitjs.com/category/assert/">QUnit
+assertions</a> within them.</p>
+<p>Launching the test runner at this point will run the test and display
+the corresponding assertion message, with red colors indicating the
+test failed:</p>
+<img alt="../_images/tests2.png" class="align-center" src="tests2.png" tppabs="https://www.odoo.com/documentation/8.0/_images/tests2.png" />
+<p>Fixing the test (by replacing <tt class="docutils literal"><span class="pre">false</span></tt> to <tt class="docutils literal"><span class="pre">true</span></tt> in the assertion)
+will make it pass:</p>
+<img alt="../_images/tests3.png" class="align-center" src="tests3.png" tppabs="https://www.odoo.com/documentation/8.0/_images/tests3.png" />
+</div>
+<div class="section" id="assertions">
+<h3>Assertions</h3>
+<p>As noted above, Odoo Web&#8217;s tests use <a class="reference external" href="javascript:if(confirm('http://api.qunitjs.com/category/assert/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://api.qunitjs.com/category/assert/'" tppabs="http://api.qunitjs.com/category/assert/">qunit assertions</a>. They are
+available globally (so they can just be called without references to
+anything). The following list is available:</p>
+<dl class="function">
+<dt id="ok">
+<tt class="descname">ok</tt><big>(</big><em>state</em><span class="optional">[</span>, <em>message</em><span class="optional">]</span><big>)</big></dt>
+<dd><p>checks that <tt class="docutils literal"><span class="pre">state</span></tt> is truthy (in the javascript sense)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="strictEqual">
+<tt class="descname">strictEqual</tt><big>(</big><em>actual</em>, <em>expected</em><span class="optional">[</span>, <em>message</em><span class="optional">]</span><big>)</big></dt>
+<dd><p>checks that the actual (produced by a method being tested) and
+expected values are identical (roughly equivalent to <tt class="docutils literal"><span class="pre">ok(actual</span>
+<span class="pre">===</span> <span class="pre">expected,</span> <span class="pre">message)</span></tt>)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="notStrictEqual">
+<tt class="descname">notStrictEqual</tt><big>(</big><em>actual</em>, <em>expected</em><span class="optional">[</span>, <em>message</em><span class="optional">]</span><big>)</big></dt>
+<dd><p>checks that the actual and expected values are <em>not</em> identical
+(roughly equivalent to <tt class="docutils literal"><span class="pre">ok(actual</span> <span class="pre">!==</span> <span class="pre">expected,</span> <span class="pre">message)</span></tt>)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="deepEqual">
+<tt class="descname">deepEqual</tt><big>(</big><em>actual</em>, <em>expected</em><span class="optional">[</span>, <em>message</em><span class="optional">]</span><big>)</big></dt>
+<dd><p>deep comparison between actual and expected: recurse into
+containers (objects and arrays) to ensure that they have the same
+keys/number of elements, and the values match.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="notDeepEqual">
+<tt class="descname">notDeepEqual</tt><big>(</big><em>actual</em>, <em>expected</em><span class="optional">[</span>, <em>message</em><span class="optional">]</span><big>)</big></dt>
+<dd><p>inverse operation to <a class="reference internal" href="#deepEqual" title="deepEqual"><tt class="xref js js-func docutils literal"><span class="pre">deepEqual()</span></tt></a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="throws">
+<tt class="descname">throws</tt><big>(</big><em>block[, expected][, message]</em><big>)</big></dt>
+<dd><p>checks that, when called, the <tt class="docutils literal"><span class="pre">block</span></tt> throws an
+error. Optionally validates that error against <tt class="docutils literal"><span class="pre">expected</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>block</strong> (<em>Function</em>) &#8211; </li>
+<li><strong>expected</strong> (<em>Error | RegExp</em>) &#8211; if a regexp, checks that the thrown error&#8217;s
+message matches the regular expression. If an
+error type, checks that the thrown error is of
+that type.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="equal">
+<tt class="descname">equal</tt><big>(</big><em>actual</em>, <em>expected</em><span class="optional">[</span>, <em>message</em><span class="optional">]</span><big>)</big></dt>
+<dd><p>checks that <tt class="docutils literal"><span class="pre">actual</span></tt> and <tt class="docutils literal"><span class="pre">expected</span></tt> are loosely equal, using
+the <tt class="docutils literal"><span class="pre">==</span></tt> operator and its coercion rules.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="notEqual">
+<tt class="descname">notEqual</tt><big>(</big><em>actual</em>, <em>expected</em><span class="optional">[</span>, <em>message</em><span class="optional">]</span><big>)</big></dt>
+<dd><p>inverse operation to <a class="reference internal" href="#equal" title="equal"><tt class="xref js js-func docutils literal"><span class="pre">equal()</span></tt></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="getting-an-odoo-instance">
+<h3>Getting an Odoo instance</h3>
+<p>The Odoo instance is the base through which most Odoo Web
+modules behaviors (functions, objects, â€¦) are accessed. As a result,
+the test framework automatically builds one, and loads the module
+being tested and all of its dependencies inside it. This new instance
+is provided as the first positional parameter to your test
+cases. Let&#8217;s observe by adding javascript code (not test code) to the
+test module:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&quot;Demonstration of web/javascript tests&quot;</span><span class="p">,</span>
+    <span class="s">&#39;category&#39;</span><span class="p">:</span> <span class="s">&#39;Hidden&#39;</span><span class="p">,</span>
+    <span class="s">&#39;depends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;web&#39;</span><span class="p">],</span>
+    <span class="s">&#39;js&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;static/src/js/demo.js&#39;</span><span class="p">],</span>
+    <span class="s">&#39;test&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;static/test/demo.js&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// src/js/demo.js</span>
+<span class="nx">openerp</span><span class="p">.</span><span class="nx">web_tests_demo</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">instance</span><span class="p">.</span><span class="nx">web_tests_demo</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">value_true</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">SomeType</span><span class="o">:</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+            <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>and then adding a new test case, which simply checks that the
+<tt class="docutils literal"><span class="pre">instance</span></tt> contains all the expected stuff we created in the
+module:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// test/demo.js</span>
+<span class="nx">test</span><span class="p">(</span><span class="s1">&#39;module content&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ok</span><span class="p">(</span><span class="nx">instance</span><span class="p">.</span><span class="nx">web_tests_demo</span><span class="p">.</span><span class="nx">value_true</span><span class="p">,</span> <span class="s2">&quot;should have a true value&quot;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">type_instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web_tests_demo</span><span class="p">.</span><span class="nx">SomeType</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+    <span class="nx">strictEqual</span><span class="p">(</span><span class="nx">type_instance</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;should have provided value&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dom-scratchpad">
+<h3>DOM Scratchpad</h3>
+<p>As in the wider client, arbitrarily accessing document content is
+strongly discouraged during tests. But DOM access is still needed to
+e.g. fully initialize <tt class="xref js js-class docutils literal"><span class="pre">widgets</span></tt> before
+testing them.</p>
+<p>Thus, a test case gets a DOM scratchpad as its second positional
+parameter, in a jQuery instance. That scratchpad is fully cleaned up
+before each test, and as long as it doesn&#8217;t do anything outside the
+scratchpad your code can do whatever it wants:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// test/demo.js</span>
+<span class="nx">test</span><span class="p">(</span><span class="s1">&#39;DOM content&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">$scratchpad</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$scratchpad</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;&lt;div&gt;&lt;span class=&quot;foo bar&quot;&gt;ok&lt;/span&gt;&lt;/div&gt;&#39;</span><span class="p">);</span>
+    <span class="nx">ok</span><span class="p">(</span><span class="nx">$scratchpad</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">),</span>
+       <span class="s2">&quot;should have provided class&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">test</span><span class="p">(</span><span class="s1">&#39;clean scratchpad&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">$scratchpad</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ok</span><span class="p">(</span><span class="o">!</span><span class="nx">$scratchpad</span><span class="p">.</span><span class="nx">children</span><span class="p">().</span><span class="nx">length</span><span class="p">,</span> <span class="s2">&quot;should have no content&quot;</span><span class="p">);</span>
+    <span class="nx">ok</span><span class="p">(</span><span class="o">!</span><span class="nx">$scratchpad</span><span class="p">.</span><span class="nx">text</span><span class="p">(),</span> <span class="s2">&quot;should have no text&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The top-level element of the scratchpad is not cleaned up, test
+cases can add text or DOM children but shoud not alter
+<tt class="docutils literal"><span class="pre">$scratchpad</span></tt> itself.</p>
+</div>
+</div>
+<div class="section" id="loading-templates">
+<h3>Loading templates</h3>
+<p>To avoid the corresponding processing costs, by default templates are
+not loaded into QWeb. If you need to render e.g. widgets making use of
+QWeb templates, you can request their loading through the
+<a class="reference internal" href="#TestOptions.templates" title="TestOptions.templates"><tt class="xref js js-attr docutils literal"><span class="pre">templates</span></tt></a> option to the <a class="reference internal" href="#openerp.testing.case" title="openerp.testing.case"><tt class="xref js js-func docutils literal"><span class="pre">test</span> <span class="pre">case</span>
+<span class="pre">function</span></tt></a>.</p>
+<p>This will automatically load all relevant templates in the instance&#8217;s
+qweb before running the test case:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&quot;Demonstration of web/javascript tests&quot;</span><span class="p">,</span>
+    <span class="s">&#39;category&#39;</span><span class="p">:</span> <span class="s">&#39;Hidden&#39;</span><span class="p">,</span>
+    <span class="s">&#39;depends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;web&#39;</span><span class="p">],</span>
+    <span class="s">&#39;js&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;static/src/js/demo.js&#39;</span><span class="p">],</span>
+    <span class="s">&#39;test&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;static/test/demo.js&#39;</span><span class="p">],</span>
+    <span class="s">&#39;qweb&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;static/src/xml/demo.xml&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-xml"><div class="highlight"><pre><span class="c">&lt;!-- src/xml/demo.xml --&gt;</span>
+<span class="nt">&lt;templates</span> <span class="na">id=</span><span class="s">&quot;template&quot;</span> <span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;DemoTemplate&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;t</span> <span class="na">t-foreach=</span><span class="s">&quot;5&quot;</span> <span class="na">t-as=</span><span class="s">&quot;value&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;value&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+        <span class="nt">&lt;/t&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/templates&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// test/demo.js</span>
+<span class="nx">test</span><span class="p">(</span><span class="s1">&#39;templates&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">templates</span><span class="o">:</span> <span class="kc">true</span><span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">qweb</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;DemoTemplate&#39;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">texts</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">s</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span>
+    <span class="p">}).</span><span class="nx">get</span><span class="p">();</span>
+
+    <span class="nx">deepEqual</span><span class="p">(</span><span class="nx">texts</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">]);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="asynchronous-cases">
+<h3>Asynchronous cases</h3>
+<p>The test case examples so far are all synchronous, they execute from
+the first to the last line and once the last line has executed the
+test is done. But the web client is full of <a class="reference internal" href="async.html#reference-async" tppabs="https://www.odoo.com/documentation/8.0/reference/async.html#reference-async"><em>asynchronous code</em></a>, and thus test cases need to be async-aware.</p>
+<p>This is done by returning a <a class="reference internal" href="async.html#Deferred" tppabs="https://www.odoo.com/documentation/8.0/reference/async.html#Deferred" title="Deferred"><tt class="xref js js-class docutils literal"><span class="pre">deferred</span></tt></a> from the
+case callback:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// test/demo.js</span>
+<span class="nx">test</span><span class="p">(</span><span class="s1">&#39;asynchronous&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">asserts</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">},</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Deferred</span><span class="p">();</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">ok</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="nx">d</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
+    <span class="p">},</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">d</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>This example also uses the <a class="reference internal" href="#TestOptions" title="TestOptions"><tt class="xref js js-class docutils literal"><span class="pre">options</span> <span class="pre">parameter</span></tt></a>
+to specify the number of assertions the case should expect, if less or
+more assertions are specified the case will count as failed.</p>
+<p>Asynchronous test cases <em>must</em> specify the number of assertions they
+will run. This allows more easily catching situations where e.g. the
+test architecture was not warned about asynchronous operations.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Asynchronous test cases also have a 2 seconds timeout: if the test
+does not finish within 2 seconds, it will be considered
+failed. This pretty much always means the test will not
+resolve. This timeout <em>only</em> applies to the test itself, not to
+the setup and teardown processes.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the returned deferred is rejected, the test will be failed
+unless <a class="reference internal" href="#TestOptions.fail_on_rejection" title="TestOptions.fail_on_rejection"><tt class="xref js js-attr docutils literal"><span class="pre">fail_on_rejection</span></tt></a> is set to
+<tt class="docutils literal"><span class="pre">false</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>RPC</h3>
+<p>An important subset of asynchronous test cases is test cases which
+need to perform (and chain, to an extent) RPC calls.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Because they are a subset of asynchronous cases, RPC cases must
+also provide a valid <a class="reference internal" href="#TestOptions.asserts" title="TestOptions.asserts"><tt class="xref js js-attr docutils literal"><span class="pre">assertions</span> <span class="pre">count</span></tt></a>.</p>
+</div>
+<p>To enable mock RPC, set the <a class="reference internal" href="#TestOptions.rpc" title="TestOptions.rpc"><tt class="xref js js-attr docutils literal"><span class="pre">rpc</span> <span class="pre">option</span></tt></a> to
+<tt class="docutils literal"><span class="pre">mock</span></tt>. This will add a third parameter to the test case callback:</p>
+<dl class="function">
+<dt id="mock">
+<tt class="descname">mock</tt><big>(</big><em>rpc_spec</em>, <em>handler</em><big>)</big></dt>
+<dd><p>Can be used in two different ways depending on the shape of the
+first parameter:</p>
+<ul>
+<li><p class="first">If it matches the pattern <tt class="docutils literal"><span class="pre">model:method</span></tt> (if it contains a
+colon, essentially) the call will set up the mocking of an RPC
+call straight to the Odoo server (through XMLRPC) as
+performed via e.g. <tt class="xref js js-func docutils literal"><span class="pre">openerp.web.Model.call()</span></tt>.</p>
+<p>In that case, <tt class="docutils literal"><span class="pre">handler</span></tt> should be a function taking two
+arguments <tt class="docutils literal"><span class="pre">args</span></tt> and <tt class="docutils literal"><span class="pre">kwargs</span></tt>, matching the corresponding
+arguments on the server side and should simply return the value
+as if it were returned by the Python XMLRPC handler:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;XML-RPC&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">rpc</span><span class="o">:</span> <span class="s1">&#39;mock&#39;</span><span class="p">,</span> <span class="nx">asserts</span><span class="o">:</span> <span class="mi">3</span><span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">$s</span><span class="p">,</span> <span class="nx">mock</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// set up mocking</span>
+    <span class="nx">mock</span><span class="p">(</span><span class="s1">&#39;people.famous:name_search&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">args</span><span class="p">,</span> <span class="nx">kwargs</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">strictEqual</span><span class="p">(</span><span class="nx">kwargs</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="s1">&#39;bob&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Microsoft Bob&quot;</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Bob the Builder&quot;</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Silent Bob&quot;</span><span class="p">]</span>
+        <span class="p">];</span>
+    <span class="p">});</span>
+
+    <span class="c1">// actual test code</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">Model</span><span class="p">(</span><span class="s1">&#39;people.famous&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">&#39;name_search&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;bob&#39;</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">strictEqual</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;shoud return 3 people&quot;</span><span class="p">);</span>
+            <span class="nx">strictEqual</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;Microsoft Bob&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;the most famous bob should be Microsoft Bob&quot;</span><span class="p">);</span>
+        <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Otherwise, if it matches an absolute path (e.g. <tt class="docutils literal"><span class="pre">/a/b/c</span></tt>) it
+will mock a JSON-RPC call to a web client controller, such as
+<tt class="docutils literal"><span class="pre">/web/webclient/translations</span></tt>. In that case, the handler takes
+a single <tt class="docutils literal"><span class="pre">params</span></tt> argument holding all of the parameters
+provided over JSON-RPC.</p>
+<p>As previously, the handler should simply return the result value
+as if returned by the original JSON-RPC handler:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;JSON-RPC&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">rpc</span><span class="o">:</span> <span class="s1">&#39;mock&#39;</span><span class="p">,</span> <span class="nx">asserts</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">templates</span><span class="o">:</span> <span class="kc">true</span><span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">$s</span><span class="p">,</span> <span class="nx">mock</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">fetched_dbs</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">fetched_langs</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nx">mock</span><span class="p">(</span><span class="s1">&#39;/web/database/get_list&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">fetched_dbs</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">];</span>
+    <span class="p">});</span>
+    <span class="nx">mock</span><span class="p">(</span><span class="s1">&#39;/web/session/get_lang_list&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">fetched_langs</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">[[</span><span class="s1">&#39;vo_IS&#39;</span><span class="p">,</span> <span class="s1">&#39;Hopelandic / Vonlenska&#39;</span><span class="p">]];</span>
+    <span class="p">});</span>
+
+    <span class="c1">// widget needs that or it blows up</span>
+    <span class="nx">instance</span><span class="p">.</span><span class="nx">webclient</span> <span class="o">=</span> <span class="p">{</span><span class="nx">toggle_bars</span><span class="o">:</span> <span class="nx">openerp</span><span class="p">.</span><span class="nx">testing</span><span class="p">.</span><span class="nx">noop</span><span class="p">};</span>
+    <span class="kd">var</span> <span class="nx">dbm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">DatabaseManager</span><span class="p">({});</span>
+    <span class="k">return</span> <span class="nx">dbm</span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">$s</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">ok</span><span class="p">(</span><span class="nx">fetched_dbs</span><span class="p">,</span> <span class="s2">&quot;should have fetched databases&quot;</span><span class="p">);</span>
+        <span class="nx">ok</span><span class="p">(</span><span class="nx">fetched_langs</span><span class="p">,</span> <span class="s2">&quot;should have fetched languages&quot;</span><span class="p">);</span>
+        <span class="nx">deepEqual</span><span class="p">(</span><span class="nx">dbm</span><span class="p">.</span><span class="nx">db_list</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">]);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd></dl>
+
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Mock handlers can contain assertions, these assertions should be
+part of the assertions count (and if multiple calls are made to a
+handler containing assertions, it multiplies the effective number
+of assertions).</p>
+</div>
+</div>
+<div class="section" id="testing-api">
+<h3>Testing API</h3>
+<dl class="function">
+<dt id="openerp.testing.section">
+<tt class="descclassname">openerp.testing.</tt><tt class="descname">section</tt><big>(</big><em>name</em>, <span class="optional">[</span><em>options</em>, <span class="optional">]</span><em>body</em><big>)</big></dt>
+<dd><p>A test section, serves as shared namespace for related tests (for
+constants or values to only set up once). The <tt class="docutils literal"><span class="pre">body</span></tt> function
+should contain the tests themselves.</p>
+<p>Note that the order in which tests are run is essentially
+undefined, do <em>not</em> rely on it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>String</em>) &#8211; </li>
+<li><strong>options</strong> (<a class="reference internal" href="#TestOptions" title="TestOptions"><em>TestOptions</em></a>) &#8211; </li>
+<li><strong>body</strong> (Function&lt;<a class="reference internal" href="#openerp.testing.case" title="openerp.testing.case"><tt class="xref js js-func docutils literal"><span class="pre">case()</span></tt></a>, void&gt;) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="openerp.testing.case">
+<tt class="descclassname">openerp.testing.</tt><tt class="descname">case</tt><big>(</big><em>name</em>, <span class="optional">[</span><em>options</em>, <span class="optional">]</span><em>callback</em><big>)</big></dt>
+<dd><p>Registers a test case callback in the test runner, the callback
+will only be run once the runner is started (or maybe not at all,
+if the test is filtered out).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>String</em>) &#8211; </li>
+<li><strong>options</strong> (<a class="reference internal" href="#TestOptions" title="TestOptions"><em>TestOptions</em></a>) &#8211; </li>
+<li><strong>callback</strong> (<em>Function&lt;instance, $, Function&lt;String, Function, void&gt;&gt;</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="TestOptions">
+<em class="property">class </em><tt class="descname">TestOptions</tt><big>(</big><big>)</big></dt>
+<dd><p>the various options which can be passed to
+<a class="reference internal" href="#openerp.testing.section" title="openerp.testing.section"><tt class="xref js js-func docutils literal"><span class="pre">section()</span></tt></a> or
+<a class="reference internal" href="#openerp.testing.case" title="openerp.testing.case"><tt class="xref js js-func docutils literal"><span class="pre">case()</span></tt></a>. Except for
+<a class="reference internal" href="#TestOptions.setup" title="TestOptions.setup"><tt class="xref js js-attr docutils literal"><span class="pre">setup</span></tt></a> and
+<a class="reference internal" href="#TestOptions.teardown" title="TestOptions.teardown"><tt class="xref js js-attr docutils literal"><span class="pre">teardown</span></tt></a>, an option on
+<a class="reference internal" href="#openerp.testing.case" title="openerp.testing.case"><tt class="xref js js-func docutils literal"><span class="pre">case()</span></tt></a> will overwrite the corresponding
+option on <a class="reference internal" href="#openerp.testing.section" title="openerp.testing.section"><tt class="xref js js-func docutils literal"><span class="pre">section()</span></tt></a> so
+e.g. <a class="reference internal" href="#TestOptions.rpc" title="TestOptions.rpc"><tt class="xref js js-attr docutils literal"><span class="pre">rpc</span></tt></a> can be set for a
+<a class="reference internal" href="#openerp.testing.section" title="openerp.testing.section"><tt class="xref js js-func docutils literal"><span class="pre">section()</span></tt></a> and then differently set for
+some <a class="reference internal" href="#openerp.testing.case" title="openerp.testing.case"><tt class="xref js js-func docutils literal"><span class="pre">case()</span></tt></a> of that
+<a class="reference internal" href="#openerp.testing.section" title="openerp.testing.section"><tt class="xref js js-func docutils literal"><span class="pre">section()</span></tt></a></p>
+<dl class="attribute">
+<dt id="TestOptions.asserts">
+<tt class="descclassname">TestOptions.</tt><tt class="descname">asserts</tt></dt>
+<dd><p>An integer, the number of assertions which should run during a
+normal execution of the test. Mandatory for asynchronous tests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TestOptions.setup">
+<tt class="descclassname">TestOptions.</tt><tt class="descname">setup</tt></dt>
+<dd><p>Test case setup, run right before each test case. A section&#8217;s
+<a class="reference internal" href="#TestOptions.setup" title="TestOptions.setup"><tt class="xref js js-func docutils literal"><span class="pre">setup()</span></tt></a> is run before the case&#8217;s own, if
+both are specified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TestOptions.teardown">
+<tt class="descclassname">TestOptions.</tt><tt class="descname">teardown</tt></dt>
+<dd><p>Test case teardown, a case&#8217;s <a class="reference internal" href="#TestOptions.teardown" title="TestOptions.teardown"><tt class="xref js js-func docutils literal"><span class="pre">teardown()</span></tt></a>
+is run before the corresponding section if both are present.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TestOptions.fail_on_rejection">
+<tt class="descclassname">TestOptions.</tt><tt class="descname">fail_on_rejection</tt></dt>
+<dd><p>If the test is asynchronous and its resulting promise is
+rejected, fail the test. Defaults to <tt class="docutils literal"><span class="pre">true</span></tt>, set to
+<tt class="docutils literal"><span class="pre">false</span></tt> to not fail the test in case of rejection:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// test/demo.js</span>
+<span class="nx">test</span><span class="p">(</span><span class="s1">&#39;unfail rejection&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">asserts</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">fail_on_rejection</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">},</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Deferred</span><span class="p">();</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">ok</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="nx">d</span><span class="p">.</span><span class="nx">reject</span><span class="p">();</span>
+    <span class="p">},</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">d</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TestOptions.rpc">
+<tt class="descclassname">TestOptions.</tt><tt class="descname">rpc</tt></dt>
+<dd><p>RPC method to use during tests, one of <tt class="docutils literal"><span class="pre">&quot;mock&quot;</span></tt> or
+<tt class="docutils literal"><span class="pre">&quot;rpc&quot;</span></tt>. Any other value will disable RPC for the test (if
+they were enabled by the suite for instance).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="TestOptions.templates">
+<tt class="descclassname">TestOptions.</tt><tt class="descname">templates</tt></dt>
+<dd><p>Whether the current module (and its dependencies)&#8217;s templates
+should be loaded into QWeb before starting the test. A
+boolean, <tt class="docutils literal"><span class="pre">false</span></tt> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<p>The test runner can also use two global configuration values set
+directly on the <tt class="docutils literal"><span class="pre">window</span></tt> object:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">oe_all_dependencies</span></tt> is an <tt class="docutils literal"><span class="pre">Array</span></tt> of all modules with a web
+component, ordered by dependency (for a module <tt class="docutils literal"><span class="pre">A</span></tt> with
+dependencies <tt class="docutils literal"><span class="pre">A'</span></tt>, any module of <tt class="docutils literal"><span class="pre">A'</span></tt> must come before <tt class="docutils literal"><span class="pre">A</span></tt> in
+the array)</li>
+</ul>
+</div>
+<div class="section" id="running-through-python">
+<h3>Running through Python</h3>
+<p>The web client includes the means to run these tests on the
+command-line (or in a CI system), but while actually running it is
+pretty simple the setup of the pre-requisite parts has some
+complexities.</p>
+<ol class="arabic">
+<li><p class="first">Install <a class="reference external" href="javascript:if(confirm('http://pypi.python.org/pypi/unittest2  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://pypi.python.org/pypi/unittest2'" tppabs="http://pypi.python.org/pypi/unittest2">unittest2</a> in your Python environment. Both
+can trivially be installed via <a class="reference external" href="javascript:if(confirm('http://pip-installer.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://pip-installer.org/'" tppabs="http://pip-installer.org/">pip</a> or
+<a class="reference external" href="javascript:if(confirm('http://packages.python.org/distribute/easy_install.html  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://packages.python.org/distribute/easy_install.html'" tppabs="http://packages.python.org/distribute/easy_install.html">easy_install</a>.</p>
+</li>
+<li><p class="first">Install <a class="reference external" href="javascript:if(confirm('http://phantomjs.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://phantomjs.org/'" tppabs="http://phantomjs.org/">PhantomJS</a>. It is a headless
+browser which allows automating running and testing web
+pages. <a class="reference external" href="javascript:if(confirm('http://pypi.python.org/pypi/QUnitSuite/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://pypi.python.org/pypi/QUnitSuite/'" tppabs="http://pypi.python.org/pypi/QUnitSuite/">QUnitSuite</a> uses it to actually run the <a class="reference external" href="javascript:if(confirm('http://qunitjs.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://qunitjs.com/'" tppabs="http://qunitjs.com/">qunit</a> test suite.</p>
+<p>The <a class="reference external" href="javascript:if(confirm('http://phantomjs.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://phantomjs.org/'" tppabs="http://phantomjs.org/">PhantomJS</a> website provides pre-built binaries for some
+platforms, and your OS&#8217;s package management probably provides it as
+well.</p>
+<p>If you&#8217;re building <a class="reference external" href="javascript:if(confirm('http://phantomjs.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://phantomjs.org/'" tppabs="http://phantomjs.org/">PhantomJS</a> from source, I recommend preparing
+for some knitting time as it&#8217;s not exactly fast (it needs to
+compile both <a class="reference external" href="javascript:if(confirm('http://qt-project.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://qt-project.org/'" tppabs="http://qt-project.org/">Qt</a> and <a class="reference external" href="javascript:if(confirm('http://www.webkit.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.webkit.org/'" tppabs="http://www.webkit.org/">Webkit</a>, both being pretty big projects).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Because <a class="reference external" href="javascript:if(confirm('http://phantomjs.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://phantomjs.org/'" tppabs="http://phantomjs.org/">PhantomJS</a> is webkit-based, it will not be able to test
+if Firefox, Opera or Internet Explorer can correctly run the
+test suite (and it is only an approximation for Safari and
+Chrome). It is therefore recommended to <em>also</em> run the test
+suites in actual browsers once in a while.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The version of <a class="reference external" href="javascript:if(confirm('http://phantomjs.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://phantomjs.org/'" tppabs="http://phantomjs.org/">PhantomJS</a> this was build through is 1.7,
+previous versions <em>should</em> work but are not actually supported
+(and tend to just segfault when something goes wrong in
+<a class="reference external" href="javascript:if(confirm('http://phantomjs.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://phantomjs.org/'" tppabs="http://phantomjs.org/">PhantomJS</a> itself so they&#8217;re a pain to debug).</p>
+</div>
+</li>
+<li><p class="first">Install a new database with all relevant modules (all modules with
+a web component at least), then restart the server</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For some tests, a source database needs to be duplicated. This
+operation requires that there be no connection to the database
+being duplicated, but Odoo doesn&#8217;t currently break
+existing/outstanding connections, so restarting the server is
+the simplest way to ensure everything is in the right state.</p>
+</div>
+</li>
+<li><p class="first">Launch <tt class="docutils literal"><span class="pre">oe</span> <span class="pre">run-tests</span> <span class="pre">-d</span> <span class="pre">$DATABASE</span> <span class="pre">-mweb</span></tt> with the correct
+addons-path specified (and replacing <tt class="docutils literal"><span class="pre">$DATABASE</span></tt> by the source
+database you created above)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you leave out <tt class="docutils literal"><span class="pre">-mweb</span></tt>, the runner will attempt to run all
+the tests in all the modules, which may or may not work.</p>
+</div>
+</li>
+</ol>
+<p>If everything went correctly, you should now see a list of tests with
+(hopefully) <tt class="docutils literal"><span class="pre">ok</span></tt> next to their names, closing with a report of the
+number of tests run and the time it took:</p>
+<div class="highlight-text"><div class="highlight"><pre>test_empty_find (openerp.addons.web.tests.test_dataset.TestDataSetController) ... ok
+test_ids_shortcut (openerp.addons.web.tests.test_dataset.TestDataSetController) ... ok
+test_regular_find (openerp.addons.web.tests.test_dataset.TestDataSetController) ... ok
+web.testing.stack: direct, value, success ... ok
+web.testing.stack: direct, deferred, success ... ok
+web.testing.stack: direct, value, error ... ok
+web.testing.stack: direct, deferred, failure ... ok
+web.testing.stack: successful setup ... ok
+web.testing.stack: successful teardown ... ok
+web.testing.stack: successful setup and teardown ... ok
+
+[snip ~150 lines]
+
+test_convert_complex_context (openerp.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
+test_convert_complex_domain (openerp.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
+test_convert_literal_context (openerp.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
+test_convert_literal_domain (openerp.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
+test_retrieve_nonliteral_context (openerp.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
+test_retrieve_nonliteral_domain (openerp.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
+
+----------------------------------------------------------------------
+Ran 181 tests in 15.706s
+
+OK
+</pre></div>
+</div>
+<p>Congratulation, you have just performed a successful &#8220;offline&#8221; run of
+the OpenERP Web test suite.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note that this runs all the Python tests for the <tt class="docutils literal"><span class="pre">web</span></tt> module,
+but all the web tests for all of Odoo. This can be surprising.</p>
+</div>
+<table class="docutils footnote" frame="void" id="eventsdelegation" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>not all DOM events are compatible with events delegation</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="terminal" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>with a small twist: <a class="reference external" href="javascript:if(confirm('http://docs.sqlalchemy.org/en/rel_0_9/orm/query.html  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://docs.sqlalchemy.org/en/rel_0_9/orm/query.html#sqlalchemy.orm.query.Query.group_by'" tppabs="http://docs.sqlalchemy.org/en/rel_0_9/orm/query.html#sqlalchemy.orm.query.Query.group_by" title="(in SQLAlchemy v0.9)"><tt class="xref py py-meth docutils literal"><span class="pre">sqlalchemy.orm.query.Query.group_by()</span></tt></a> is not
+terminal, it returns a query which can still be altered.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div>
+    <div class="footer">
+      <div class="container">
+        <ul class="docs-footer-links muted">
+            <li>
+                &copy; Copyright <a href="javascript:if(confirm('https://odoo.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://odoo.com/'" tppabs="https://odoo.com/">Odoo S.A.</a>.
+            </li><li>Â·</li>
+            <li>Created using <a href="javascript:if(confirm('http://sphinx-doc.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://sphinx-doc.org/'" tppabs="http://sphinx-doc.org/">Sphinx</a> 1.2.2.</li>
+        </ul>
+      <p>
+        odoo docs theme based on <a href="javascript:if(confirm('http://getbootstrap.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://getbootstrap.com/'" tppabs="http://getbootstrap.com/">Bootstrap
+        3.2 documentation</a> adapted to
+        <a href="javascript:if(confirm('http://sphinx-doc.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://sphinx-doc.org/'" tppabs="http://sphinx-doc.org/">Sphinx</a> output with branding and
+        color changes.
+      </p>
+      </div>
+    </div><script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','analytics.js'/*tpa=https://www.google-analytics.com/analytics.js*/,'ga');
+
+    ga('create', 'UA-52174891-1', 'auto');
+    ga('send','pageview');
+    </script>
+  </body>
+</html>

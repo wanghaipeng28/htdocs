@@ -1,0 +1,10 @@
+*.py[cod]
+
+# pyCharm config files
+.idea/
+workspace.xml
+myaddons/
+
+openerp-server.conf
+
+start.bat

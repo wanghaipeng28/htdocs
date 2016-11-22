@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Qunee for HTML5</title>
+    <meta charset="utf-8">
+	<style type="text/css">
+		#canvas .Q-CanvasPanel canvas:first-child + canvas{
+		display:none;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<div style="height: 500px;" id="canvas"></div>
+<input type="name" id="search"  />
+<button type="button" id="btn">搜索节点</button>
+<script src="qunee-min.js"></script>
+<script>
+
+
+	//实例化画布容器
+    var graph = new Q.Graph('canvas');
+	//添加节点
+    //var hello = graph.createNode("Hello",-500,-50);
+	var hello = new Q.Node();
+	hello.name = "helloa";
+	hello.x = -500;
+	hello.y = -50;
+	graph.graphModel.add(hello);
+	//设置节点的图片
+    hello.image = Q.Graphs.server;
+
+	var selfNode=graph.createNode("nimei",10,200);
+	graph.createEdge("nimei hello",hello,selfNode).setStyle(Q.Styles.ARROW_TO,false);
+	for(var i=0,q={};i<10;i++){
+		q[i]=graph.createNode("Qunee"+i,1000,150*i-50);
+		q[i].image = Q.Graphs.server;
+		graph.createEdge("Hello Qunee"+i,q[i] , hello).setStyle(Q.Styles.ARROW_TO, false);
+		for(var j=0,p={};j<20;j++){
+			p[j]=graph.createNode("Qunee"+j,50+100*j,50+150*i);
+			//连线并设置末端样式，（默认是箭头）
+			graph.createEdge("Hello Qunee"+j,p[j] , q[i]).setStyle(Q.Styles.ARROW_TO, false);		
+		}
+	}
+	//鼠标点击和右键事件
+	graph.addCustomInteraction({
+		onstart2: function (type, evt, graph) {
+			Q.log(evt.selectionModel._j3[0].$name)
+		},
+		onclick: function (type, evt, graph) {
+			Q.log(evt.selectionModel._j3[0].$name)
+		}
+	})
+	var model=graph.graphModel;
+	
+	$("#btn").click(function(){
+		var s=$("#search").val();
+		model.forEachByBreadthFirst(function(node){
+			if(node.name==s){
+				var x=node.x;
+				var y=node.y;
+				graph.centerTo(x, y, 1);
+
+				node.setStyle(Q.Styles.BORDER, 2);
+				node.setStyle(Q.Styles.BORDER_COLOR, "#2898E0");
+				node.setStyle(Q.Styles.PADDING, new Q.Insets(10, 20));
+			}else{
+				node.setStyle(Q.Styles.BORDER, false);
+				node.setStyle(Q.Styles.BORDER_COLOR, "transparent");
+				node.setStyle(Q.Styles.PADDING, new Q.Insets(0, 0));
+			}
+		}, null, true);
+		
+
+	});
+
+
+	//http://doc.qunee.com/pages/viewpage.action?pageId=557061
+</script>
+</body>
+</html>

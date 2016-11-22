@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>T-demo</title>
+    <style>
+        canvas{
+            cursor:pointer;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="t_l.js"></script>
+
+</head>
+<body>
+    <canvas id="canvas" width="1366" height="500">您的浏览器不支持canvas绘图，建议使用Chrome浏览器打开该网页！</canvas>
+    <input type="name" id="search"  />
+    <button type="button" id="btn">搜索节点</button>
+    <script>
+        //使用图片加载函数等图片加载完成后开始执行回调函数fn(依次传入：画布I的、图片对象、回调函数)
+        $.L("canvas",{//画布ID
+            db_server:"images/db_server.png",
+            file_server:"images/file_server.png",
+            fire_wall:"images/fire_wall.png",
+            fire_wall1:"images/fire_wall1.png",
+            load_balancing:"images/load_balancing.png",
+            router:"images/router.png",//图片对象
+            switch:"images/switch.png"
+        },function(obj){//                                      回调函数
+            //获取一个拓扑实例（依次传入：画布ID、初始缩放比例，最大缩放比例和最小缩放比例、背景颜色）
+            var imgList= $.T({
+                canvas:"canvas",
+                defaultScale:0.2,
+                maxScale:1.5,
+                minScale:0.1,
+                color:{
+                    bgc:"#eee"
+                }
+            });
+            $.get('json/t.json',function(data){
+                var lines={};
+                $.each(data,function(i,v){
+                    imgList.addEquipment(v.id,v.nodeName,obj[v.property],v.x,v.y);
+                    $.each(v.peer,function(i,val){
+                        var p=val+"_"+ v.id;
+                        if(!lines[p]){
+                            lines[v.id+"_"+val]={from: v.id,to:val};
+                        }
+                    });
+                });
+                $.each(lines,function(i,v){
+                    imgList.addLine("", v.from,v.to);
+                });
+                imgList.init();
+                imgList.draw();
+            },'json');
+            $("#btn").click(function(){
+                console.log(imgList.eImgs);
+                var s=$("#search").val();
+                //调用实例的搜索函数（根据节点名称搜索，如果未搜索到返回false否则返回true）
+                if(!imgList.searchNode(s)){
+                    window.alert("未搜索到符合条件的节点！");
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

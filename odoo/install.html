@@ -1,0 +1,945 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Installing Odoo &mdash; odoo 8.0 documentation</title>
+    
+    <link rel="stylesheet" href="odoo.css" tppabs="https://www.odoo.com/documentation/8.0/_static/odoo.css" type="text/css" />
+    <link rel="stylesheet" href="pygments.css" tppabs="https://www.odoo.com/documentation/8.0/_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="patchqueue.css" tppabs="https://www.odoo.com/documentation/8.0/_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="jquery.js" tppabs="https://www.odoo.com/documentation/8.0/_static/jquery.js"></script>
+    <script type="text/javascript" src="underscore.js" tppabs="https://www.odoo.com/documentation/8.0/_static/underscore.js"></script>
+    <script type="text/javascript" src="doctools.js" tppabs="https://www.odoo.com/documentation/8.0/_static/doctools.js"></script>
+    <script type="text/javascript" src="patchqueue.js" tppabs="https://www.odoo.com/documentation/8.0/_static/patchqueue.js"></script>
+    <script type="text/javascript" src="scrollspy.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/scrollspy.js"></script>
+    <script type="text/javascript" src="affix.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/affix.js"></script>
+    <script type="text/javascript" src="tooltip.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/tooltip.js"></script>
+    <script type="text/javascript" src="collapse.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/collapse.js"></script>
+    <script type="text/javascript" src="dropdown.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/dropdown.js"></script>
+    <script type="text/javascript" src="ZeroClipboard.min.js" tppabs="https://www.odoo.com/documentation/8.0/_static/zeroclipboard-2.1.6/ZeroClipboard.min.js"></script>
+    <script type="text/javascript" src="app.js" tppabs="https://www.odoo.com/documentation/8.0/_static/app.js"></script>
+    <link rel="top" title="odoo 8.0 documentation" href="../index.html" />
+    <link rel="up" title="Setting Up" href="../setup.html" />
+    <link rel="next" title="Deploying Odoo" href="deploy.html" />
+    <link rel="prev" title="Setting Up" href="../setup.html" /><link rel="canonical" href="https://www.odoo.com/documentation/8.0/setup/install.html"/>
+  </head>
+  <body><header class="navbar navbar-default navbar-static-top docs-nav" id="top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-main">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html" tppabs="https://www.odoo.com/documentation/8.0/index.html" class="o_logo navbar-brand">
+        <span class="o_logo_main">odoo</span><span class="o_logo_app">doc</span>
+      </a>
+      
+        <div class="versions navbar-brand">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            8.0 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            
+              <li><a href="javascript:if(confirm('https://www.odoo.com/documentation/master/setup/install.html  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://www.odoo.com/documentation/master/setup/install.html'" tppabs="https://www.odoo.com/documentation/master/setup/install.html">master</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+    <nav class="collapse navbar-collapse navbar-main" role="navigation">
+      <ul class="current nav navbar-nav navbar-right">
+<li class="toctree-l1 dropdown"><a class="dropdown-toggle reference internal" data-toggle="dropdown" href="tutorials.html" tppabs="https://www.odoo.com/documentation/8.0/tutorials.html">Tutorials</a><ul class="dropdown-menu">
+<li class="toctree-l2"><a class="reference internal" href="website.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html">Building a Website</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backend.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html">Building a Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="themes.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html">Building Themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html">Building Interface Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current dropdown"><a class="dropdown-toggle reference internal" data-toggle="dropdown" href="setup.html" tppabs="https://www.odoo.com/documentation/8.0/setup.html">Setting Up</a><ul class="current dropdown-menu">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Installing Odoo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html">Deploying Odoo</a></li>
+</ul>
+</li>
+<li class="toctree-l1 dropdown"><a class="dropdown-toggle reference internal" data-toggle="dropdown" href="reference.html" tppabs="https://www.odoo.com/documentation/8.0/reference.html">Reference</a><ul class="dropdown-menu">
+<li class="toctree-l2"><a class="reference internal" href="orm.html" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html">ORM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html">Data Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actions.html" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html">Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html" tppabs="https://www.odoo.com/documentation/8.0/reference/module.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html">Command-line interface: odoo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html">Security in Odoo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html" tppabs="https://www.odoo.com/documentation/8.0/reference/testing.html">Testing Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http.html" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html">Web Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qweb.html" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html">QWeb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javascript.html" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html">Javascript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translations.html" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html">Translating Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html">QWeb Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html">Workflows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_integration.html" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html">Web Service</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+    </nav>
+  </div>
+</header><div class="document-super ">
+    
+
+    <div class="document"><div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+      <ul class="current nav">
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html" tppabs="https://www.odoo.com/documentation/8.0/tutorials.html">Tutorials</a><ul class="nav">
+<li class="toctree-l2"><a class="reference internal" href="website.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html">Building a Website</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="website.html#creating-a-basic-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#creating-a-basic-module">Creating a basic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#a-demonstration-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#a-demonstration-module">A demonstration module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#to-the-browser" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#to-the-browser">To the browser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#templates" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#templates">Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#storing-data-in-odoo" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#storing-data-in-odoo">Storing data in Odoo</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="website.html#defining-the-data-model" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#defining-the-data-model">Defining the data model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#demonstration-data" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#demonstration-data">Demonstration data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#accessing-the-data" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#accessing-the-data">Accessing the data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#website-support" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#website-support">Website support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#urls-and-routing" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#urls-and-routing">URLs and routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#field-edition" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#field-edition">Field edition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="website.html#administration-and-erp-integration" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#administration-and-erp-integration">Administration and ERP integration</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="website.html#a-brief-and-incomplete-introduction-to-the-odoo-administration" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#a-brief-and-incomplete-introduction-to-the-odoo-administration">A brief and incomplete introduction to the Odoo administration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#editing-in-the-odoo-administration" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#editing-in-the-odoo-administration">Editing in the Odoo administration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#relations-between-models" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#relations-between-models">Relations between models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#discussions-and-notifications" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#discussions-and-notifications">Discussions and notifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#selling-courses" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#selling-courses">Selling courses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="website.html#altering-existing-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/website.html#altering-existing-views">Altering existing views</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="backend.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html">Building a Module</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="backend.html#start-stop-the-odoo-server" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#start-stop-the-odoo-server">Start/Stop the Odoo server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#build-an-odoo-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#build-an-odoo-module">Build an Odoo module</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#composition-of-a-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#composition-of-a-module">Composition of a module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#module-structure" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#module-structure">Module structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#object-relational-mapping" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#object-relational-mapping">Object-Relational Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#model-fields" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#model-fields">Model fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#data-files" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#data-files">Data files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#actions-and-menus" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#actions-and-menus">Actions and Menus</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#basic-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#basic-views">Basic views</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#generic-view-declaration" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#generic-view-declaration">Generic view declaration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#tree-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#tree-views">Tree views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#form-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#form-views">Form views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#search-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#search-views">Search views</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#relations-between-models" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#relations-between-models">Relations between models</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#relational-fields" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#relational-fields">Relational fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#inheritance" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#inheritance">Inheritance</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#model-inheritance" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#model-inheritance">Model inheritance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#view-inheritance" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#view-inheritance">View inheritance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#computed-fields-and-default-values" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#computed-fields-and-default-values">Computed fields and default values</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#dependencies" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#default-values" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#default-values">Default values</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#onchange" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#onchange">Onchange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#model-constraints" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#model-constraints">Model constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#advanced-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#advanced-views">Advanced Views</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#id3" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#id3">Tree views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#calendars" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#calendars">Calendars</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#id4" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#id4">Search views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#gantt" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#gantt">Gantt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#graph-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#graph-views">Graph views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#kanban" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#kanban">Kanban</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#workflows" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#workflows">Workflows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#security" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#security">Security</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#group-based-access-control-mechanisms" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#group-based-access-control-mechanisms">Group-based access control mechanisms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#access-rights" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#access-rights">Access rights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#record-rules" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#record-rules">Record rules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#wizards" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#wizards">Wizards</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#launching-wizards" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#launching-wizards">Launching wizards</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#internationalization" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#internationalization">Internationalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#reporting" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#reporting">Reporting</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#printed-reports" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#printed-reports">Printed reports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#dashboards" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#dashboards">Dashboards</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#webservices" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#webservices">WebServices</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#xml-rpc-library" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#xml-rpc-library">XML-RPC Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#json-rpc-library" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#json-rpc-library">JSON-RPC Library</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="themes.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html">Building Themes</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="themes.html#basic-set-up" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#basic-set-up">Basic set up</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="themes.html#static-page" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#static-page">Static Page</a></li>
+<li class="toctree-l4"><a class="reference internal" href="themes.html#pimp-your-theme" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#pimp-your-theme">Pimp Your Theme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="themes.html#build-your-first-snippet" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#build-your-first-snippet">Build Your First Snippet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="themes.html#advanced-customization" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#advanced-customization">Advanced Customization</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="themes.html#defining-your-theme-options" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#defining-your-theme-options">Defining Your Theme Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="themes.html#the-image-database" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#the-image-database">The Image Database</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="themes.html#theme-selector" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#theme-selector">Theme Selector</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="themes.html#set-up" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#set-up">Set Up</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="web.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html">Building Interface Extensions</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="web.html#a-simple-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#a-simple-module">A Simple Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#odoo-javascript-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#odoo-javascript-module">Odoo JavaScript Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#classes" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#widgets-basics" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widgets-basics">Widgets Basics</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#your-first-widget" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#your-first-widget">Your First Widget</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#display-content" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#display-content">Display Content</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#widget-parents-and-children" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widget-parents-and-children">Widget Parents and Children</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#destroying-widgets" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#destroying-widgets">Destroying Widgets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#the-qweb-template-engine" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#the-qweb-template-engine">The QWeb Template Engine</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#using-qweb" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#using-qweb">Using QWeb</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#widget-helpers" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widget-helpers">Widget Helpers</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#widget-s-jquery-selector" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widget-s-jquery-selector"><tt class="docutils literal"><span class="pre">Widget</span></tt>&#8216;s jQuery Selector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#easier-dom-events-binding" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#easier-dom-events-binding">Easier DOM Events Binding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#widget-events-and-properties" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widget-events-and-properties">Widget Events and Properties</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#events" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#events">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#properties" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#id3" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#id3">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#modify-existing-widgets-and-classes" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#modify-existing-widgets-and-classes">Modify existing widgets and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#translations" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#translations">Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#communication-with-the-odoo-server" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#communication-with-the-odoo-server">Communication with the Odoo Server</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#contacting-models" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#contacting-models">Contacting Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#compoundcontext" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#compoundcontext">CompoundContext</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#queries" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#queries">Queries</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#exercises" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#exercises">Exercises</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#existing-web-components" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#existing-web-components">Existing web components</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#the-action-manager" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#the-action-manager">The Action Manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#client-actions" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#client-actions">Client Actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#architecture-of-the-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#architecture-of-the-views">Architecture of the Views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#the-form-view-fields" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#the-form-view-fields">The Form View Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#the-form-view-custom-widgets" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#the-form-view-custom-widgets">The Form View Custom Widgets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="setup.html" tppabs="https://www.odoo.com/documentation/8.0/setup.html">Setting Up</a><ul class="current nav">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Installing Odoo</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="#demo">Demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#saas">SaaS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#packaged-installers">Packaged installers</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deb">Deb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rpm">RPM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#source-install">Source Install</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="#installing-dependencies">Installing dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-odoo">Running Odoo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html">Deploying Odoo</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#dbfilter" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#dbfilter">dbfilter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#postgresql" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#postgresql">PostgreSQL</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#configuring-odoo" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#configuring-odoo">Configuring Odoo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#https" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#https">HTTPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#builtin-server" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#builtin-server">Builtin server</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#livechat" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#livechat">LiveChat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#odoo-as-a-wsgi-application" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#odoo-as-a-wsgi-application">Odoo as a WSGI Application</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#cron-workers" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#cron-workers">Cron Workers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#id4" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#id4">LiveChat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#serving-static-files" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#serving-static-files">Serving Static Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#security" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#security">Security</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#super-admin-password" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#super-admin-password">&#8220;Super-admin&#8221; password</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html" tppabs="https://www.odoo.com/documentation/8.0/reference.html">Reference</a><ul class="nav">
+<li class="toctree-l2"><a class="reference internal" href="orm.html" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html">ORM</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="orm.html#recordsets" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#recordsets">Recordsets</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#field-access" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#field-access">Field access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#set-operations" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#set-operations">Set operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#other-recordset-operations" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#other-recordset-operations">Other recordset operations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#environment" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#environment">Environment</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#altering-the-environment" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#altering-the-environment">Altering the environment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#common-orm-methods" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#common-orm-methods">Common ORM methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#creating-models" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#creating-models">Creating Models</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#computed-fields" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#computed-fields">Computed fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#onchange-updating-ui-on-the-fly" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#onchange-updating-ui-on-the-fly">onchange: updating UI on the fly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#low-level-sql" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#low-level-sql">Low-level SQL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#old-api-compatibility" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#old-api-compatibility">Old API compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#model-reference" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#model-reference">Model Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#module-openerp.api" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#module-openerp.api">Method decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#fields" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#fields">Fields</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#basic-fields" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#basic-fields">Basic fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#relational-fields" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#relational-fields">Relational fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#inheritance-and-extension" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#inheritance-and-extension">Inheritance and extension</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#classical-inheritance" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#classical-inheritance">Classical inheritance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#extension" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#extension">Extension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#delegation" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#delegation">Delegation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#domains" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#domains">Domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#porting-from-the-old-api" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#porting-from-the-old-api">Porting from the old API</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#automatic-bridging-of-old-api-methods" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#automatic-bridging-of-old-api-methods">Automatic bridging of old API methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data.html" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html">Data Files</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="data.html#structure" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#core-operations" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#core-operations">Core operations</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="data.html#record" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#record"><tt class="docutils literal"><span class="pre">record</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#delete" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#delete"><tt class="docutils literal"><span class="pre">delete</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#function" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#function"><tt class="docutils literal"><span class="pre">function</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#workflow" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#workflow"><tt class="docutils literal"><span class="pre">workflow</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#shortcuts" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#shortcuts">Shortcuts</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="data.html#menuitem" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#menuitem"><tt class="docutils literal"><span class="pre">menuitem</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#template" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#template"><tt class="docutils literal"><span class="pre">template</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#report" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#report"><tt class="docutils literal"><span class="pre">report</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#csv-data-files" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#csv-data-files">CSV data files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="actions.html" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html">Actions</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="actions.html#window-actions-ir-actions-act-window" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#window-actions-ir-actions-act-window">Window Actions (<tt class="docutils literal"><span class="pre">ir.actions.act_window</span></tt>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html#url-actions-ir-actions-act-url" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#url-actions-ir-actions-act-url">URL Actions (<tt class="docutils literal"><span class="pre">ir.actions.act_url</span></tt>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html#server-actions-ir-actions-server" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#server-actions-ir-actions-server">Server Actions (<tt class="docutils literal"><span class="pre">ir.actions.server</span></tt>)</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="actions.html#code" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#code"><tt class="docutils literal"><span class="pre">code</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#object-create" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#object-create"><tt class="docutils literal"><span class="pre">object_create</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#object-write" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#object-write"><tt class="docutils literal"><span class="pre">object_write</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#multi" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#multi"><tt class="docutils literal"><span class="pre">multi</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#trigger" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#trigger"><tt class="docutils literal"><span class="pre">trigger</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#client-action" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#client-action"><tt class="docutils literal"><span class="pre">client_action</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#evaluation-context" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#evaluation-context">Evaluation context</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html#report-actions" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#report-actions">Report Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html#client-actions-ir-actions-client" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#client-actions-ir-actions-client">Client Actions (<tt class="docutils literal"><span class="pre">ir.actions.client</span></tt>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="views.html" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html">Views</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="views.html#common-structure" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#common-structure">Common Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#inheritance" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#inheritance">Inheritance</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="views.html#view-matching" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#view-matching">View matching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#view-resolution" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#view-resolution">View resolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#inheritance-specs" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#inheritance-specs">Inheritance specs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#lists" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#lists">Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#forms" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#forms">Forms</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="views.html#structural-components" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#structural-components">Structural components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#semantic-components" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#semantic-components">Semantic components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#business-views-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#business-views-guidelines">Business Views guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#configuration-forms-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#configuration-forms-guidelines">Configuration forms guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#dialog-forms-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#dialog-forms-guidelines">Dialog forms guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#configuration-wizards-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#configuration-wizards-guidelines">Configuration Wizards guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#graphs" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#graphs">Graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#kanban" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#kanban">Kanban</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="views.html#javascript-api" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#javascript-api">Javascript API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#calendar" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#calendar">Calendar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#gantt" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#gantt">Gantt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#diagram" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#diagram">Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#search" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#search">Search</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="views.html#search-defaults" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#search-defaults">Search defaults</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#qweb" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#qweb">QWeb</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html" tppabs="https://www.odoo.com/documentation/8.0/reference/module.html">Modules</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="module.html#manifest" tppabs="https://www.odoo.com/documentation/8.0/reference/module.html#manifest">Manifest</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html">Command-line interface: odoo.py</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#running-the-server" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#running-the-server">Running the server</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="cmdline.html#database" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#database">database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmdline.html#built-in-http" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#built-in-http">built-in HTTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmdline.html#logging" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#logging">logging</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#scaffolding" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#scaffolding">Scaffolding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#configuration-file" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#configuration-file">Configuration file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security.html" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html">Security in Odoo</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="security.html#access-control" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html#access-control">Access Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#record-rules" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html#record-rules">Record Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#field-access" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html#field-access">Field Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#workflow-transition-rules" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html#workflow-transition-rules">Workflow transition rules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html" tppabs="https://www.odoo.com/documentation/8.0/reference/testing.html">Testing Modules</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="testing.html#running-tests" tppabs="https://www.odoo.com/documentation/8.0/reference/testing.html#running-tests">Running tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http.html" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html">Web Controllers</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="http.html#routing" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#routing">Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#request" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#response" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#response">Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#controllers" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#controllers">Controllers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qweb.html" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html">QWeb</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#data-output" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#data-output">data output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#conditionals" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#conditionals">conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#loops" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#loops">loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#attributes" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#attributes">attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#setting-variables" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#setting-variables">setting variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#calling-sub-templates" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#calling-sub-templates">calling sub-templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#python" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#python">Python</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#exclusive-directives" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#exclusive-directives">Exclusive directives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#helpers" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#helpers">Helpers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#api" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#javascript" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#javascript">Javascript</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#id3" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#id3">Exclusive directives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#debugging" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#debugging">debugging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#id4" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#id4">Helpers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#id5" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#id5">API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="javascript.html" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html">Javascript</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="javascript.html#widgets" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#widgets">Widgets</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#dom-root" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#dom-root">DOM Root</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#dom-events-handling" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#dom-events-handling">DOM events handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#subclassing-widget" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#subclassing-widget">Subclassing Widget</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#development-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#development-guidelines">Development Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="javascript.html#rpc" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#rpc">RPC</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#high-level-api-calling-into-odoo-models" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#high-level-api-calling-into-odoo-models">High-level API: calling into Odoo models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#low-level-api-rpc-calls-to-python-side" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#low-level-api-rpc-calls-to-python-side">Low-level API: RPC calls to Python side</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="javascript.html#web-client" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#web-client">Web Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="javascript.html#testing-in-odoo-web-client" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#testing-in-odoo-web-client">Testing in Odoo Web Client</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#javascript-unit-testing" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#javascript-unit-testing">Javascript Unit Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#writing-a-test-case" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#writing-a-test-case">Writing a test case</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#assertions" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#assertions">Assertions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#getting-an-odoo-instance" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#getting-an-odoo-instance">Getting an Odoo instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#dom-scratchpad" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#dom-scratchpad">DOM Scratchpad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#loading-templates" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#loading-templates">Loading templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#asynchronous-cases" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#asynchronous-cases">Asynchronous cases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#id3" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#id3">RPC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#testing-api" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#testing-api">Testing API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#running-through-python" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#running-through-python">Running through Python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="translations.html" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html">Translating Modules</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="translations.html#exporting-translatable-term" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html#exporting-translatable-term">Exporting translatable term</a></li>
+<li class="toctree-l3"><a class="reference internal" href="translations.html#implicit-exports" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html#implicit-exports">Implicit exports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="translations.html#explicit-exports" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html#explicit-exports">Explicit exports</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html">QWeb Reports</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="reports.html#paper-formats" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html#paper-formats">Paper Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#expressions-used-in-odoo-report-templates" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html#expressions-used-in-odoo-report-templates">Expressions used in Odoo report templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#custom-report" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html#custom-report">Custom report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html">Workflows</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="workflows.html#basics" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#basics">Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workflows.html#activities" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#activities">Activities</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#flow-start-and-flow-stop" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#flow-start-and-flow-stop">Flow start and flow stop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#subflow" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#subflow">Subflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#sending-a-signal-from-a-subflow" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#sending-a-signal-from-a-subflow">Sending a signal from a subflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#server-actions" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#server-actions">Server actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#python-action" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#python-action">Python action</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#split-mode" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#split-mode">Split mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#join-mode" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#join-mode">Join mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#kinds" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#kinds">Kinds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="workflows.html#transitions" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#transitions">Transitions</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#conditions" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#conditions">Conditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#signals" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#signals">Signals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#triggers" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#triggers">Triggers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_integration.html" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html">Web Service</a><ul class="nav">
+<li class="toctree-l2"><a class="reference internal" href="api_integration.html#connection" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#connection">Connection</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#configuration" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#logging-in" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#logging-in">Logging in</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_integration.html#calling-methods" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#calling-methods">Calling methods</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#list-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#list-records">List records</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="api_integration.html#pagination" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#pagination">Pagination</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#count-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#count-records">Count records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#read-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#read-records">Read records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#listing-record-fields" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#listing-record-fields">Listing record fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#search-and-read" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#search-and-read">Search and read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#create-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#create-records">Create records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#update-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#update-records">Update records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#delete-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#delete-records">Delete records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#inspection-and-introspection" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#inspection-and-introspection">Inspection and introspection</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="api_integration.html#ir-model" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#ir-model"><tt class="docutils literal"><span class="pre">ir.model</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_integration.html#ir-model-fields" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#ir-model-fields"><tt class="docutils literal"><span class="pre">ir.model.fields</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#workflow-manipulations" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#workflow-manipulations">Workflow manipulations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#report-printing" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#report-printing">Report printing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+        <p><a href="javascript:if(confirm('https://github.com/odoo/odoo/edit/8.0/doc/setup/install.rst  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/odoo/odoo/edit/8.0/doc/setup/install.rst'" tppabs="https://github.com/odoo/odoo/edit/8.0/doc/setup/install.rst" class="github">
+          Edit on GitHub
+        </a></p>
+      
+    </div>
+  </div>
+  
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installing-odoo">
+<span id="setup-install"></span><h1>Installing Odoo</h1>
+<p>There are mutliple ways to install Odoo, or not install it at all, depending
+on the intended use case.</p>
+<p>This documents attempts to describe most of the installation options.</p>
+<dl class="docutils">
+<dt><a class="reference internal" href="#setup-install-demo"><em>Demo</em></a></dt>
+<dd>the simplest &#8220;installation&#8221;, only suitable for getting a quick feel for
+Odoo or trying something out</dd>
+<dt><a class="reference internal" href="#setup-install-saas"><em>SaaS</em></a></dt>
+<dd><p class="first">trivial to start with and fully managed and migrated by Odoo S.A., can be
+used to both test Odoo and use it for your business, but restricts the
+flexibility of the system somewhat (check: no custom modules? what else?).</p>
+<p class="last">Can be used for both testing Odoo and long-term &#8220;production&#8221; use.</p>
+</dd>
+<dt><a class="reference internal" href="#setup-install-packaged"><em>Packaged installers</em></a></dt>
+<dd><p class="first">simple to get started, allows more flexibility in hosting and deploying
+the system and greater control over where data is stored. The maintenance
+burden is shifted to the user.</p>
+<p class="last">Suitable for testing Odoo, developing modules and can be used for
+long-term production use with additional deployment and maintenance work.</p>
+</dd>
+<dt><a class="reference internal" href="#setup-install-source"><em>Source Install</em></a></dt>
+<dd><p class="first">harder to get started than <a class="reference internal" href="#setup-install-packaged"><em>Packaged installers</em></a>, provides
+even greater flexibility: packaged installers don&#8217;t generally allow
+multiple running Odoo versions on the same system, and don&#8217;t provide easy
+source access to Odoo itself.</p>
+<p>Good for developing modules, can be used as base for production
+deployment.</p>
+<p class="last">The source code can be obtained by downloading a tarball or using git.
+Using git makes it easier to update, switching between multiple versions
+and contribute.</p>
+</dd>
+</dl>
+<div class="section" id="demo">
+<span id="setup-install-demo"></span><h2>Demo</h2>
+<p>To simply get a quick idea of Odoo, <a class="reference external" href="javascript:if(confirm('https://demo.odoo.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://demo.odoo.com/'" tppabs="https://demo.odoo.com/">demo</a> instances are available. They are
+shared instances which only live for a few hours, and can be used to browse
+around and try things out with no commitment.</p>
+<p><a class="reference external" href="javascript:if(confirm('https://demo.odoo.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://demo.odoo.com/'" tppabs="https://demo.odoo.com/">Demo</a> instances require no local installation, just a web browser.</p>
+</div>
+<div class="section" id="saas">
+<span id="setup-install-saas"></span><h2>SaaS</h2>
+<p>Odoo&#8217;s <a class="reference external" href="javascript:if(confirm('https://www.odoo.com/page/start  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://www.odoo.com/page/start'" tppabs="https://www.odoo.com/page/start">SaaS</a> provides private instances and starts out free. It can be used to
+discover and test Odoo and do non-code customizations without having to
+install it locally.</p>
+<p>Like <a class="reference external" href="javascript:if(confirm('https://demo.odoo.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://demo.odoo.com/'" tppabs="https://demo.odoo.com/">demo</a> instances, <a class="reference external" href="javascript:if(confirm('https://www.odoo.com/page/start  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://www.odoo.com/page/start'" tppabs="https://www.odoo.com/page/start">SaaS</a> instances require no local installation, a web
+browser is sufficient.</p>
+</div>
+<div class="section" id="packaged-installers">
+<span id="setup-install-packaged"></span><h2>Packaged installers</h2>
+<p>Odoo provides packaged installers for Windows, deb-based distributions
+(Debian, Ubuntu, â€¦) and RPM-based distributions (Fedora, CentOS, RHEL, â€¦).</p>
+<p>These packages automatically set up all dependencies, but may be difficult to
+keep up-to-date.</p>
+<p>Official packages with all relevant dependency requirements are available on
+<a class="reference external" href="javascript:if(confirm('https://nightly.odoo.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://nightly.odoo.com/'" tppabs="https://nightly.odoo.com/">https://nightly.odoo.com</a>.</p>
+<div class="section" id="windows">
+<h3>Windows</h3>
+<ul>
+<li><p class="first">download <a class="reference external" href="javascript:if(confirm('https://nightly.odoo.com/8.0/nightly/exe/odoo_8.0.latest.exe  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://nightly.odoo.com/8.0/nightly/exe/odoo_8.0.latest.exe'" tppabs="https://nightly.odoo.com/8.0/nightly/exe/odoo_8.0.latest.exe">https://nightly.odoo.com/8.0/nightly/exe/odoo_8.0.latest.exe</a></p>
+</li>
+<li><p class="first">run the downloaded file</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">on Windows 8, you may see a warning titled &#8220;Windows protected
+your PC&#8221;. Click <em class="guilabel">More Info</em> then
+<em class="guilabel">Run anyway</em></p>
+</div>
+</li>
+<li><p class="first">Accept the <a class="reference external" href="javascript:if(confirm('http://en.wikipedia.org/wiki/User_Account_Control  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://en.wikipedia.org/wiki/User_Account_Control'" tppabs="http://en.wikipedia.org/wiki/User_Account_Control">UAC</a> prompt</p>
+</li>
+<li><p class="first">Go through the various installation steps</p>
+</li>
+</ul>
+<p>Odoo will automatically be started at the end of the installation.</p>
+<div class="section" id="configuration">
+<h4>Configuration</h4>
+<p>The <a class="reference internal" href="cmdline.html#reference-cmdline-config" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#reference-cmdline-config"><em>configuration file</em></a> can be found at
+<tt class="file docutils literal"><em><span class="pre">%PROGRAMFILES%</span></em><span class="pre">\Odoo</span> <span class="pre">8.0-</span><em><span class="pre">id</span></em><span class="pre">\server\openerp-server.conf</span></tt>.</p>
+<p>The configuration file can be edited to connect to a remote Postgresql, edit
+file locations or set a dbfilter.</p>
+<p>To reload the configuration file, restart the Odoo service via
+<em class="menuselection">Services â€£ odoo server</em>.</p>
+</div>
+</div>
+<div class="section" id="deb">
+<h3>Deb</h3>
+<p>To install Odoo 8.0 on Debian-based distribution, execute the following
+commands as root:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> wget -O - https://nightly.odoo.com/odoo.key | apt-key add -
+<span class="gp">#</span> <span class="nb">echo</span> <span class="s2">&quot;deb http://nightly.odoo.com/8.0/nightly/deb/ ./&quot;</span> &gt;&gt; /etc/apt/sources.list
+<span class="gp">#</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install odoo
+</pre></div>
+</div>
+<p>This will automatically install all dependencies, install Odoo itself as a
+daemon and automatically start it.</p>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">to print PDF reports, you must install <a class="reference external" href="javascript:if(confirm('http://wkhtmltopdf.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://wkhtmltopdf.org/'" tppabs="http://wkhtmltopdf.org/">wkhtmltopdf</a> yourself:
+the version of <a class="reference external" href="javascript:if(confirm('http://wkhtmltopdf.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://wkhtmltopdf.org/'" tppabs="http://wkhtmltopdf.org/">wkhtmltopdf</a> available in debian repositories does
+not support headers and footers so it can not be installed
+automatically. Use the version available on
+<a class="reference external" href="javascript:if(confirm('http://wkhtmltopdf.org/downloads.html  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://wkhtmltopdf.org/downloads.html'" tppabs="http://wkhtmltopdf.org/downloads.html">the wkhtmltopdf download page</a>.</p>
+</div>
+<div class="section" id="id1">
+<h4>Configuration</h4>
+<p>The <a class="reference internal" href="cmdline.html#reference-cmdline-config" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#reference-cmdline-config"><em>configuration file</em></a> can be found at
+<tt class="file docutils literal"><span class="pre">/etc/odoo/openerp-server.conf</span></tt></p>
+<p>When the configuration file is edited, Odoo must be restarted using
+<tt class="docutils literal"><span class="pre">service</span></tt>:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo service odoo restart
+<span class="go">Restarting odoo: ok</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rpm">
+<h3>RPM</h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>with RHEL-based distributions (RHEL, CenOS, Scientific Linux), <a class="reference external" href="javascript:if(confirm('https://fedoraproject.org/wiki/EPEL  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://fedoraproject.org/wiki/EPEL'" tppabs="https://fedoraproject.org/wiki/EPEL">EPEL</a> must
+be added to the distribution&#8217;s repositories for all of Odoo&#8217;s
+dependencies to be available. For CenOS:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo yum install -y epel-release
+</pre></div>
+</div>
+<p class="last">For other RHEL-based distribution, see the <a class="reference external" href="javascript:if(confirm('https://fedoraproject.org/wiki/EPEL  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://fedoraproject.org/wiki/EPEL'" tppabs="https://fedoraproject.org/wiki/EPEL">EPEL</a> documentation.</p>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo yum install -y postgresql-server
+<span class="gp">$</span> sudo postgresql-setup initdb
+<span class="gp">$</span> sudo systemctl <span class="nb">enable </span>postgresql
+<span class="gp">$</span> sudo systemctl start postgresql
+<span class="gp">$</span> sudo yum-config-manager --add-repo<span class="o">=</span>https://nightly.odoo.com/8.0/nightly/rpm/odoo.repo
+<span class="gp">$</span> sudo yum install -y odoo
+<span class="gp">$</span> sudo systemctl <span class="nb">enable </span>odoo
+<span class="gp">$</span> sudo systemctl start odoo
+</pre></div>
+</div>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">to print PDF reports, you must install <a class="reference external" href="javascript:if(confirm('http://wkhtmltopdf.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://wkhtmltopdf.org/'" tppabs="http://wkhtmltopdf.org/">wkhtmltopdf</a> yourself:
+the version of <a class="reference external" href="javascript:if(confirm('http://wkhtmltopdf.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://wkhtmltopdf.org/'" tppabs="http://wkhtmltopdf.org/">wkhtmltopdf</a> available in Fedora/CentOS
+repositories does not support headers and footers so it can not
+be installed automatically. Use the version available on
+<a class="reference external" href="javascript:if(confirm('http://wkhtmltopdf.org/downloads.html  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://wkhtmltopdf.org/downloads.html'" tppabs="http://wkhtmltopdf.org/downloads.html">the wkhtmltopdf download page</a>.</p>
+</div>
+<div class="section" id="id2">
+<h4>Configuration</h4>
+<p>The <a class="reference internal" href="cmdline.html#reference-cmdline-config" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#reference-cmdline-config"><em>configuration file</em></a> can be found at
+<tt class="file docutils literal"><span class="pre">/etc/odoo/openerp-server.conf</span></tt></p>
+<p>When the configuration file is edited, Odoo must be restarted via SystemD:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo systemctl restart odoo
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="source-install">
+<span id="setup-install-source"></span><h2>Source Install</h2>
+<p>The source &#8220;installation&#8221; really is about not installing Odoo, and running
+it directly from source instead.</p>
+<p>This can be more convenient for module developers as the Odoo source is
+more easily accessible than using packaged installation (for information or
+to build this documentation and have it available offline).</p>
+<p>It also makes starting and stopping Odoo more flexible and explicit than the
+services set up by the packaged installations, and allows overriding settings
+using <a class="reference internal" href="cmdline.html#reference-cmdline" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#reference-cmdline"><em>command-line parameters</em></a> without needing to
+edit a configuration file.</p>
+<p>Finally it provides greater control over the system&#8217;s set up, and allows more
+easily keeping (and running) multiple versions of Odoo side-by-side.</p>
+<p>There are two way to get the odoo sourcei source tarball or git.</p>
+<p>Using git allows simpler update and easier switching between differents
+versions of Odoo. It also simplifies maintaining non-module patches and
+contributions.  The primary drawback of git is that it is significantly larger
+than a tarball as it contains the entire history of the Odoo project.</p>
+<p>The Odoo tarball can be downloaded from
+<a class="reference external" href="javascript:if(confirm('https://nightly.odoo.com/8.0/nightly/src/odoo_8.0-latest.tar.gz  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://nightly.odoo.com/8.0/nightly/src/odoo_8.0-latest.tar.gz'" tppabs="https://nightly.odoo.com/8.0/nightly/src/odoo_8.0-latest.tar.gz">https://nightly.odoo.com/8.0/nightly/src/odoo_8.0-latest.tar.gz</a></p>
+<p>On windows <a class="reference external" href="javascript:if(confirm('http://www.7-zip.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.7-zip.org/'" tppabs="http://www.7-zip.org/">7-Zip</a> may be use to decompress the archive
+as Windows does not handle .tar.gz archives natively.</p>
+<p>The git repository is <a class="reference external" href="javascript:if(confirm('https://github.com/odoo/odoo.git  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/odoo/odoo.git'" tppabs="https://github.com/odoo/odoo.git">https://github.com/odoo/odoo.git</a> and can be cloned using
+the command</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git clone https://github.com/odoo/odoo.git
+</pre></div>
+</div>
+<div class="section" id="installing-dependencies">
+<h3>Installing dependencies</h3>
+<p>Source installation requires manually installing dependencies:</p>
+<ul>
+<li><p class="first">Python 2.7.</p>
+<ul class="simple">
+<li>on Linux, already included</li>
+<li>on OS X, already included</li>
+<li>on Windows, use <a class="reference external" href="javascript:if(confirm('https://www.python.org/downloads/windows/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://www.python.org/downloads/windows/'" tppabs="https://www.python.org/downloads/windows/">the official Python 2.7 installer</a>.</li>
+</ul>
+</li>
+<li><p class="first">PostgreSQL, to use a local database</p>
+<p>After installation you will need to create a postgres user (also named a
+role), by default the only user is <tt class="docutils literal"><span class="pre">postgres</span></tt>, and Odoo forbids connecting
+as <tt class="docutils literal"><span class="pre">postgres</span></tt>.</p>
+<ul>
+<li><p class="first">on Linux, use your distribution&#8217;s package, then create a postgres user
+named like your login:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo su - postgres -c <span class="s2">&quot;createuser -s $USER&quot;</span>
+</pre></div>
+</div>
+<p>Because the role login is the same as your unix login unix sockets can be
+use without a password.</p>
+</li>
+<li><p class="first">on OS X, <a class="reference external" href="javascript:if(confirm('http://postgresapp.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://postgresapp.com/'" tppabs="http://postgresapp.com/">postgres.app</a> is the simplest way to
+get started, then create a postgres user like on Linux.</p>
+</li>
+<li><p class="first">on Windows, use <a class="reference external" href="javascript:if(confirm('http://www.enterprisedb.com/products-services-training/pgdownload  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.enterprisedb.com/products-services-training/pgdownload'" tppabs="http://www.enterprisedb.com/products-services-training/pgdownload">PostgreSQL for windows</a> then add PostgreSQL&#8217;s <tt class="docutils literal"><span class="pre">bin</span></tt>
+directory (default: <tt class="docutils literal"><span class="pre">C:\Program</span> <span class="pre">Files\PostgreSQL\9.3\bin</span></tt>) to your
+<span class="target" id="index-0"></span><tt class="xref std std-envvar docutils literal"><span class="pre">PATH</span></tt></p>
+<p>Then create a postgres user with a password using the pg admin gui, for
+example login <tt class="docutils literal"><span class="pre">odoo</span></tt> and password <tt class="docutils literal"><span class="pre">odoo</span></tt>.</p>
+<p>This user and password will be provided with the -w and -r option or in the
+config file.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Python dependencies listed in the <tt class="file docutils literal"><span class="pre">requirements.txt</span></tt> file.</p>
+<ul>
+<li><p class="first">on Linux python dependencies may be installable with the system&#8217;s package
+manager or using pip.</p>
+<p>For libraries using native code (Pillow, lxml, greenlet, gevent, psycopg2) it
+may be necessary to install development tools and native dependencies before
+pip is able to install the dependencies themselves. These are available in
+<tt class="docutils literal"><span class="pre">-dev</span></tt> or <tt class="docutils literal"><span class="pre">-devel</span></tt> packages for Python, Postgres, libxml2, libxslt and
+libevent. Then the dependecies can be installed using</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> pip install -r requirements.txt
+</pre></div>
+</div>
+</li>
+<li><p class="first">on OS X, install the Command Line Tools (<tt class="docutils literal"><span class="pre">xcode-select</span> <span class="pre">--install</span></tt>) the
+native dependency via your preferred package manager (<a class="reference external" href="javascript:if(confirm('https://www.macports.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://www.macports.org/'" tppabs="https://www.macports.org/">macports</a>,
+<a class="reference external" href="javascript:if(confirm('http://brew.sh/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://brew.sh/'" tppabs="http://brew.sh/">homebrew</a>). Then pip can be used.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> pip install -r requirements.txt
+</pre></div>
+</div>
+</li>
+<li><p class="first">on Windows you need to install some of the dependencies manually, tweak the
+requirements.txt file, then run pip to install the remaning ones.</p>
+<p>Install <tt class="docutils literal"><span class="pre">psycopg</span></tt> using the installer here
+<a class="reference external" href="javascript:if(confirm('http://www.stickpeople.com/projects/python/win-psycopg/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.stickpeople.com/projects/python/win-psycopg/'" tppabs="http://www.stickpeople.com/projects/python/win-psycopg/">http://www.stickpeople.com/projects/python/win-psycopg/</a></p>
+<p>Install <tt class="docutils literal"><span class="pre">pip</span></tt> from <a class="reference external" href="javascript:if(confirm('http://www.lfd.uci.edu/~gohlke/pythonlibs/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.lfd.uci.edu/~gohlke/pythonlibs/'" tppabs="http://www.lfd.uci.edu/~gohlke/pythonlibs/">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a></p>
+<p>Then edit the requirements.txt file:</p>
+<ul class="simple">
+<li>remove <tt class="docutils literal"><span class="pre">psycopg</span></tt> as you already have it.</li>
+<li>remove the optional <tt class="docutils literal"><span class="pre">python-ldap</span></tt>, <tt class="docutils literal"><span class="pre">gevent</span></tt> and <tt class="docutils literal"><span class="pre">psutil</span></tt> because they
+require compilation.</li>
+<li>add <tt class="docutils literal"><span class="pre">pypiwin32</span></tt> because it&#8217;s needed under windows.</li>
+</ul>
+<p>Then use pip to install install the dependecies using the following command
+from a cmd.exe prompt</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">C:\&gt; cd \YourOdooPath</span>
+<span class="go">C:\YourOdooPath&gt; C:\Python27\Scripts\pip.exe install -r requirements.txt</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Less css compiler via nodejs</p>
+<ul>
+<li><p class="first">on Linux, use your distribution&#8217;s package to install nodejs and npm.</p>
+<p>In debian you need at least jessie, as the packaged version of npm before
+that does not work. In Ubuntu you need at least Ubuntu 14.04, as the
+packaged version of npm before that does not work. Otherwise install nodejs
+and npm manually.</p>
+<p>Once you have npm working, install less and less-plugin-clean-css.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo npm install -g less less-plugin-clean-css
+</pre></div>
+</div>
+<p>On debian and Ubuntu you also need to set a symbolic link from noejs to
+node because the shebang line of lessc uses node.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo ln -s /usr/bin/nodejs /usr/bin/node
+</pre></div>
+</div>
+</li>
+<li><p class="first">on OS X, install nodejs via your preferred package manager (<a class="reference external" href="javascript:if(confirm('https://www.macports.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://www.macports.org/'" tppabs="https://www.macports.org/">macports</a>,
+<a class="reference external" href="javascript:if(confirm('http://brew.sh/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://brew.sh/'" tppabs="http://brew.sh/">homebrew</a>) then install less and less-plugin-clean-css.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo npm install -g less less-plugin-clean-css
+</pre></div>
+</div>
+</li>
+<li><p class="first">on Windows, install nodejs then reboot and install less and
+less-plugin-clean-css.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">C:\&gt; npm install -g less less-plugin-clean-css</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="running-odoo">
+<h3>Running Odoo</h3>
+<p>Once all dependencies are set up, Odoo can be launched by running <tt class="docutils literal"><span class="pre">odoo.py</span></tt>.</p>
+<p><a class="reference internal" href="cmdline.html#reference-cmdline" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#reference-cmdline"><em>Configuration</em></a> can be provided either through
+<a class="reference internal" href="cmdline.html#reference-cmdline" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#reference-cmdline"><em>command-line arguments</em></a> or through a
+<a class="reference internal" href="cmdline.html#reference-cmdline-config" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#reference-cmdline-config"><em>configuration file</em></a>.</p>
+<p>Common necessary configurations are:</p>
+<ul>
+<li><p class="first">PostgreSQL host, port, user and password.</p>
+<p>Odoo has no defaults beyond
+<a class="reference external" href="javascript:if(confirm('http://initd.org/psycopg/docs/module.html  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://initd.org/psycopg/docs/module.html'" tppabs="http://initd.org/psycopg/docs/module.html">psycopg2&#8217;s defaults</a>: connects
+over a UNIX socket on port 5432 with the current user and no password.</p>
+</li>
+<li><p class="first">Custom addons path beyond the defaults, to load your own modules</p>
+</li>
+</ul>
+<p>Under Windows a typical way to execute odoo would be:</p>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span class="go">C:\YourOdooPath&gt; python odoo.py -w odoo -r odoo --addons-path=addons,../mymodules --db-filter=mydb$</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Where <tt class="docutils literal"><span class="pre">odoo</span></tt>, <tt class="docutils literal"><span class="pre">odoo</span></tt> are the postgresql login and password,
+<tt class="docutils literal"><span class="pre">../mymodules</span></tt> a directory with additional addons and <tt class="docutils literal"><span class="pre">mydb</span></tt> the default db
+to serve on localhost:8069</p>
+<p>Under Unix a typical way to execute odoo would be:</p>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre>$ ./odoo.py --addons-path=addons,../mymodules --db-filter=mydb$
+</pre></div>
+</div>
+</div></blockquote>
+<p>Where <tt class="docutils literal"><span class="pre">../mymodules</span></tt> is a directory with additional addons and <tt class="docutils literal"><span class="pre">mydb</span></tt> the default db
+to serve on localhost:8069</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div>
+    <div class="footer">
+      <div class="container">
+        <ul class="docs-footer-links muted">
+            <li>
+                &copy; Copyright <a href="javascript:if(confirm('https://odoo.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://odoo.com/'" tppabs="https://odoo.com/">Odoo S.A.</a>.
+            </li><li>Â·</li>
+            <li>Created using <a href="javascript:if(confirm('http://sphinx-doc.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://sphinx-doc.org/'" tppabs="http://sphinx-doc.org/">Sphinx</a> 1.2.2.</li>
+        </ul>
+      <p>
+        odoo docs theme based on <a href="javascript:if(confirm('http://getbootstrap.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://getbootstrap.com/'" tppabs="http://getbootstrap.com/">Bootstrap
+        3.2 documentation</a> adapted to
+        <a href="javascript:if(confirm('http://sphinx-doc.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://sphinx-doc.org/'" tppabs="http://sphinx-doc.org/">Sphinx</a> output with branding and
+        color changes.
+      </p>
+      </div>
+    </div><script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','analytics.js'/*tpa=https://www.google-analytics.com/analytics.js*/,'ga');
+
+    ga('create', 'UA-52174891-1', 'auto');
+    ga('send','pageview');
+    </script>
+  </body>
+</html>

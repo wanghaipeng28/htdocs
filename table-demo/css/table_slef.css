@@ -1,0 +1,74 @@
+.table {
+  color: #4c4c4c;
+}
+.table thead tr {
+  background-color: #eee;
+}
+.table thead tr th {
+  padding: 3px 6px;
+  border-left: 1px solid #dfdfdf;
+}
+.table thead tr th:first-child {
+  border-left: none;
+}
+.table > tbody > tr:nth-of-type(odd) {
+  background-color: #EEEEF6;
+}
+.table tbody tr td {
+  padding: 3px 6px;
+  white-space: pre-line;
+}
+.table tbody tr td.list_group_name.space1 {
+  padding-left: 10px;
+}
+.table tbody tr td.list_group_name.space2 {
+  padding-left: 25px;
+}
+.table tbody tr td.list_group_name.space3 {
+  padding-left: 40px;
+}
+.table tbody tr td.list_group_name.space4 {
+  padding-left: 55px;
+}
+.table tbody tr td.list_group_name.space5 {
+  padding-left: 70px;
+}
+.table tbody tr td.list_group_name.space6 {
+  padding-left: 85px;
+}
+.table tbody tr td.list_group_name.space7 {
+  padding-left: 100px;
+}
+.table tbody tr td.list_group_name.space8 {
+  padding-left: 115px;
+}
+.table tbody tr td.list_group_name.space9 {
+  padding-left: 130px;
+}
+.table tbody tr td.list_group_name.space10 {
+  padding-left: 145px;
+}
+.table tbody tr td.list_group_name:before {
+  margin-right: 8px;
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: url("../img/ui-icons1.png") no-repeat -69px -22px;
+}
+.table tbody tr td.list_group_name.showChild:before {
+  background: url("../img/ui-icons1.png") no-repeat -69px -22px;
+}
+.table tbody tr td.list_group_name:before {
+  background-position: -39px -21px;
+}
+.table tbody tr.group_header {
+  cursor: pointer;
+  background-color: #ededed;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#dedede));
+  background-image: -webkit-linear-gradient(top, #fcfcfc, #dedede);
+  background-image: -moz-linear-gradient(top, #fcfcfc, #dedede);
+  background-image: -ms-linear-gradient(top, #fcfcfc, #dedede);
+  background-image: -o-linear-gradient(top, #fcfcfc, #dedede);
+  background-image: linear-gradient(to bottom, #fcfcfc, #dedede);
+}

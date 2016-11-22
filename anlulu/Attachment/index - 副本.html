@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accessible Map</title>
+    <link rel="stylesheet" href="css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="js/polyfill.min.js"></script>
+    <script src="js/ol.js"></script>
+    <style>
+      a.skiplink {
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+        padding: 0;
+        border: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+      }
+      a.skiplink:focus {
+        clip: auto;
+        height: auto;
+        width: auto;
+        background-color: #fff;
+        padding: 0.3em;
+      }
+      #map:focus {
+        outline: #4A74A8 solid 0.15em;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skiplink" href="#map">Go to map</a>
+    <div id="map" class="map" tabindex="0"></div>
+    <button id="zoom-out">Zoom out</button>
+    <button id="zoom-in">Zoom in</button>
+    <script>
+		var projection = ol.proj.get("EPSG:3857");
+		var resolutions = [];
+		for(var i=0; i<19; i++){
+			resolutions[i] = Math.pow(2, 18-i);
+		}
+		var tilegrid  = new ol.tilegrid.TileGrid({
+			origin: [0,0],
+			resolutions: resolutions
+		});
+		var baidu_source = new ol.source.TileImage({
+			projection: projection,
+			tileGrid: tilegrid,
+			tileUrlFunction: function(tileCoord, pixelRatio, proj){
+				if(!tileCoord){
+					return "";
+				}
+				var z = tileCoord[0];
+				var x = tileCoord[1];
+				var y = tileCoord[2];
+
+				if(x<0){
+					x = "M"+(-x);
+				}
+				if(y<0){
+					y = "M"+(-y);
+				}
+				//imgs.push(x+"-"+y+"-"+z);
+				//console.log(imgs);
+				return "http://online3.map.bdimg.com/onlinelabel/?qt=tile&x="+x+"&y="+y+"&z="+z+"&styles=pl&udt=20151021&scaler=1&p=1";
+			}
+		});
+		console.log(baidu_source);
+		var baidu_layer = new ol.layer.Tile({
+			source: baidu_source
+		});
+
+      var map = new ol.Map({
+        layers: [baidu_layer],
+        target: 'map',
+        controls: ol.control.defaults({
+          attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
+            collapsible: false
+          })
+        }),
+        view: new ol.View({
+          center: [12956548.164333934, 4828641.223994951],
+          zoom: 11
+        })
+      });
+
+      document.getElementById('zoom-out').onclick = function() {
+        var view = map.getView();
+        var zoom = view.getZoom();
+        view.setZoom(zoom - 1);
+      };
+
+      document.getElementById('zoom-in').onclick = function() {
+        var view = map.getView();
+        var zoom = view.getZoom();
+		console.log(zoom);
+        view.setZoom(zoom + 1);
+		var center = view.getCenter();
+		console.log(center);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>datatables-demo</title>
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css"/>
+    <script src="jquery-1.11.3.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <table id="example" class="display" cellspacing="0" width="80%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+    </table>
+    <script>
+        $(document).ready(function(){
+            $('#example').DataTable({
+				"serverSide": true,
+				"ajax": {
+					url:"data/data.json",
+					type:'POST'
+				}
+			});
+        });
+    </script>
+</body>
+</html>

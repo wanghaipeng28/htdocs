@@ -1,0 +1,1687 @@
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Building a Website &mdash; odoo 8.0 documentation</title>
+    
+    <link rel="stylesheet" href="odoo.css" tppabs="https://www.odoo.com/documentation/8.0/_static/odoo.css" type="text/css" />
+    <link rel="stylesheet" href="pygments.css" tppabs="https://www.odoo.com/documentation/8.0/_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="patchqueue.css" tppabs="https://www.odoo.com/documentation/8.0/_static/patchqueue.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="jquery.js" tppabs="https://www.odoo.com/documentation/8.0/_static/jquery.js"></script>
+    <script type="text/javascript" src="underscore.js" tppabs="https://www.odoo.com/documentation/8.0/_static/underscore.js"></script>
+    <script type="text/javascript" src="doctools.js" tppabs="https://www.odoo.com/documentation/8.0/_static/doctools.js"></script>
+    <script type="text/javascript" src="patchqueue.js" tppabs="https://www.odoo.com/documentation/8.0/_static/patchqueue.js"></script>
+    <script type="text/javascript" src="scrollspy.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/scrollspy.js"></script>
+    <script type="text/javascript" src="affix.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/affix.js"></script>
+    <script type="text/javascript" src="tooltip.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/tooltip.js"></script>
+    <script type="text/javascript" src="collapse.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/collapse.js"></script>
+    <script type="text/javascript" src="dropdown.js" tppabs="https://www.odoo.com/documentation/8.0/_static/bootstrap/js/dropdown.js"></script>
+    <script type="text/javascript" src="ZeroClipboard.min.js" tppabs="https://www.odoo.com/documentation/8.0/_static/zeroclipboard-2.1.6/ZeroClipboard.min.js"></script>
+    <script type="text/javascript" src="app.js" tppabs="https://www.odoo.com/documentation/8.0/_static/app.js"></script>
+    <link rel="top" title="odoo 8.0 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="../tutorials.html" />
+    <link rel="next" title="Building a Module" href="backend.html" />
+    <link rel="prev" title="Tutorials" href="../tutorials.html" /><link rel="canonical" href="https://www.odoo.com/documentation/8.0/howtos/website.html"/>
+  </head>
+  <body><header class="navbar navbar-default navbar-static-top docs-nav" id="top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-main">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html" tppabs="https://www.odoo.com/documentation/8.0/index.html" class="o_logo navbar-brand">
+        <span class="o_logo_main">odoo</span><span class="o_logo_app">doc</span>
+      </a>
+      
+        <div class="versions navbar-brand">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            8.0 <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            
+              <li><a href="javascript:if(confirm('https://www.odoo.com/documentation/master/howtos/website.html  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://www.odoo.com/documentation/master/howtos/website.html'" tppabs="https://www.odoo.com/documentation/master/howtos/website.html">master</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+    <nav class="collapse navbar-collapse navbar-main" role="navigation">
+      <ul class="current nav navbar-nav navbar-right">
+<li class="toctree-l1 current dropdown"><a class="dropdown-toggle reference internal" data-toggle="dropdown" href="tutorials.html" tppabs="https://www.odoo.com/documentation/8.0/tutorials.html">Tutorials</a><ul class="current dropdown-menu">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Building a Website</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backend.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html">Building a Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="themes.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html">Building Themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html">Building Interface Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 dropdown"><a class="dropdown-toggle reference internal" data-toggle="dropdown" href="setup.html" tppabs="https://www.odoo.com/documentation/8.0/setup.html">Setting Up</a><ul class="dropdown-menu">
+<li class="toctree-l2"><a class="reference internal" href="install.html" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html">Installing Odoo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html">Deploying Odoo</a></li>
+</ul>
+</li>
+<li class="toctree-l1 dropdown"><a class="dropdown-toggle reference internal" data-toggle="dropdown" href="reference.html" tppabs="https://www.odoo.com/documentation/8.0/reference.html">Reference</a><ul class="dropdown-menu">
+<li class="toctree-l2"><a class="reference internal" href="orm.html" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html">ORM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html">Data Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actions.html" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html">Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html" tppabs="https://www.odoo.com/documentation/8.0/reference/module.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html">Command-line interface: odoo.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html">Security in Odoo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html" tppabs="https://www.odoo.com/documentation/8.0/reference/testing.html">Testing Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http.html" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html">Web Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qweb.html" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html">QWeb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javascript.html" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html">Javascript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translations.html" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html">Translating Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html">QWeb Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html">Workflows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_integration.html" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html">Web Service</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+    </nav>
+  </div>
+</header><div class="document-super ">
+    
+
+    <div class="document"><div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+      <ul class="current nav">
+<li class="toctree-l1 current"><a class="reference internal" href="tutorials.html" tppabs="https://www.odoo.com/documentation/8.0/tutorials.html">Tutorials</a><ul class="current nav">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Building a Website</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-basic-module">Creating a basic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-demonstration-module">A demonstration module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#to-the-browser">To the browser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#templates">Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#storing-data-in-odoo">Storing data in Odoo</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="#defining-the-data-model">Defining the data model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demonstration-data">Demonstration data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-the-data">Accessing the data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#website-support">Website support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#urls-and-routing">URLs and routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#field-edition">Field edition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#administration-and-erp-integration">Administration and ERP integration</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="#a-brief-and-incomplete-introduction-to-the-odoo-administration">A brief and incomplete introduction to the Odoo administration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-in-the-odoo-administration">Editing in the Odoo administration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#relations-between-models">Relations between models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#discussions-and-notifications">Discussions and notifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selling-courses">Selling courses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#altering-existing-views">Altering existing views</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="backend.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html">Building a Module</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="backend.html#start-stop-the-odoo-server" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#start-stop-the-odoo-server">Start/Stop the Odoo server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#build-an-odoo-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#build-an-odoo-module">Build an Odoo module</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#composition-of-a-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#composition-of-a-module">Composition of a module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#module-structure" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#module-structure">Module structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#object-relational-mapping" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#object-relational-mapping">Object-Relational Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#model-fields" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#model-fields">Model fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#data-files" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#data-files">Data files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#actions-and-menus" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#actions-and-menus">Actions and Menus</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#basic-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#basic-views">Basic views</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#generic-view-declaration" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#generic-view-declaration">Generic view declaration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#tree-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#tree-views">Tree views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#form-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#form-views">Form views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#search-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#search-views">Search views</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#relations-between-models" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#relations-between-models">Relations between models</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#relational-fields" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#relational-fields">Relational fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#inheritance" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#inheritance">Inheritance</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#model-inheritance" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#model-inheritance">Model inheritance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#view-inheritance" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#view-inheritance">View inheritance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#computed-fields-and-default-values" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#computed-fields-and-default-values">Computed fields and default values</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#dependencies" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#default-values" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#default-values">Default values</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#onchange" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#onchange">Onchange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#model-constraints" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#model-constraints">Model constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#advanced-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#advanced-views">Advanced Views</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#id3" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#id3">Tree views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#calendars" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#calendars">Calendars</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#id4" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#id4">Search views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#gantt" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#gantt">Gantt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#graph-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#graph-views">Graph views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#kanban" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#kanban">Kanban</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#workflows" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#workflows">Workflows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#security" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#security">Security</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#group-based-access-control-mechanisms" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#group-based-access-control-mechanisms">Group-based access control mechanisms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#access-rights" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#access-rights">Access rights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#record-rules" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#record-rules">Record rules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#wizards" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#wizards">Wizards</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#launching-wizards" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#launching-wizards">Launching wizards</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#internationalization" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#internationalization">Internationalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#reporting" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#reporting">Reporting</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#printed-reports" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#printed-reports">Printed reports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#dashboards" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#dashboards">Dashboards</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="backend.html#webservices" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#webservices">WebServices</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="backend.html#xml-rpc-library" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#xml-rpc-library">XML-RPC Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="backend.html#json-rpc-library" tppabs="https://www.odoo.com/documentation/8.0/howtos/backend.html#json-rpc-library">JSON-RPC Library</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="themes.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html">Building Themes</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="themes.html#basic-set-up" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#basic-set-up">Basic set up</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="themes.html#static-page" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#static-page">Static Page</a></li>
+<li class="toctree-l4"><a class="reference internal" href="themes.html#pimp-your-theme" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#pimp-your-theme">Pimp Your Theme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="themes.html#build-your-first-snippet" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#build-your-first-snippet">Build Your First Snippet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="themes.html#advanced-customization" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#advanced-customization">Advanced Customization</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="themes.html#defining-your-theme-options" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#defining-your-theme-options">Defining Your Theme Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="themes.html#the-image-database" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#the-image-database">The Image Database</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="themes.html#theme-selector" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#theme-selector">Theme Selector</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="themes.html#set-up" tppabs="https://www.odoo.com/documentation/8.0/howtos/themes.html#set-up">Set Up</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="web.html" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html">Building Interface Extensions</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="web.html#a-simple-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#a-simple-module">A Simple Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#odoo-javascript-module" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#odoo-javascript-module">Odoo JavaScript Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#classes" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#widgets-basics" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widgets-basics">Widgets Basics</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#your-first-widget" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#your-first-widget">Your First Widget</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#display-content" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#display-content">Display Content</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#widget-parents-and-children" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widget-parents-and-children">Widget Parents and Children</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#destroying-widgets" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#destroying-widgets">Destroying Widgets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#the-qweb-template-engine" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#the-qweb-template-engine">The QWeb Template Engine</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#using-qweb" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#using-qweb">Using QWeb</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#widget-helpers" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widget-helpers">Widget Helpers</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#widget-s-jquery-selector" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widget-s-jquery-selector"><tt class="docutils literal"><span class="pre">Widget</span></tt>&#8216;s jQuery Selector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#easier-dom-events-binding" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#easier-dom-events-binding">Easier DOM Events Binding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#widget-events-and-properties" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#widget-events-and-properties">Widget Events and Properties</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#events" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#events">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#properties" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#id3" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#id3">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#modify-existing-widgets-and-classes" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#modify-existing-widgets-and-classes">Modify existing widgets and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#translations" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#translations">Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#communication-with-the-odoo-server" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#communication-with-the-odoo-server">Communication with the Odoo Server</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#contacting-models" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#contacting-models">Contacting Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#compoundcontext" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#compoundcontext">CompoundContext</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#queries" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#queries">Queries</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#exercises" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#exercises">Exercises</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#existing-web-components" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#existing-web-components">Existing web components</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="web.html#the-action-manager" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#the-action-manager">The Action Manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#client-actions" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#client-actions">Client Actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#architecture-of-the-views" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#architecture-of-the-views">Architecture of the Views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#the-form-view-fields" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#the-form-view-fields">The Form View Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#the-form-view-custom-widgets" tppabs="https://www.odoo.com/documentation/8.0/howtos/web.html#the-form-view-custom-widgets">The Form View Custom Widgets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html" tppabs="https://www.odoo.com/documentation/8.0/setup.html">Setting Up</a><ul class="nav">
+<li class="toctree-l2"><a class="reference internal" href="install.html" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html">Installing Odoo</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="install.html#demo" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#demo">Demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#saas" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#saas">SaaS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#packaged-installers" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#packaged-installers">Packaged installers</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="install.html#windows" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#windows">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install.html#deb" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#deb">Deb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install.html#rpm" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#rpm">RPM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#source-install" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#source-install">Source Install</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="install.html#installing-dependencies" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#installing-dependencies">Installing dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install.html#running-odoo" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#running-odoo">Running Odoo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html">Deploying Odoo</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#dbfilter" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#dbfilter">dbfilter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#postgresql" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#postgresql">PostgreSQL</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#configuring-odoo" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#configuring-odoo">Configuring Odoo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#https" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#https">HTTPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#builtin-server" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#builtin-server">Builtin server</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#livechat" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#livechat">LiveChat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#odoo-as-a-wsgi-application" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#odoo-as-a-wsgi-application">Odoo as a WSGI Application</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#cron-workers" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#cron-workers">Cron Workers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#id4" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#id4">LiveChat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#serving-static-files" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#serving-static-files">Serving Static Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#security" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#security">Security</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="deploy.html#super-admin-password" tppabs="https://www.odoo.com/documentation/8.0/setup/deploy.html#super-admin-password">&#8220;Super-admin&#8221; password</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html" tppabs="https://www.odoo.com/documentation/8.0/reference.html">Reference</a><ul class="nav">
+<li class="toctree-l2"><a class="reference internal" href="orm.html" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html">ORM</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="orm.html#recordsets" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#recordsets">Recordsets</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#field-access" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#field-access">Field access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#set-operations" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#set-operations">Set operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#other-recordset-operations" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#other-recordset-operations">Other recordset operations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#environment" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#environment">Environment</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#altering-the-environment" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#altering-the-environment">Altering the environment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#common-orm-methods" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#common-orm-methods">Common ORM methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#creating-models" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#creating-models">Creating Models</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#computed-fields" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#computed-fields">Computed fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#onchange-updating-ui-on-the-fly" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#onchange-updating-ui-on-the-fly">onchange: updating UI on the fly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#low-level-sql" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#low-level-sql">Low-level SQL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#old-api-compatibility" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#old-api-compatibility">Old API compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#model-reference" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#model-reference">Model Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#module-openerp.api" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#module-openerp.api">Method decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#fields" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#fields">Fields</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#basic-fields" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#basic-fields">Basic fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#relational-fields" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#relational-fields">Relational fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#inheritance-and-extension" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#inheritance-and-extension">Inheritance and extension</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#classical-inheritance" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#classical-inheritance">Classical inheritance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#extension" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#extension">Extension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="orm.html#delegation" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#delegation">Delegation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#domains" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#domains">Domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orm.html#porting-from-the-old-api" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#porting-from-the-old-api">Porting from the old API</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="orm.html#automatic-bridging-of-old-api-methods" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#automatic-bridging-of-old-api-methods">Automatic bridging of old API methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data.html" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html">Data Files</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="data.html#structure" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#core-operations" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#core-operations">Core operations</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="data.html#record" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#record"><tt class="docutils literal"><span class="pre">record</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#delete" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#delete"><tt class="docutils literal"><span class="pre">delete</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#function" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#function"><tt class="docutils literal"><span class="pre">function</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#workflow" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#workflow"><tt class="docutils literal"><span class="pre">workflow</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#shortcuts" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#shortcuts">Shortcuts</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="data.html#menuitem" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#menuitem"><tt class="docutils literal"><span class="pre">menuitem</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#template" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#template"><tt class="docutils literal"><span class="pre">template</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html#report" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#report"><tt class="docutils literal"><span class="pre">report</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#csv-data-files" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#csv-data-files">CSV data files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="actions.html" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html">Actions</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="actions.html#window-actions-ir-actions-act-window" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#window-actions-ir-actions-act-window">Window Actions (<tt class="docutils literal"><span class="pre">ir.actions.act_window</span></tt>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html#url-actions-ir-actions-act-url" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#url-actions-ir-actions-act-url">URL Actions (<tt class="docutils literal"><span class="pre">ir.actions.act_url</span></tt>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html#server-actions-ir-actions-server" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#server-actions-ir-actions-server">Server Actions (<tt class="docutils literal"><span class="pre">ir.actions.server</span></tt>)</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="actions.html#code" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#code"><tt class="docutils literal"><span class="pre">code</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#object-create" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#object-create"><tt class="docutils literal"><span class="pre">object_create</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#object-write" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#object-write"><tt class="docutils literal"><span class="pre">object_write</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#multi" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#multi"><tt class="docutils literal"><span class="pre">multi</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#trigger" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#trigger"><tt class="docutils literal"><span class="pre">trigger</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#client-action" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#client-action"><tt class="docutils literal"><span class="pre">client_action</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.html#evaluation-context" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#evaluation-context">Evaluation context</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html#report-actions" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#report-actions">Report Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html#client-actions-ir-actions-client" tppabs="https://www.odoo.com/documentation/8.0/reference/actions.html#client-actions-ir-actions-client">Client Actions (<tt class="docutils literal"><span class="pre">ir.actions.client</span></tt>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="views.html" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html">Views</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="views.html#common-structure" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#common-structure">Common Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#inheritance" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#inheritance">Inheritance</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="views.html#view-matching" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#view-matching">View matching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#view-resolution" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#view-resolution">View resolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#inheritance-specs" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#inheritance-specs">Inheritance specs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#lists" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#lists">Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#forms" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#forms">Forms</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="views.html#structural-components" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#structural-components">Structural components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#semantic-components" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#semantic-components">Semantic components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#business-views-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#business-views-guidelines">Business Views guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#configuration-forms-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#configuration-forms-guidelines">Configuration forms guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#dialog-forms-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#dialog-forms-guidelines">Dialog forms guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="views.html#configuration-wizards-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#configuration-wizards-guidelines">Configuration Wizards guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#graphs" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#graphs">Graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#kanban" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#kanban">Kanban</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="views.html#javascript-api" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#javascript-api">Javascript API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#calendar" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#calendar">Calendar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#gantt" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#gantt">Gantt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#diagram" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#diagram">Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#search" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#search">Search</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="views.html#search-defaults" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#search-defaults">Search defaults</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="views.html#qweb" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#qweb">QWeb</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html" tppabs="https://www.odoo.com/documentation/8.0/reference/module.html">Modules</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="module.html#manifest" tppabs="https://www.odoo.com/documentation/8.0/reference/module.html#manifest">Manifest</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html">Command-line interface: odoo.py</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#running-the-server" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#running-the-server">Running the server</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="cmdline.html#database" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#database">database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmdline.html#built-in-http" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#built-in-http">built-in HTTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmdline.html#logging" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#logging">logging</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#scaffolding" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#scaffolding">Scaffolding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#configuration-file" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#configuration-file">Configuration file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security.html" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html">Security in Odoo</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="security.html#access-control" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html#access-control">Access Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#record-rules" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html#record-rules">Record Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#field-access" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html#field-access">Field Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html#workflow-transition-rules" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html#workflow-transition-rules">Workflow transition rules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html" tppabs="https://www.odoo.com/documentation/8.0/reference/testing.html">Testing Modules</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="testing.html#running-tests" tppabs="https://www.odoo.com/documentation/8.0/reference/testing.html#running-tests">Running tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http.html" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html">Web Controllers</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="http.html#routing" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#routing">Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#request" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#response" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#response">Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#controllers" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#controllers">Controllers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qweb.html" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html">QWeb</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#data-output" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#data-output">data output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#conditionals" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#conditionals">conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#loops" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#loops">loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#attributes" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#attributes">attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#setting-variables" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#setting-variables">setting variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#calling-sub-templates" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#calling-sub-templates">calling sub-templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#python" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#python">Python</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#exclusive-directives" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#exclusive-directives">Exclusive directives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#helpers" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#helpers">Helpers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#api" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qweb.html#javascript" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#javascript">Javascript</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#id3" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#id3">Exclusive directives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#debugging" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#debugging">debugging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#id4" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#id4">Helpers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qweb.html#id5" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#id5">API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="javascript.html" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html">Javascript</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="javascript.html#widgets" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#widgets">Widgets</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#dom-root" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#dom-root">DOM Root</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#dom-events-handling" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#dom-events-handling">DOM events handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#subclassing-widget" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#subclassing-widget">Subclassing Widget</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#development-guidelines" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#development-guidelines">Development Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="javascript.html#rpc" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#rpc">RPC</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#high-level-api-calling-into-odoo-models" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#high-level-api-calling-into-odoo-models">High-level API: calling into Odoo models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#low-level-api-rpc-calls-to-python-side" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#low-level-api-rpc-calls-to-python-side">Low-level API: RPC calls to Python side</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="javascript.html#web-client" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#web-client">Web Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="javascript.html#testing-in-odoo-web-client" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#testing-in-odoo-web-client">Testing in Odoo Web Client</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#javascript-unit-testing" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#javascript-unit-testing">Javascript Unit Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#writing-a-test-case" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#writing-a-test-case">Writing a test case</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#assertions" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#assertions">Assertions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#getting-an-odoo-instance" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#getting-an-odoo-instance">Getting an Odoo instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#dom-scratchpad" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#dom-scratchpad">DOM Scratchpad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#loading-templates" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#loading-templates">Loading templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#asynchronous-cases" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#asynchronous-cases">Asynchronous cases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#id3" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#id3">RPC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#testing-api" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#testing-api">Testing API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="javascript.html#running-through-python" tppabs="https://www.odoo.com/documentation/8.0/reference/javascript.html#running-through-python">Running through Python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="translations.html" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html">Translating Modules</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="translations.html#exporting-translatable-term" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html#exporting-translatable-term">Exporting translatable term</a></li>
+<li class="toctree-l3"><a class="reference internal" href="translations.html#implicit-exports" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html#implicit-exports">Implicit exports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="translations.html#explicit-exports" tppabs="https://www.odoo.com/documentation/8.0/reference/translations.html#explicit-exports">Explicit exports</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html">QWeb Reports</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="reports.html#paper-formats" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html#paper-formats">Paper Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#expressions-used-in-odoo-report-templates" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html#expressions-used-in-odoo-report-templates">Expressions used in Odoo report templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#custom-report" tppabs="https://www.odoo.com/documentation/8.0/reference/reports.html#custom-report">Custom report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html">Workflows</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="workflows.html#basics" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#basics">Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workflows.html#activities" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#activities">Activities</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#flow-start-and-flow-stop" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#flow-start-and-flow-stop">Flow start and flow stop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#subflow" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#subflow">Subflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#sending-a-signal-from-a-subflow" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#sending-a-signal-from-a-subflow">Sending a signal from a subflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#server-actions" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#server-actions">Server actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#python-action" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#python-action">Python action</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#split-mode" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#split-mode">Split mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#join-mode" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#join-mode">Join mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#kinds" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#kinds">Kinds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="workflows.html#transitions" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#transitions">Transitions</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#conditions" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#conditions">Conditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#signals" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#signals">Signals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows.html#triggers" tppabs="https://www.odoo.com/documentation/8.0/reference/workflows.html#triggers">Triggers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_integration.html" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html">Web Service</a><ul class="nav">
+<li class="toctree-l2"><a class="reference internal" href="api_integration.html#connection" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#connection">Connection</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#configuration" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#logging-in" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#logging-in">Logging in</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_integration.html#calling-methods" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#calling-methods">Calling methods</a><ul class="nav">
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#list-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#list-records">List records</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="api_integration.html#pagination" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#pagination">Pagination</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#count-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#count-records">Count records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#read-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#read-records">Read records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#listing-record-fields" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#listing-record-fields">Listing record fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#search-and-read" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#search-and-read">Search and read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#create-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#create-records">Create records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#update-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#update-records">Update records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#delete-records" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#delete-records">Delete records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#inspection-and-introspection" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#inspection-and-introspection">Inspection and introspection</a><ul class="nav">
+<li class="toctree-l4"><a class="reference internal" href="api_integration.html#ir-model" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#ir-model"><tt class="docutils literal"><span class="pre">ir.model</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_integration.html#ir-model-fields" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#ir-model-fields"><tt class="docutils literal"><span class="pre">ir.model.fields</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#workflow-manipulations" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#workflow-manipulations">Workflow manipulations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_integration.html#report-printing" tppabs="https://www.odoo.com/documentation/8.0/api_integration.html#report-printing">Report printing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+        <p><a href="javascript:if(confirm('https://github.com/odoo/odoo/edit/8.0/doc/howtos/website.rst  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/odoo/odoo/edit/8.0/doc/howtos/website.rst'" tppabs="https://github.com/odoo/odoo/edit/8.0/doc/howtos/website.rst" class="github">
+          Edit on GitHub
+        </a></p>
+      
+    </div>
+  </div>
+  
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="building-a-website">
+<h1>Building a Website</h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<ul class="last simple">
+<li>This guide assumes <a class="reference external" href="javascript:if(confirm('http://docs.python.org/2/tutorial/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://docs.python.org/2/tutorial/'" tppabs="http://docs.python.org/2/tutorial/">basic knowledge of Python</a></li>
+<li>This guide assumes <a class="reference internal" href="install.html#setup-install" tppabs="https://www.odoo.com/documentation/8.0/setup/install.html#setup-install"><em>an installed Odoo</em></a></li>
+</ul>
+</div>
+<div class="section" id="creating-a-basic-module">
+<h2>Creating a basic module</h2>
+<p>In Odoo, tasks are performed by creating modules.</p>
+<p>Modules customize the behavior of an Odoo installation, either by adding new
+behaviors or by altering existing ones (including behaviors added by other
+modules).</p>
+<p>First let&#8217;s create a <em>module directory</em> which will contain a single module in
+our case but may store multiple related (a project&#8217;s) or not really related
+(a company&#8217;s) modules:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> mkdir my-modules
+</pre></div>
+</div>
+<p>then let&#8217;s create the module&#8217;s own directory:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> mkdir my-modules/academy
+</pre></div>
+</div>
+<p>An Odoo module is a valid <a class="reference external" href="javascript:if(confirm('http://docs.python.org/2/tutorial/modules.html  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://docs.python.org/2/tutorial/modules.html#packages'" tppabs="http://docs.python.org/2/tutorial/modules.html#packages">Python package</a> so it needs an
+empty <tt class="docutils literal"><span class="pre">__init__.py</span></tt> file.</p>
+<p>Finally the mark of an Odoo module is the
+<a class="reference internal" href="module.html#reference-module-manifest" tppabs="https://www.odoo.com/documentation/8.0/reference/module.html#reference-module-manifest"><em>manifest file</em></a>, a Python dictionary describing
+various module metadata.</p>
+<div class="pq-patch container">
+<em>academy/__init__.py</em><div class="pq-section container">
+</div>
+<em>academy/__openerp__.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre><span class="hll"><span class="p">{</span>
+</span><span class="hll">    <span class="c"># The human-readable name of your module, displayed in the interface</span>
+</span><span class="hll">    <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&quot;Academy&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="c"># A more extensive description</span>
+</span><span class="hll">    <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">&quot;&quot;&quot;</span>
+</span><span class="hll"><span class="s">    &quot;&quot;&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="c"># Which modules must be installed for this one to work</span>
+</span><span class="hll">    <span class="s">&#39;depends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;base&#39;</span><span class="p">],</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-demonstration-module">
+<h2>A demonstration module</h2>
+<p>We have a &#8220;complete&#8221; module ready for installation.</p>
+<p>Although it does absolutely nothing yet we can install it:</p>
+<ul>
+<li><p class="first">start the Odoo server</p>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> ./odoo.py --addons-path addons,my-modules
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">go to <a class="reference external" href="javascript:if(confirm('http://localhost:8069/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://localhost:8069/'" tppabs="http://localhost:8069/">http://localhost:8069</a></p>
+</li>
+<li><p class="first">create a new database including demonstration data</p>
+</li>
+<li><p class="first">to go <em class="menuselection">Settings â€£ Modules â€£ Installed Modules</em></p>
+</li>
+<li><p class="first">in the top-right corner remove the <em>Installed</em> filter and search for
+<em>academy</em></p>
+</li>
+<li><p class="first">click the <em class="guilabel">Install</em> button for the <em>Academy</em> module</p>
+</li>
+</ul>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>In a production development setting, modules should generally be created
+using <a class="reference internal" href="cmdline.html#reference-cmdline-scaffold" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#reference-cmdline-scaffold"><em>Odoo&#8217;s scaffolding</em></a> rather than by
+hand</li>
+</ul>
+</div>
+</div>
+<div class="section" id="to-the-browser">
+<h2>To the browser</h2>
+<p><a class="reference internal" href="http.html#reference-http-controllers" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#reference-http-controllers"><em>Controllers</em></a> interpret browser requests and
+send data back.</p>
+<p>Add a simple controller and import it (so Odoo can find it):</p>
+<div class="pq-patch container">
+<em>academy/__init__.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre><span class="hll"><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">controllers</span>
+</span></pre></div>
+</div>
+</div>
+<em>academy/controllers.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre><span class="hll"><span class="c"># -*- coding: utf-8 -*-</span>
+</span><span class="hll"><span class="kn">from</span> <span class="nn">openerp</span> <span class="kn">import</span> <span class="n">http</span>
+</span><span class="hll">
+</span><span class="hll"><span class="k">class</span> <span class="nc">Academy</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
+</span><span class="hll">    <span class="nd">@http.route</span><span class="p">(</span><span class="s">&#39;/academy/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s">&#39;public&#39;</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class="hll">        <span class="k">return</span> <span class="s">&quot;Hello, world!&quot;</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+<p>Shut down your server (<tt class="kbd docutils literal"><span class="pre">^C</span></tt>) then restart it:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> ./odoo.py --addons-path addons,my-modules
+</pre></div>
+</div>
+<p>and open a page to <a class="reference external" href="javascript:if(confirm('http://localhost:8069/academy/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://localhost:8069/academy/'" tppabs="http://localhost:8069/academy/">http://localhost:8069/academy/</a>, you should see your &#8220;page&#8221;
+appear:</p>
+<div class="figure">
+<img alt="../_images/helloworld.png" src="helloworld.png" tppabs="https://www.odoo.com/documentation/8.0/_images/helloworld.png" />
+</div>
+</div>
+<div class="section" id="templates">
+<h2>Templates</h2>
+<p>Generating HTML in Python isn&#8217;t very pleasant.</p>
+<p>The usual solution is <a class="reference external" href="javascript:if(confirm('http://en.wikipedia.org/wiki/Web_template  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://en.wikipedia.org/wiki/Web_template'" tppabs="http://en.wikipedia.org/wiki/Web_template">templates</a>, pseudo-documents with placeholders and
+display logic. Odoo allows any Python templating system, but provides its
+own <a class="reference internal" href="qweb.html#reference-qweb" tppabs="https://www.odoo.com/documentation/8.0/reference/qweb.html#reference-qweb"><em>QWeb</em></a> templating system which integrates with other
+Odoo features.</p>
+<p>Let&#8217;s create an XML file for our first template, register the template in the
+manifest and alter the controller to use our template:</p>
+<div class="pq-patch container">
+<em>academy/__openerp__.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>    <span class="s">&quot;&quot;&quot;,</span>
+<span class="s">    # Which modules must be installed for this one to work</span>
+<span class="s">    &#39;depends&#39;: [&#39;base&#39;],</span>
+<span class="hll"><span class="s">    # data files which are always installed</span>
+</span><span class="hll"><span class="s">    &#39;data&#39;: [</span>
+</span><span class="hll"><span class="s">        &#39;templates.xml&#39;,</span>
+</span><span class="hll"><span class="s">    ],</span>
+</span><span class="s">}</span>
+</pre></div>
+</div>
+</div>
+<em>academy/controllers.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Academy</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
+    <span class="nd">@http.route</span><span class="p">(</span><span class="s">&#39;/academy/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s">&#39;public&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="hll">        <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&#39;academy.index&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class="hll">            <span class="s">&#39;teachers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;Diana Padilla&quot;</span><span class="p">,</span> <span class="s">&quot;Jody Caroll&quot;</span><span class="p">,</span> <span class="s">&quot;Lester Vaughn&quot;</span><span class="p">],</span>
+</span><span class="hll">        <span class="p">})</span>
+</span></pre></div>
+</div>
+</div>
+<em>academy/templates.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre><span class="hll"><span class="nt">&lt;openerp&gt;&lt;data&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;index&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;title&gt;</span>Academy<span class="nt">&lt;/title&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;t</span> <span class="na">t-foreach=</span><span class="s">&quot;teachers&quot;</span> <span class="na">t-as=</span><span class="s">&quot;teacher&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;p&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;teacher&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;/t&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/template&gt;</span>
+</span><span class="hll"><span class="nt">&lt;/data&gt;&lt;/openerp&gt;</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+<p>The templates iterates (<tt class="docutils literal"><span class="pre">t-foreach</span></tt>) on all the teachers (passed through the
+<em>template context</em>), and prints each teacher in its own paragraph.</p>
+<p>Finally restart Odoo and update the module&#8217;s data (to install the template)
+by going to <em class="menuselection">Settings â€£ Modules â€£ Installed Modules â€£
+Academy</em> and clicking <em class="guilabel">Upgrade</em>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Alternatively, Odoo can be restarted <a class="reference internal" href="cmdline.html#cmdoption-odoo.py-u" tppabs="https://www.odoo.com/documentation/8.0/reference/cmdline.html#cmdoption-odoo.py-u"><em class="xref std std-option">and update modules at
+the same time</em></a>:</p>
+<div class="last highlight-console"><div class="highlight"><pre><span class="gp">$</span> odoo.py --addons-path addons,my-modules -d academy -u academy
+</pre></div>
+</div>
+</div>
+<p>Going to <a class="reference external" href="javascript:if(confirm('http://localhost:8069/academy/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://localhost:8069/academy/'" tppabs="http://localhost:8069/academy/">http://localhost:8069/academy/</a> should now result in:</p>
+<img alt="../_images/basic-list.png" src="basic-list.png" tppabs="https://www.odoo.com/documentation/8.0/_images/basic-list.png" />
+</div>
+<div class="section" id="storing-data-in-odoo">
+<h2>Storing data in Odoo</h2>
+<p><a class="reference internal" href="orm.html#reference-orm-model" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#reference-orm-model"><em>Odoo models</em></a> map to database tables.</p>
+<p>In the previous section we just displayed a list of string entered statically
+in the Python code. This doesn&#8217;t allow modifications and persistent storage
+thereof, so we&#8217;re now going to move our data to the database.</p>
+<div class="section" id="defining-the-data-model">
+<h3>Defining the data model</h3>
+<p>First define an Odoo model file and import it:</p>
+<div class="pq-patch container">
+<em>academy/__init__.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">controllers</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">models</span>
+</span></pre></div>
+</div>
+</div>
+<em>academy/models.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre><span class="hll"><span class="kn">from</span> <span class="nn">openerp</span> <span class="kn">import</span> <span class="n">fields</span>
+</span><span class="hll"><span class="kn">from</span> <span class="nn">openerp</span> <span class="kn">import</span> <span class="n">models</span>
+</span><span class="hll">
+</span><span class="hll"><span class="k">class</span> <span class="nc">Teachers</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">_name</span> <span class="o">=</span> <span class="s">&#39;academy.teachers&#39;</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+<p>Then setup <a class="reference internal" href="security.html#reference-security-acl" tppabs="https://www.odoo.com/documentation/8.0/reference/security.html#reference-security-acl"><em>basic access control</em></a> for the model
+and add them to the manifest:</p>
+<div class="pq-patch container">
+<em>academy/__openerp__.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>    <span class="s">&#39;depends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;base&#39;</span><span class="p">],</span>
+    <span class="c"># data files which are always installed</span>
+    <span class="s">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="hll">        <span class="s">&#39;ir.model.access.csv&#39;</span><span class="p">,</span>
+</span>        <span class="s">&#39;templates.xml&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<em>academy/ir.model.access.csv</em><div class="pq-section container">
+<div class="highlight-guess"><div class="highlight"><pre><span class="hll"><span class="n">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">model_id</span><span class="o">:</span><span class="n">id</span><span class="p">,</span><span class="n">group_id</span><span class="o">:</span><span class="n">id</span><span class="p">,</span><span class="n">perm_read</span><span class="p">,</span><span class="n">perm_write</span><span class="p">,</span><span class="n">perm_create</span><span class="p">,</span><span class="n">perm_unlink</span>
+</span><span class="hll"><span class="n">access_academy_teachers</span><span class="p">,</span><span class="n">access_academy_teachers</span><span class="p">,</span><span class="n">model_academy_teachers</span><span class="p">,,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+<p>this simply gives read access (<tt class="docutils literal"><span class="pre">perm_read</span></tt>) to all users (<tt class="docutils literal"><span class="pre">group_id:id</span></tt>
+left empty).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference internal" href="data.html#reference-data" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#reference-data"><em>Data files</em></a> (XML or CSV) have to be added to the
+module manifest, Python files (models or controllers) don&#8217;t but have to
+be imported from <tt class="docutils literal"><span class="pre">__init__.py</span></tt> (directly or indirectly)</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">the administrator user bypasses access control, he has access to all
+models even if not given access</p>
+</div>
+</div>
+<div class="section" id="demonstration-data">
+<h3>Demonstration data</h3>
+<p>The second step is to add some demonstration data to the system so it&#8217;s
+possible to test it easily. This is done by adding a <tt class="docutils literal"><span class="pre">demo</span></tt>
+<a class="reference internal" href="data.html#reference-data" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#reference-data"><em>data file</em></a> to the manifest:</p>
+<div class="pq-patch container">
+<em>academy/__openerp__.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>        <span class="s">&#39;ir.model.access.csv&#39;</span><span class="p">,</span>
+        <span class="s">&#39;templates.xml&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="hll">    <span class="c"># data files which are only installed in &quot;demonstration mode&quot;</span>
+</span><span class="hll">    <span class="s">&#39;demo&#39;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class="hll">        <span class="s">&#39;demo.xml&#39;</span><span class="p">,</span>
+</span><span class="hll">    <span class="p">],</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<em>academy/demo.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre><span class="hll"><span class="nt">&lt;openerp&gt;&lt;data&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;padilla&quot;</span> <span class="na">model=</span><span class="s">&quot;academy.teachers&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Diana Padilla<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;carroll&quot;</span> <span class="na">model=</span><span class="s">&quot;academy.teachers&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Jody Carroll<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;vaughn&quot;</span> <span class="na">model=</span><span class="s">&quot;academy.teachers&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Lester Vaughn<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="hll"><span class="nt">&lt;/data&gt;&lt;/openerp&gt;</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p><a class="reference internal" href="data.html#reference-data" tppabs="https://www.odoo.com/documentation/8.0/reference/data.html#reference-data"><em>Data files</em></a> can be used for demo and non-demo data.
+Demo data are only loaded in &#8220;demonstration mode&#8221; and can be used for flow
+testing and demonstration, non-demo data are always loaded and used as
+initial system setup.</p>
+<p class="last">In this case we&#8217;re using demonstration data because an actual user of the
+system would want to input or import their own teachers list, this list
+is only useful for testing.</p>
+</div>
+</div>
+<div class="section" id="accessing-the-data">
+<h3>Accessing the data</h3>
+<p>The last step is to alter model and template to use our demonstration data:</p>
+<ol class="arabic simple">
+<li>fetch the records from the database instead of having a static list</li>
+<li>Because <a class="reference internal" href="orm.html#openerp.models.Model.search" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#openerp.models.Model.search" title="openerp.models.Model.search"><tt class="xref py py-meth docutils literal"><span class="pre">search()</span></tt></a> returns a set of records
+matching the filter (&#8220;all records&#8221; here), alter the template to print each
+teacher&#8217;s <tt class="docutils literal"><span class="pre">name</span></tt></li>
+</ol>
+<div class="pq-patch container">
+<em>academy/controllers.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Academy</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
+    <span class="nd">@http.route</span><span class="p">(</span><span class="s">&#39;/academy/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s">&#39;public&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="hll">        <span class="n">Teachers</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s">&#39;academy.teachers&#39;</span><span class="p">]</span>
+</span>        <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&#39;academy.index&#39;</span><span class="p">,</span> <span class="p">{</span>
+<span class="hll">            <span class="s">&#39;teachers&#39;</span><span class="p">:</span> <span class="n">Teachers</span><span class="o">.</span><span class="n">search</span><span class="p">([]),</span>
+</span>        <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<em>academy/templates.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>  <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;index&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Academy<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-foreach=</span><span class="s">&quot;teachers&quot;</span> <span class="na">t-as=</span><span class="s">&quot;teacher&quot;</span><span class="nt">&gt;</span>
+<span class="hll">      <span class="nt">&lt;p&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;teacher.id&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;teacher.name&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+</span>    <span class="nt">&lt;/t&gt;</span>
+  <span class="nt">&lt;/template&gt;</span>
+<span class="hll"><span class="nt">&lt;/data&gt;&lt;/openerp&gt;</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+<p>Restart the server and update the module (in order to update the manifest
+and templates and load the demo file) then navigate to
+<a class="reference external" href="javascript:if(confirm('http://localhost:8069/academy/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://localhost:8069/academy/'" tppabs="http://localhost:8069/academy/">http://localhost:8069/academy/</a>. The page should look little different: names
+should simply be prefixed by a number (the database identifier for the
+teacher).</p>
+</div>
+</div>
+<div class="section" id="website-support">
+<h2>Website support</h2>
+<p>Odoo bundles a module dedicated to building websites.</p>
+<p>So far we&#8217;ve used controllers fairly directly, but Odoo 8 added deeper
+integration and a few other services (e.g. default styling, theming) via the
+<tt class="docutils literal"><span class="pre">website</span></tt> module.</p>
+<ol class="arabic simple">
+<li>first, add <tt class="docutils literal"><span class="pre">website</span></tt> as a dependency to <tt class="docutils literal"><span class="pre">academy</span></tt></li>
+<li>then add the <tt class="docutils literal"><span class="pre">website=True</span></tt> flag on the controller, this sets up a few
+new variables on <a class="reference internal" href="http.html#reference-http-request" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#reference-http-request"><em>the request object</em></a> and
+allows using the website layout in our template</li>
+<li>use the website layout in the template</li>
+</ol>
+<div class="pq-patch container">
+<em>academy/__openerp__.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>    <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">    &quot;&quot;&quot;</span><span class="p">,</span>
+    <span class="c"># Which modules must be installed for this one to work</span>
+<span class="hll">    <span class="s">&#39;depends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;website&#39;</span><span class="p">],</span>
+</span>    <span class="c"># data files which are always installed</span>
+    <span class="s">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">&#39;ir.model.access.csv&#39;</span><span class="p">,</span>
+</pre></div>
+</div>
+</div>
+<em>academy/controllers.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">openerp</span> <span class="kn">import</span> <span class="n">http</span>
+
+<span class="k">class</span> <span class="nc">Academy</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
+<span class="hll">    <span class="nd">@http.route</span><span class="p">(</span><span class="s">&#39;/academy/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s">&#39;public&#39;</span><span class="p">,</span> <span class="n">website</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</span>    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Teachers</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s">&#39;academy.teachers&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&#39;academy.index&#39;</span><span class="p">,</span> <span class="p">{</span>
+</pre></div>
+</div>
+</div>
+<em>academy/templates.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre><span class="nt">&lt;openerp&gt;&lt;data&gt;</span>
+  <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;index&quot;</span><span class="nt">&gt;</span>
+<span class="hll">    <span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;website.layout&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>Academy<span class="nt">&lt;/t&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;t</span> <span class="na">t-foreach=</span><span class="s">&quot;teachers&quot;</span> <span class="na">t-as=</span><span class="s">&quot;teacher&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">            <span class="nt">&lt;p&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;teacher.id&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;teacher.name&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;/t&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;/div&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;/div&gt;</span>
+</span>    <span class="nt">&lt;/t&gt;</span>
+  <span class="nt">&lt;/template&gt;</span>
+<span class="nt">&lt;/data&gt;&lt;/openerp&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After restarting the server while updating the module (in order to update the
+manifest and template) access <a class="reference external" href="javascript:if(confirm('http://localhost:8069/academy/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://localhost:8069/academy/'" tppabs="http://localhost:8069/academy/">http://localhost:8069/academy/</a> should yield a
+nicer looking page with branding and a number of built-in page elements
+(top-level menu, footer, â€¦)</p>
+<img alt="../_images/layout.png" src="layout.png" tppabs="https://www.odoo.com/documentation/8.0/_images/layout.png" />
+<p>The website layout also provides support for edition tools: click
+<em class="guilabel">Sign In</em> (in the top-right), fill the credentials in (<tt class="docutils literal"><span class="pre">admin</span></tt> /
+<tt class="docutils literal"><span class="pre">admin</span></tt> by default) then click <em class="guilabel">Log In</em>.</p>
+<p>You&#8217;re now in Odoo &#8220;proper&#8221;: the administrative interface. For now click on
+the <em class="guilabel">Website</em> menu item (top-left corner.</p>
+<p>We&#8217;re back in the website but as an administrator, with access to advanced
+edition features provided by the <em>website</em> support:</p>
+<ul class="simple">
+<li>a template code editor (<em class="menuselection">Customize â€£ HTML Editor</em>) where
+you can see and edit all templates used for the current page</li>
+<li>the <em class="guilabel">Edit</em> button in the top-left switches to &#8220;edition mode&#8221; where
+blocks (snippets) and rich text edition are available</li>
+<li>a number of other features such as mobile preview or <abbr title="Search Engine Optimization">SEO</abbr></li>
+</ul>
+</div>
+<div class="section" id="urls-and-routing">
+<h2>URLs and routing</h2>
+<p>Controller methods are associated with <em>routes</em> via the
+<a class="reference internal" href="http.html#openerp.http.route" tppabs="https://www.odoo.com/documentation/8.0/reference/http.html#openerp.http.route" title="openerp.http.route"><tt class="xref py py-func docutils literal"><span class="pre">route()</span></tt></a> decorator which takes a routing string and a
+number of attributes to customise its behavior or security.</p>
+<p>We&#8217;ve seen a &#8220;literal&#8221; routing string, which matches a URL section exactly,
+but routing strings can also use <a class="reference external" href="javascript:if(confirm('http://werkzeug.pocoo.org/docs/routing/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://werkzeug.pocoo.org/docs/routing/#rule-format'" tppabs="http://werkzeug.pocoo.org/docs/routing/#rule-format">converter patterns</a> which match bits
+of URLs and make those available as local variables. For instance we can
+create a new controller method which takes a bit of URL and prints it out:</p>
+<div class="pq-patch container">
+<em>academy/controllers.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>        <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&#39;academy.index&#39;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s">&#39;teachers&#39;</span><span class="p">:</span> <span class="n">Teachers</span><span class="o">.</span><span class="n">search</span><span class="p">([]),</span>
+        <span class="p">})</span>
+<span class="hll">
+</span><span class="hll">    <span class="nd">@http.route</span><span class="p">(</span><span class="s">&#39;/academy/&lt;name&gt;/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s">&#39;public&#39;</span><span class="p">,</span> <span class="n">website</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">def</span> <span class="nf">teacher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+</span><span class="hll">        <span class="k">return</span> <span class="s">&#39;&lt;h1&gt;{}&lt;/h1&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+<p>restart Odoo, access <a class="reference external" href="javascript:if(confirm('http://localhost:8069/academy/Alice/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://localhost:8069/academy/Alice/'" tppabs="http://localhost:8069/academy/Alice/">http://localhost:8069/academy/Alice/</a> and
+<a class="reference external" href="javascript:if(confirm('http://localhost:8069/academy/Bob/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://localhost:8069/academy/Bob/'" tppabs="http://localhost:8069/academy/Bob/">http://localhost:8069/academy/Bob/</a> and see the difference.</p>
+<p>As the name indicates, <a class="reference external" href="javascript:if(confirm('http://werkzeug.pocoo.org/docs/routing/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://werkzeug.pocoo.org/docs/routing/#rule-format'" tppabs="http://werkzeug.pocoo.org/docs/routing/#rule-format">converter patterns</a> don&#8217;t just do extraction, they
+also do <em>validation</em> and <em>conversion</em>, so we can change the new controller
+to only accept integers:</p>
+<div class="pq-patch container">
+<em>academy/controllers.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>            <span class="s">&#39;teachers&#39;</span><span class="p">:</span> <span class="n">Teachers</span><span class="o">.</span><span class="n">search</span><span class="p">([]),</span>
+        <span class="p">})</span>
+
+<span class="hll">    <span class="nd">@http.route</span><span class="p">(</span><span class="s">&#39;/academy/&lt;int:id&gt;/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s">&#39;public&#39;</span><span class="p">,</span> <span class="n">website</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">def</span> <span class="nf">teacher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+</span><span class="hll">        <span class="k">return</span> <span class="s">&#39;&lt;h1&gt;{} ({})&lt;/h1&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+<p>Restart Odoo, access <a class="reference external" href="javascript:if(confirm('http://localhost:8069/academy/2  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://localhost:8069/academy/2'" tppabs="http://localhost:8069/academy/2">http://localhost:8069/academy/2</a>, note how the old value
+was a string, but the new one was converted to an integers. Try accessing
+<a class="reference external" href="javascript:if(confirm('http://localhost:8069/academy/Carol/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://localhost:8069/academy/Carol/'" tppabs="http://localhost:8069/academy/Carol/">http://localhost:8069/academy/Carol/</a> and note that the page was not found:
+since &#8220;Carol&#8221; is not an integer, the route was ignored and no route could be
+found.</p>
+<p>Odoo provides an additional converter called <tt class="docutils literal"><span class="pre">model</span></tt> which provides records
+directly when given their id, let&#8217;s use that and create a generic page for
+teacher biographies:</p>
+<div class="pq-patch container">
+<em>academy/controllers.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>            <span class="s">&#39;teachers&#39;</span><span class="p">:</span> <span class="n">Teachers</span><span class="o">.</span><span class="n">search</span><span class="p">([]),</span>
+        <span class="p">})</span>
+
+<span class="hll">    <span class="nd">@http.route</span><span class="p">(</span><span class="s">&#39;/academy/&lt;model(&quot;academy.teachers&quot;):teacher&gt;/&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s">&#39;public&#39;</span><span class="p">,</span> <span class="n">website</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">def</span> <span class="nf">teacher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">teacher</span><span class="p">):</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&#39;academy.biography&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class="hll">            <span class="s">&#39;person&#39;</span><span class="p">:</span> <span class="n">teacher</span>
+</span><span class="hll">        <span class="p">})</span>
+</span></pre></div>
+</div>
+</div>
+<em>academy/templates.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+  <span class="nt">&lt;/template&gt;</span>
+<span class="hll">
+</span><span class="hll">  <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;biography&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;website.layout&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>Academy<span class="nt">&lt;/t&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;p&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;person.id&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;person.name&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;/div&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;/div&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;/t&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/template&gt;</span>
+</span><span class="nt">&lt;/data&gt;&lt;/openerp&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>then change the list of model to link to our new controller:</p>
+<div class="pq-patch container">
+<em>academy/templates.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;t</span> <span class="na">t-foreach=</span><span class="s">&quot;teachers&quot;</span> <span class="na">t-as=</span><span class="s">&quot;teacher&quot;</span><span class="nt">&gt;</span>
+<span class="hll">            <span class="nt">&lt;p&gt;&lt;a</span> <span class="na">t-attf-href=</span><span class="s">&quot;/academy/{{ slug(teacher) }}&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">              <span class="nt">&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;teacher.name&quot;</span><span class="nt">/&gt;&lt;/a&gt;</span>
+</span><span class="hll">            <span class="nt">&lt;/p&gt;</span>
+</span>          <span class="nt">&lt;/t&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml+lasso"><div class="highlight"><pre>      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+<span class="hll">          <span class="nt">&lt;h3&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;person.name&quot;</span><span class="nt">/&gt;&lt;/h3&gt;</span>
+</span>        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Restart Odoo and upgrade the module, then you can visit each teacher&#8217;s page.
+As an exercise, try adding blocks to a teacher&#8217;s page to write a biography,
+then go to another teacher&#8217;s page and so forth. You will discover, that your
+biography is shared between all teachers, because blocks are added to the
+<em>template</em>, and the <em>biography</em> template is shared between all teachers, when
+one page is edited they&#8217;re all edited at the same time.</p>
+</div>
+<div class="section" id="field-edition">
+<h2>Field edition</h2>
+<p>Data which is specific to a record should be saved on that record, so let us
+add a new biography field to our teachers:</p>
+<div class="pq-patch container">
+<em>academy/models.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>    <span class="n">_name</span> <span class="o">=</span> <span class="s">&#39;academy.teachers&#39;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+<span class="hll">    <span class="n">biography</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Html</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</div>
+<em>academy/templates.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h3&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;person.name&quot;</span><span class="nt">/&gt;&lt;/h3&gt;</span>
+<span class="hll">          <span class="nt">&lt;div&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;person.biography&quot;</span><span class="nt">/&gt;&lt;/div&gt;</span>
+</span>        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Restart Odoo and update the views, reload the teacher&#8217;s page andâ€¦ the field
+is invisible since it contains nothing.</p>
+<p>For record fields, templates can use a special <tt class="docutils literal"><span class="pre">t-field</span></tt> directive which
+allows editing the field content from the website using field-specific
+interfaces. Change the <em>person</em> template to use <tt class="docutils literal"><span class="pre">t-field</span></tt>:</p>
+<div class="pq-patch container">
+<em>academy/templates.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+<span class="hll">          <span class="nt">&lt;h3</span> <span class="na">t-field=</span><span class="s">&quot;person.name&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;div</span> <span class="na">t-field=</span><span class="s">&quot;person.biography&quot;</span><span class="nt">/&gt;</span>
+</span>        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Restart Odoo and upgrade the module, there is now a placeholder under the
+teacher&#8217;s name and a new zone for blocks in <em class="guilabel">Edit</em> mode. Content
+dropped there is stored in the corresponding teacher&#8217;s <tt class="docutils literal"><span class="pre">biography</span></tt> field, and
+thus specific to that teacher.</p>
+<p>The teacher&#8217;s name is also editable, and when saved the change is visible on
+the index page.</p>
+<p><tt class="docutils literal"><span class="pre">t-field</span></tt> can also take formatting options which depend on the exact field.
+For instance if we display the modification date for a teacher&#8217;s record:</p>
+<div class="pq-patch container">
+<em>academy/templates.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h3</span> <span class="na">t-field=</span><span class="s">&quot;person.name&quot;</span><span class="nt">/&gt;</span>
+<span class="hll">          <span class="nt">&lt;p&gt;</span>Last modified: <span class="nt">&lt;i</span> <span class="na">t-field=</span><span class="s">&quot;person.write_date&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+</span>          <span class="nt">&lt;div</span> <span class="na">t-field=</span><span class="s">&quot;person.biography&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>it is displayed in a very &#8220;computery&#8221; manner and hard to read, but we could
+ask for a human-readable version:</p>
+<div class="pq-patch container">
+<em>academy/templates.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h3</span> <span class="na">t-field=</span><span class="s">&quot;person.name&quot;</span><span class="nt">/&gt;</span>
+<span class="hll">          <span class="nt">&lt;p&gt;</span>Last modified: <span class="nt">&lt;i</span> <span class="na">t-field=</span><span class="s">&quot;person.write_date&quot;</span> <span class="na">t-field-options=</span><span class="s">&#39;{&quot;format&quot;: &quot;long&quot;}&#39;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+</span>          <span class="nt">&lt;div</span> <span class="na">t-field=</span><span class="s">&quot;person.biography&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>or a relative display:</p>
+<div class="pq-patch container">
+<em>academy/templates.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h3</span> <span class="na">t-field=</span><span class="s">&quot;person.name&quot;</span><span class="nt">/&gt;</span>
+<span class="hll">          <span class="nt">&lt;p&gt;</span>Last modified: <span class="nt">&lt;i</span> <span class="na">t-field=</span><span class="s">&quot;person.write_date&quot;</span> <span class="na">t-field-options=</span><span class="s">&#39;{&quot;widget&quot;: &quot;relative&quot;}&#39;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+</span>          <span class="nt">&lt;div</span> <span class="na">t-field=</span><span class="s">&quot;person.biography&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="administration-and-erp-integration">
+<h2>Administration and ERP integration</h2>
+<div class="section" id="a-brief-and-incomplete-introduction-to-the-odoo-administration">
+<h3>A brief and incomplete introduction to the Odoo administration</h3>
+<p>The Odoo administration was briefly seen during the <cite>website support</cite> section.
+We can go back to it using <em class="menuselection">Administrator â€£ Administrator</em> in
+the menu (or <em class="guilabel">Sign In</em> if you&#8217;re signed out).</p>
+<p>The conceptual structure of the Odoo backend is simple:</p>
+<ol class="arabic simple">
+<li>first are menus, a tree (menus can have sub-menus) of records. Menus
+without children map toâ€¦</li>
+<li>actions. Actions have various types: links, reports, code which Odoo should
+execute or data display. Data display actions are called <em>window actions</em>,
+and tell Odoo to display a given <em>model</em> according to a set of viewsâ€¦</li>
+<li>a view has a type, a broad category to which it corresponds (a list,
+a graph, a calendar) and an <em>architecture</em> which customises the way the
+model is displayed inside the view.</li>
+</ol>
+</div>
+<div class="section" id="editing-in-the-odoo-administration">
+<h3>Editing in the Odoo administration</h3>
+<p>By default, an Odoo model is essentially invisible to a user. To make it
+visible it must be available through an action, which itself needs to be
+reachable, generally through a menu.</p>
+<p>Let&#8217;s create a menu for our model:</p>
+<div class="pq-patch container">
+<em>academy/__openerp__.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>    <span class="s">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">&#39;ir.model.access.csv&#39;</span><span class="p">,</span>
+        <span class="s">&#39;templates.xml&#39;</span><span class="p">,</span>
+<span class="hll">        <span class="s">&#39;views.xml&#39;</span><span class="p">,</span>
+</span>    <span class="p">],</span>
+    <span class="c"># data files which are only installed in &quot;demonstration mode&quot;</span>
+    <span class="s">&#39;demo&#39;</span><span class="p">:</span> <span class="p">[</span>
+</pre></div>
+</div>
+</div>
+<em>academy/views.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre><span class="hll"><span class="nt">&lt;openerp&gt;&lt;data&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;action_academy_teachers&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.actions.act_window&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Academy teachers<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;res_model&quot;</span><span class="nt">&gt;</span>academy.teachers<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="nt">&lt;menuitem</span> <span class="na">sequence=</span><span class="s">&quot;0&quot;</span> <span class="na">id=</span><span class="s">&quot;menu_academy&quot;</span> <span class="na">name=</span><span class="s">&quot;Academy&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;menuitem</span> <span class="na">id=</span><span class="s">&quot;menu_academy_content&quot;</span> <span class="na">parent=</span><span class="s">&quot;menu_academy&quot;</span>
+</span><span class="hll">            <span class="na">name=</span><span class="s">&quot;Academy Content&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;menuitem</span> <span class="na">id=</span><span class="s">&quot;menu_academy_content_teachers&quot;</span>
+</span><span class="hll">            <span class="na">parent=</span><span class="s">&quot;menu_academy_content&quot;</span>
+</span><span class="hll">            <span class="na">action=</span><span class="s">&quot;action_academy_teachers&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll"><span class="nt">&lt;/data&gt;&lt;/openerp&gt;</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+<p>then accessing <a class="reference external" href="javascript:if(confirm('http://localhost:8069/web/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://localhost:8069/web/'" tppabs="http://localhost:8069/web/">http://localhost:8069/web/</a> in the top left should be a menu
+<em class="guilabel">Academy</em>, which is selected by default, as it is the first menu,
+and having opened a listing of teachers. From the listing it is possible to
+<em class="guilabel">Create</em> new teacher records, and to switch to the &#8220;form&#8221; by-record
+view.</p>
+<p>If there is no definition of how to present records (a
+<a class="reference internal" href="views.html#reference-views" tppabs="https://www.odoo.com/documentation/8.0/reference/views.html#reference-views"><em>view</em></a>) Odoo will automatically create a basic one
+on-the-fly. In our case it works for the &#8220;list&#8221; view for now (only displays
+the teacher&#8217;s name) but in the &#8220;form&#8221; view the HTML <tt class="docutils literal"><span class="pre">biography</span></tt> field is
+displayed side-by-side with the <tt class="docutils literal"><span class="pre">name</span></tt> field and not given enough space.
+Let&#8217;s define a custom form view to make viewing and editing teacher records
+a better experience:</p>
+<div class="pq-patch container">
+<em>academy/views.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;res_model&quot;</span><span class="nt">&gt;</span>academy.teachers<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;/record&gt;</span>
+
+<span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;academy_teacher_form&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Academy teachers: form<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>academy.teachers<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;arch&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;form&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;sheet&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;biography&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;biography&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;/sheet&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;/form&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="hll">
+</span>  <span class="nt">&lt;menuitem</span> <span class="na">sequence=</span><span class="s">&quot;0&quot;</span> <span class="na">id=</span><span class="s">&quot;menu_academy&quot;</span> <span class="na">name=</span><span class="s">&quot;Academy&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;menuitem</span> <span class="na">id=</span><span class="s">&quot;menu_academy_content&quot;</span> <span class="na">parent=</span><span class="s">&quot;menu_academy&quot;</span>
+            <span class="na">name=</span><span class="s">&quot;Academy Content&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="relations-between-models">
+<h3>Relations between models</h3>
+<p>We have seen a pair of &#8220;basic&#8221; fields stored directly in the record. There are
+<a class="reference internal" href="orm.html#reference-orm-fields-basic" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#reference-orm-fields-basic"><em>a number of basic fields</em></a>. The second
+broad categories of fields are <a class="reference internal" href="orm.html#reference-orm-fields-relational" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#reference-orm-fields-relational"><em>relational</em></a> and used to link records to one another
+(within a model or across models).</p>
+<p>For demonstration, let&#8217;s create a <em>courses</em> model. Each course should have a
+<tt class="docutils literal"><span class="pre">teacher</span></tt> field, linking to a single teacher record, but each teacher can
+teach many courses:</p>
+<div class="pq-patch container">
+<em>academy/ir.model.access.csv</em><div class="pq-section container">
+<div class="highlight-guess"><div class="highlight"><pre><span class="n">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">model_id</span><span class="o">:</span><span class="n">id</span><span class="p">,</span><span class="n">group_id</span><span class="o">:</span><span class="n">id</span><span class="p">,</span><span class="n">perm_read</span><span class="p">,</span><span class="n">perm_write</span><span class="p">,</span><span class="n">perm_create</span><span class="p">,</span><span class="n">perm_unlink</span>
+<span class="n">access_academy_teachers</span><span class="p">,</span><span class="n">access_academy_teachers</span><span class="p">,</span><span class="n">model_academy_teachers</span><span class="p">,,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
+<span class="hll"><span class="n">access_academy_courses</span><span class="p">,</span><span class="n">access_academy_courses</span><span class="p">,</span><span class="n">model_academy_courses</span><span class="p">,,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
+</span></pre></div>
+</div>
+</div>
+<em>academy/models.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+    <span class="n">biography</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Html</span><span class="p">()</span>
+<span class="hll">
+</span><span class="hll"><span class="k">class</span> <span class="nc">Courses</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">_name</span> <span class="o">=</span> <span class="s">&#39;academy.courses&#39;</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+</span><span class="hll">    <span class="n">teacher_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s">&#39;academy.teachers&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s">&quot;Teacher&quot;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+<p>let&#8217;s also add views so we can see and edit a course&#8217;s teacher:</p>
+<div class="pq-patch container">
+<em>academy/views.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>    <span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;/record&gt;</span>
+
+<span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;action_academy_courses&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.actions.act_window&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Academy courses<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;res_model&quot;</span><span class="nt">&gt;</span>academy.courses<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;academy_course_search&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Academy courses: search<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>academy.courses<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;arch&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;search&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;teacher_id&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;/search&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;academy_course_list&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Academy courses: list<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>academy.courses<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;arch&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;tree</span> <span class="na">string=</span><span class="s">&quot;Courses&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;teacher_id&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;/tree&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;academy_course_form&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Academy courses: form<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>academy.courses<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;arch&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;form&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;sheet&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;teacher_id&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;teacher_id&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;/sheet&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;/form&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="hll">
+</span>  <span class="nt">&lt;menuitem</span> <span class="na">sequence=</span><span class="s">&quot;0&quot;</span> <span class="na">id=</span><span class="s">&quot;menu_academy&quot;</span> <span class="na">name=</span><span class="s">&quot;Academy&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;menuitem</span> <span class="na">id=</span><span class="s">&quot;menu_academy_content&quot;</span> <span class="na">parent=</span><span class="s">&quot;menu_academy&quot;</span>
+            <span class="na">name=</span><span class="s">&quot;Academy Content&quot;</span><span class="nt">/&gt;</span>
+<span class="hll">  <span class="nt">&lt;menuitem</span> <span class="na">id=</span><span class="s">&quot;menu_academy_content_courses&quot;</span>
+</span><span class="hll">            <span class="na">parent=</span><span class="s">&quot;menu_academy_content&quot;</span>
+</span><span class="hll">            <span class="na">action=</span><span class="s">&quot;action_academy_courses&quot;</span><span class="nt">/&gt;</span>
+</span>  <span class="nt">&lt;menuitem</span> <span class="na">id=</span><span class="s">&quot;menu_academy_content_teachers&quot;</span>
+            <span class="na">parent=</span><span class="s">&quot;menu_academy_content&quot;</span>
+            <span class="na">action=</span><span class="s">&quot;action_academy_teachers&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It should also be possible to create new courses directly from a teacher&#8217;s
+page, or to see all the courses a teacher gives, so add
+<tt class="xref py py-class docutils literal"><span class="pre">the</span> <span class="pre">inverse</span> <span class="pre">relationship</span> <span class="pre">&lt;openerp.fields.One2many</span></tt> to the <em>teachers</em>
+model:</p>
+<div class="pq-patch container">
+<em>academy/models.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+    <span class="n">biography</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Html</span><span class="p">()</span>
+
+<span class="hll">    <span class="n">course_ids</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">One2many</span><span class="p">(</span><span class="s">&#39;academy.courses&#39;</span><span class="p">,</span> <span class="s">&#39;teacher_id&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s">&quot;Courses&quot;</span><span class="p">)</span>
+</span><span class="hll">
+</span><span class="k">class</span> <span class="nc">Courses</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s">&#39;academy.courses&#39;</span>
+</pre></div>
+</div>
+</div>
+<em>academy/views.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>      <span class="nt">&lt;form&gt;</span>
+        <span class="nt">&lt;sheet&gt;</span>
+          <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+<span class="hll">
+</span>          <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;biography&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;biography&quot;</span><span class="nt">/&gt;</span>
+<span class="hll">
+</span><span class="hll">          <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;course_ids&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">            <span class="nt">&lt;tree</span> <span class="na">string=</span><span class="s">&quot;Courses&quot;</span> <span class="na">editable=</span><span class="s">&quot;bottom&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">              <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">            <span class="nt">&lt;/tree&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;/field&gt;</span>
+</span>        <span class="nt">&lt;/sheet&gt;</span>
+      <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;/field&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="discussions-and-notifications">
+<h3>Discussions and notifications</h3>
+<p>Odoo provides technical models, which don&#8217;t fulfill business needs in and of
+themselves but add capabilities to business objects without having to build
+them by hand.</p>
+<p>One of these is the <em>Chatter</em> system, part of Odoo&#8217;s email and messaging
+system, which can add notifications and discussion threads to any model.
+The model simply has to <a class="reference internal" href="orm.html#openerp.models.Model._inherit" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#openerp.models.Model._inherit" title="openerp.models.Model._inherit"><tt class="xref py py-attr docutils literal"><span class="pre">_inherit</span></tt></a>
+<tt class="docutils literal"><span class="pre">mail.thread</span></tt>, and add the <tt class="docutils literal"><span class="pre">message_ids</span></tt> field to its form view to display
+the discussion thread. Discussion threads are per-record.</p>
+<p>For our academy, it makes sense to allow discussing courses to handle e.g.
+scheduling changes or discussions between teachers and assistants:</p>
+<div class="pq-patch container">
+<em>academy/models.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Courses</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s">&#39;academy.courses&#39;</span>
+<span class="hll">    <span class="n">_inherit</span> <span class="o">=</span> <span class="s">&#39;mail.thread&#39;</span>
+</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+    <span class="n">teacher_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s">&#39;academy.teachers&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s">&quot;Teacher&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<em>academy/views.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>          <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;teacher_id&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;teacher_id&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/sheet&gt;</span>
+<span class="hll">        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_chatter&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;message_follower_ids&quot;</span> <span class="na">widget=</span><span class="s">&quot;mail_followers&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">          <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;message_ids&quot;</span> <span class="na">widget=</span><span class="s">&quot;mail_thread&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;/div&gt;</span>
+</span>      <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>At the bottom of each course form, there is now a discussion thread and the
+possibility for users of the system to leave messages and follow or unfollow
+discussions linked to specific courses.</p>
+</div>
+<div class="section" id="selling-courses">
+<h3>Selling courses</h3>
+<p>Odoo also provides business models which allow using or opting in business
+needs more directly. For instance the <tt class="docutils literal"><span class="pre">website_sale</span></tt> module sets up an
+e-commerce site based on the products in the Odoo system. We can easily make
+course subscriptions sellable by making our courses specific kinds of
+products.</p>
+<p>Rather than the previous classical inheritance, this means replacing our
+<em>course</em> model by the <em>product</em> model, and extending products in-place (to
+add anything we need to it).</p>
+<p>First of all we need to add a dependency on <tt class="docutils literal"><span class="pre">website_sale</span></tt> so we get both
+products (via <tt class="docutils literal"><span class="pre">sale</span></tt>) and the ecommerce interface:</p>
+<div class="pq-patch container">
+<em>academy/__openerp__.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>    <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">    &quot;&quot;&quot;</span><span class="p">,</span>
+    <span class="c"># Which modules must be installed for this one to work</span>
+<span class="hll">    <span class="s">&#39;depends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;website_sale&#39;</span><span class="p">],</span>
+</span>    <span class="c"># data files which are always installed</span>
+    <span class="s">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">&#39;ir.model.access.csv&#39;</span><span class="p">,</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>restart Odoo, update your module, there is now a <em class="guilabel">Shop</em> section in
+the website, listing a number of pre-filled (via demonstration data) products.</p>
+<p>The second step is to replace the <em>courses</em> model by <tt class="docutils literal"><span class="pre">product.template</span></tt>,
+and add a new category of product for courses:</p>
+<div class="pq-patch container">
+<em>academy/__openerp__.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>        <span class="s">&#39;ir.model.access.csv&#39;</span><span class="p">,</span>
+        <span class="s">&#39;templates.xml&#39;</span><span class="p">,</span>
+        <span class="s">&#39;views.xml&#39;</span><span class="p">,</span>
+<span class="hll">        <span class="s">&#39;data.xml&#39;</span><span class="p">,</span>    
+</span>    <span class="p">],</span>
+    <span class="c"># data files which are only installed in &quot;demonstration mode&quot;</span>
+    <span class="s">&#39;demo&#39;</span><span class="p">:</span> <span class="p">[</span>
+</pre></div>
+</div>
+</div>
+<em>academy/data.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre><span class="hll"><span class="nt">&lt;openerp&gt;&lt;data&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">model=</span><span class="s">&quot;product.public.category&quot;</span> <span class="na">id=</span><span class="s">&quot;category_courses&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Courses<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;parent_id&quot;</span> <span class="na">ref=</span><span class="s">&quot;website_sale.categ_others&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="hll"><span class="nt">&lt;/data&gt;&lt;/openerp&gt;</span>
+</span></pre></div>
+</div>
+</div>
+<em>academy/demo.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;vaughn&quot;</span> <span class="na">model=</span><span class="s">&quot;academy.teachers&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Lester Vaughn<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;/record&gt;</span>
+<span class="hll">
+</span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;course0&quot;</span> <span class="na">model=</span><span class="s">&quot;product.template&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Course 0<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;teacher_id&quot;</span> <span class="na">ref=</span><span class="s">&quot;padilla&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;public_categ_ids&quot;</span> <span class="na">eval=</span><span class="s">&quot;</span><span class="cp">[</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nx">ref</span><span class="p">(</span><span class="s1">&#39;academy.category_courses&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span><span class="cp">]</span><span class="s">&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;website_published&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;list_price&quot;</span> <span class="na">type=</span><span class="s">&quot;float&quot;</span><span class="nt">&gt;</span>0<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;type&quot;</span><span class="nt">&gt;</span>service<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;course1&quot;</span> <span class="na">model=</span><span class="s">&quot;product.template&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Course 1<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;teacher_id&quot;</span> <span class="na">ref=</span><span class="s">&quot;padilla&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;public_categ_ids&quot;</span> <span class="na">eval=</span><span class="s">&quot;</span><span class="cp">[</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nx">ref</span><span class="p">(</span><span class="s1">&#39;academy.category_courses&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span><span class="cp">]</span><span class="s">&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;website_published&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;list_price&quot;</span> <span class="na">type=</span><span class="s">&quot;float&quot;</span><span class="nt">&gt;</span>0<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;type&quot;</span><span class="nt">&gt;</span>service<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;course2&quot;</span> <span class="na">model=</span><span class="s">&quot;product.template&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Course 2<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;teacher_id&quot;</span> <span class="na">ref=</span><span class="s">&quot;vaughn&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;public_categ_ids&quot;</span> <span class="na">eval=</span><span class="s">&quot;</span><span class="cp">[</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nx">ref</span><span class="p">(</span><span class="s1">&#39;academy.category_courses&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span><span class="cp">]</span><span class="s">&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;website_published&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;list_price&quot;</span> <span class="na">type=</span><span class="s">&quot;float&quot;</span><span class="nt">&gt;</span>0<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;type&quot;</span><span class="nt">&gt;</span>service<span class="nt">&lt;/field&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="nt">&lt;/data&gt;&lt;/openerp&gt;</span>
+</pre></div>
+</div>
+</div>
+<em>academy/ir.model.access.csv</em><div class="pq-section container">
+<div class="highlight-guess"><div class="highlight"><pre><span class="n">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">model_id</span><span class="o">:</span><span class="n">id</span><span class="p">,</span><span class="n">group_id</span><span class="o">:</span><span class="n">id</span><span class="p">,</span><span class="n">perm_read</span><span class="p">,</span><span class="n">perm_write</span><span class="p">,</span><span class="n">perm_create</span><span class="p">,</span><span class="n">perm_unlink</span>
+<span class="n">access_academy_teachers</span><span class="p">,</span><span class="n">access_academy_teachers</span><span class="p">,</span><span class="n">model_academy_teachers</span><span class="p">,,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<em>academy/models.py</em><div class="pq-section container">
+<div class="highlight-python"><div class="highlight"><pre>    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+    <span class="n">biography</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Html</span><span class="p">()</span>
+
+<span class="hll">    <span class="n">course_ids</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">One2many</span><span class="p">(</span><span class="s">&#39;product.template&#39;</span><span class="p">,</span> <span class="s">&#39;teacher_id&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s">&quot;Courses&quot;</span><span class="p">)</span>
+</span>
+<span class="k">class</span> <span class="nc">Courses</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="hll">    <span class="n">_inherit</span> <span class="o">=</span> <span class="s">&#39;product.template&#39;</span>
+</span>
+    <span class="n">teacher_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s">&#39;academy.teachers&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s">&quot;Teacher&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<em>academy/views.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>    <span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;/record&gt;</span>
+
+  <span class="nt">&lt;menuitem</span> <span class="na">sequence=</span><span class="s">&quot;0&quot;</span> <span class="na">id=</span><span class="s">&quot;menu_academy&quot;</span> <span class="na">name=</span><span class="s">&quot;Academy&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;menuitem</span> <span class="na">id=</span><span class="s">&quot;menu_academy_content&quot;</span> <span class="na">parent=</span><span class="s">&quot;menu_academy&quot;</span>
+            <span class="na">name=</span><span class="s">&quot;Academy Content&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;menuitem</span> <span class="na">id=</span><span class="s">&quot;menu_academy_content_teachers&quot;</span>
+            <span class="na">parent=</span><span class="s">&quot;menu_academy_content&quot;</span>
+            <span class="na">action=</span><span class="s">&quot;action_academy_teachers&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With this installed, a few courses are now available in the <em class="guilabel">Shop</em>,
+though they may have to be looked for.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>to extend a model in-place, it&#8217;s <a class="reference internal" href="orm.html#openerp.models.Model._inherit" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#openerp.models.Model._inherit" title="openerp.models.Model._inherit"><tt class="xref py py-attr docutils literal"><span class="pre">inherited</span></tt></a> without giving it a new
+<a class="reference internal" href="orm.html#openerp.models.Model._name" tppabs="https://www.odoo.com/documentation/8.0/reference/orm.html#openerp.models.Model._name" title="openerp.models.Model._name"><tt class="xref py py-attr docutils literal"><span class="pre">_name</span></tt></a></li>
+<li><tt class="docutils literal"><span class="pre">product.template</span></tt> already uses the discussions system, so we can
+remove it from our extension model</li>
+<li>we&#8217;re creating our courses as <em>published</em> by default so they can be
+seen without having to log in</li>
+</ul>
+</div>
+</div>
+<div class="section" id="altering-existing-views">
+<h3>Altering existing views</h3>
+<p>So far, we have briefly seen:</p>
+<ul class="simple">
+<li>the creation of new models</li>
+<li>the creation of new views</li>
+<li>the creation of new records</li>
+<li>the alteration of existing models</li>
+</ul>
+<p>We&#8217;re left with the alteration of existing records and the alteration of
+existing views. We&#8217;ll do both on the <em class="guilabel">Shop</em> pages.</p>
+<p>View alteration is done by creating <em>extension</em> views, which are applied on
+top of the original view and alter it. These alteration views can be added or
+removed without modifying the original, making it easier to try things out and
+roll changes back.</p>
+<p>Since our courses are free, there is no reason to display their price on the
+shop page, so we&#8217;re going to alter the view and hide the price if it&#8217;s 0. The
+first task is finding out which view displays the price, this can be done via
+<em class="menuselection">Customize â€£ HTML Editor</em> which lets us read the various
+templates involved in rendering a page. Going through a few of them, &#8220;Product
+item&#8221; looks a likely culprit.</p>
+<p>Altering view architectures is done in 3 steps:</p>
+<ol class="arabic simple">
+<li>Create a new view</li>
+<li>Extend the view to modify by setting the new view&#8217;s <tt class="docutils literal"><span class="pre">inherit_id</span></tt> to the
+modified view&#8217;s external id</li>
+<li>In the architecture, use the <tt class="docutils literal"><span class="pre">xpath</span></tt> tag to select and alter elements
+from the modified view</li>
+</ol>
+<div class="pq-patch container">
+<em>academy/templates.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+  <span class="nt">&lt;/template&gt;</span>
+<span class="hll">
+</span><span class="hll">  <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;product_item_hide_no_price&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;website_sale.products_item&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//div</span><span class="cp">[</span><span class="nx">hasclass</span><span class="p">(</span><span class="s1">&#39;product_price&#39;</span><span class="p">)</span><span class="cp">]</span><span class="s">/b&quot;</span> <span class="na">position=</span><span class="s">&quot;attributes&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">      <span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">&quot;t-if&quot;</span><span class="nt">&gt;</span>product.price <span class="ni">&amp;gt;</span> 0<span class="nt">&lt;/attribute&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;/xpath&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/template&gt;</span>
+</span><span class="nt">&lt;/data&gt;&lt;/openerp&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The second thing we will change is making the product categories sidebar
+visible by default: <em class="menuselection">Customize â€£ Product Categories</em> lets
+you toggle a tree of product categories (used to filter the main display) on
+and off.</p>
+<p>This is done via the <tt class="docutils literal"><span class="pre">customize_show</span></tt> and <tt class="docutils literal"><span class="pre">active</span></tt> fields of extension
+templates: an extension template (such as the one we&#8217;ve just created) can be
+<em>customize_show=True</em>. This choice will display the view in the <em class="guilabel">Customize</em>
+menu with a check box, allowing administrators to activate or disable them
+(and easily customize their website pages).</p>
+<p>We simply need to modify the <em>Product Categories</em> record and set its default
+to <em>active=&#8221;True&#8221;</em>:</p>
+<div class="pq-patch container">
+<em>academy/templates.xml</em><div class="pq-section container">
+<div class="highlight-xml+lasso"><div class="highlight"><pre>      <span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">&quot;t-if&quot;</span><span class="nt">&gt;</span>product.price <span class="ni">&amp;gt;</span> 0<span class="nt">&lt;/attribute&gt;</span>
+    <span class="nt">&lt;/xpath&gt;</span>
+  <span class="nt">&lt;/template&gt;</span>
+<span class="hll">
+</span><span class="hll">  <span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;website_sale.products_categories&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;active&quot;</span> <span class="na">eval=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">  <span class="nt">&lt;/record&gt;</span>
+</span><span class="nt">&lt;/data&gt;&lt;/openerp&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With this, the <em>Product Categories</em> sidebar will automatically be enabled when
+the <em>Academy</em> module is installed.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div>
+    <div class="footer">
+      <div class="container">
+        <ul class="docs-footer-links muted">
+            <li>
+                &copy; Copyright <a href="javascript:if(confirm('https://odoo.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://odoo.com/'" tppabs="https://odoo.com/">Odoo S.A.</a>.
+            </li><li>Â·</li>
+            <li>Created using <a href="javascript:if(confirm('http://sphinx-doc.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://sphinx-doc.org/'" tppabs="http://sphinx-doc.org/">Sphinx</a> 1.2.2.</li>
+        </ul>
+      <p>
+        odoo docs theme based on <a href="javascript:if(confirm('http://getbootstrap.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://getbootstrap.com/'" tppabs="http://getbootstrap.com/">Bootstrap
+        3.2 documentation</a> adapted to
+        <a href="javascript:if(confirm('http://sphinx-doc.org/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://sphinx-doc.org/'" tppabs="http://sphinx-doc.org/">Sphinx</a> output with branding and
+        color changes.
+      </p>
+      </div>
+    </div><script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','analytics.js'/*tpa=https://www.google-analytics.com/analytics.js*/,'ga');
+
+    ga('create', 'UA-52174891-1', 'auto');
+    ga('send','pageview');
+    </script>
+  </body>
+</html>
