@@ -17,5 +17,22 @@
     <script src="js/jquery-1.11.3.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/drawTable.js"></script>
+    <script>
+        $(document).ready(function(){
+            var col={
+                "groupName":"分组",
+                "area":"地域",
+                "regional":"区域",
+                "functionA":"功能区",
+                "deviceName":"设备名",
+                "manageIp":"管理IP",
+                "interfaceTotal":"接口总数",
+                "usedInterface":"已用接口总数"
+            }
+            $.get("json/jsonData1.json",function(data){
+                $("#list_table").drawTable(data,col);//调用渲染函数
+            },"json");
+        });
+    </script>
 </body>
 </html>

@@ -36,9 +36,9 @@
                 dataObj["d"+v.level+i]= v.data;
             });
         }
-        $(this).append(tbody);
+        this.append(tbody);
         thead.append(hTr).appendTo(this);
-        $(this).on("click","tr[data-tar]",function(){
+        this.on("click","tr.group_header",function(){
             $(this).find(".list_group_name")
                 .toggleClass("showChild");
             var tar=$(this).attr("data-tar");
@@ -73,7 +73,7 @@
         return bTr;
     }
     function drawTableList(isGroup,data,i){
-        var bTr=$('<tr data-tar="'+i+'"></tr>');
+        var bTr=$('<tr data-tar="'+i+'" data-act="mianban"></tr>');
         $.each(data,function(item,val){
             if(isGroup){
                 var td=$("<td>"+val+"</td>");
@@ -88,153 +88,3 @@
     }
     $.fn.drawTable=drawTable;
 })()
-var jsonData1=[
-    {
-        "groupName":"黑山扈",
-        "area":"",
-        "regional":"",
-        "functionA":"",
-        "deviceName":"",
-        "manageIp":"",
-        "interfaceTotal":10,
-        "usedInterface":7,
-        "level":1,
-        "data":[
-            {
-                "groupName":"A1",
-                "area":"",
-                "regional":"",
-                "functionA":"",
-                "deviceName":"",
-                "manageIp":"",
-                "interfaceTotal":10,
-                "usedInterface":7,
-                "level":2,
-                "data":[
-                    {
-                        "groupName":"",
-                        "area":"黑山扈",
-                        "regional":"A1",
-                        "functionA":"b1",
-                        "deviceName":"交换机1",
-                        "manageIp":"192.168.1.1",
-                        "interfaceTotal":5,
-                        "usedInterface":3
-                    },
-                    {
-                        "groupName":"",
-                        "area":"黑山扈",
-                        "regional":"A1",
-                        "functionA":"b2",
-                        "deviceName":"交换机2",
-                        "manageIp":"192.168.1.2",
-                        "interfaceTotal":5,
-                        "usedInterface":4
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "groupName":"西单",
-        "area":"",
-        "regional":"",
-        "functionA":"",
-        "deviceName":"",
-        "manageIp":"",
-        "interfaceTotal":20,
-        "usedInterface":9,
-        "level":1,
-        "data":[
-            {
-                "groupName":"A2",
-                "area":"",
-                "regional":"",
-                "functionA":"",
-                "deviceName":"",
-                "manageIp":"",
-                "interfaceTotal":20,
-                "usedInterface":9,
-                "level":2,
-                "data":[
-                    {
-                        "groupName":"",
-                        "area":"西单",
-                        "regional":"A2",
-                        "functionA":"b1",
-                        "deviceName":"交换机3",
-                        "manageIp":"192.168.1.3",
-                        "interfaceTotal":13,
-                        "usedInterface":5
-                    },
-                    {
-                        "groupName":"",
-                        "area":"西单",
-                        "regional":"A2",
-                        "functionA":"b2",
-                        "deviceName":"交换机4",
-                        "manageIp":"192.168.1.4",
-                        "interfaceTotal":7,
-                        "usedInterface":4
-                    }
-                ]
-            }
-        ]
-    }
-];
-var jsonData2=[
-    {
-        "groupName":"",
-        "area":"黑山扈",
-        "regional":"A1",
-        "functionA":"b1",
-        "deviceName":"交换机1",
-        "manageIp":"192.168.1.1",
-        "interfaceTotal":5,
-        "usedInterface":3
-    },
-    {
-        "groupName":"",
-        "area":"黑山扈",
-        "regional":"A1",
-        "functionA":"b2",
-        "deviceName":"交换机2",
-        "manageIp":"192.168.1.2",
-        "interfaceTotal":5,
-        "usedInterface":4
-    },
-    {
-        "groupName":"",
-        "area":"西单",
-        "regional":"A1",
-        "functionA":"b1",
-        "deviceName":"交换机3",
-        "manageIp":"192.168.1.3",
-        "interfaceTotal":5,
-        "usedInterface":3
-    },
-    {
-        "groupName":"",
-        "area":"西单",
-        "regional":"A1",
-        "functionA":"b2",
-        "deviceName":"交换机3",
-        "manageIp":"192.168.1.3",
-        "interfaceTotal":5,
-        "usedInterface":4
-    }
-];
-var col={
-    "groupName":"分组",
-    "area":"地域",
-    "regional":"区域",
-    "functionA":"功能区",
-    "deviceName":"设备名",
-    "manageIp":"管理IP",
-    "interfaceTotal":"接口总数",
-    "usedInterface":"已用接口总数"
-}
-$(document).ready(function(){
-    //调用渲染函数
-    $("#list_table").drawTable(jsonData1,col);
-});
