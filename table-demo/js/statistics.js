@@ -29,7 +29,7 @@
                     });
                 }else{
                     groupData[groupName]={};
-										groupData[groupName].groupName=groupName;
+					groupData[groupName].groupName=groupName;
                     $.each(v,function(item,val){
                         if(typeof(val)=="string"){
 													groupData[groupName][item]="";
