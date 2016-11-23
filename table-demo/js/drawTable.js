@@ -83,6 +83,9 @@
     }
     function drawTableList(isGroup,data,i){
         var bTr=$('<tr data-tar="'+i+'" data-act="mianban"></tr>');
+				if(isGroup){
+				    bTr.append('<td></td>');
+				}
         $.each(data,function(item,val){
             if(s[item]){
                 if(isGroup){

@@ -29,13 +29,10 @@
                     });
                 }else{
                     groupData[groupName]={};
+										groupData[groupName].groupName=groupName;
                     $.each(v,function(item,val){
                         if(typeof(val)=="string"){
-                            if(item=="groupName"){
-                                groupData[groupName][item]= groupName;
-                            }else{
-                                groupData[groupName][item]="";
-                            }
+													groupData[groupName][item]="";
                         }else if(typeof(val)=="number"){
                             if(!groupData[groupName][item]){
                                 groupData[groupName][item]=0;

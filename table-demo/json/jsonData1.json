@@ -22,7 +22,6 @@
         "level": 2,
         "data": [
           {
-            "groupName": "",
             "area": "黑山扈",
             "regional": "A1",
             "functionA": "b1",
@@ -32,7 +31,6 @@
             "usedInterface": 3
           },
           {
-            "groupName": "",
             "area": "黑山扈",
             "regional": "A1",
             "functionA": "b2",
@@ -68,7 +66,6 @@
         "level": 2,
         "data": [
           {
-            "groupName": "",
             "area": "西单",
             "regional": "A2",
             "functionA": "b1",
@@ -78,7 +75,6 @@
             "usedInterface": 5
           },
           {
-            "groupName": "",
             "area": "西单",
             "regional": "A2",
             "functionA": "b2",

@@ -1,6 +1,5 @@
 [
   {
-    "groupName":"",
     "area":"黑山扈",
     "regional":"A1",
     "functionA":"b1",
@@ -10,7 +9,6 @@
     "usedInterface":2
   },
   {
-    "groupName":"",
     "area":"黑山扈",
     "regional":"B1",
     "functionA":"b2",
@@ -20,7 +18,6 @@
     "usedInterface":8
   },
   {
-    "groupName":"",
     "area":"西单",
     "regional":"A1",
     "functionA":"b1",
@@ -30,7 +27,6 @@
     "usedInterface":3
   },
   {
-    "groupName":"",
     "area":"西单",
     "regional":"B1",
     "functionA":"b2",
