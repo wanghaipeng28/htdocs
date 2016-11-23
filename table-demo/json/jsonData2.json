@@ -6,18 +6,18 @@
     "functionA":"b1",
     "deviceName":"交换机1",
     "manageIp":"192.168.1.1",
-    "interfaceTotal":5,
-    "usedInterface":3
+    "interfaceTotal":10,
+    "usedInterface":2
   },
   {
     "groupName":"",
     "area":"黑山扈",
-    "regional":"A1",
+    "regional":"B1",
     "functionA":"b2",
     "deviceName":"交换机2",
     "manageIp":"192.168.1.2",
-    "interfaceTotal":5,
-    "usedInterface":4
+    "interfaceTotal":20,
+    "usedInterface":8
   },
   {
     "groupName":"",
@@ -32,11 +32,11 @@
   {
     "groupName":"",
     "area":"西单",
-    "regional":"A1",
+    "regional":"B1",
     "functionA":"b2",
     "deviceName":"交换机4",
     "manageIp":"192.168.1.4",
-    "interfaceTotal":5,
-    "usedInterface":4
+    "interfaceTotal":40,
+    "usedInterface":10
   }
 ]

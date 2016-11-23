@@ -72,6 +72,7 @@
             }
             $.get("json/jsonData2.json",function(data){
                 var g=[];
+                var aD=data;
                 $("#list_table").drawTable(data,col,showCol);//调用渲染函数
                 $("#showHidden a").click(function(e){
                     var e=e||event;
@@ -88,7 +89,7 @@
                     }else{
                         showCol[pro]=false;
                     }
-                    $("#list_table").drawTable(data,col,showCol)
+                    $("#list_table").drawTable(aD,col,showCol);
                 });
                 $("#groupAction a").click(function(e){
                     var e=e||event;
@@ -108,9 +109,9 @@
                             g.splice(i,1);
                         }
                     }
-                    data=$.statistics(data,g);
+                    aD= $.statistics(data,g);
+                    $("#list_table").drawTable(aD,col,showCol);
                 });
-                $.statistics(data,["a","b"]);
             },"json");
         });
     </script>
