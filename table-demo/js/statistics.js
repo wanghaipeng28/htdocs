@@ -5,7 +5,7 @@
     try{
         var $=jQuery;
     }catch (err){
-        throw new Error("依赖的jQuery函数不存在！");
+        throw new Error("渚濊禆鐨刯Query鍑芥暟涓嶅瓨鍦紒");
     }
     var groupData=null;
     function statistics(data,arr){

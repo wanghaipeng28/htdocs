@@ -1,16 +1,21 @@
-<html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <title>EthPort-image</title>
-  <style>
-	div,img{
-		-webkit-user-select: none;
-		margin:0px;
-	}
-  </style>
- </head>
- <body>
- <div>
-	<img src="t_up_nodata_a.gif"><img src="t_shutdown.gif"><img src="t_up_nodata_b.gif"><img src="t_up_normal.gif"><img src="t_up_nodata_c.gif"><div><div><img src="b_up_nodata_a.gif"><img src="b_up_nodata_c.gif"><img src="b_up_normal.gif"><img src="b_shutdown.gif"><img src="b_up_nodata_b.gif"></div>
- </body>
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ethport</title>
+    <style>
+        #canvas{
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <canvas id="canvas" width="900" height="550">
+            您的浏览器不支持canvas绘图
+        </canvas>
+    </div>
+    <script src="jquery-1.11.3.js"></script>
+    <script src="ethport.js"></script>
+</body>
 </html>
