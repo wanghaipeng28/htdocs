@@ -53,10 +53,12 @@
                 this.width=this.image[this.index].width*this.s;
                 this.height=this.image[this.index].height*this.s;
                 ctx.drawImage(this.image[this.index],this.x,this.y,this.width,this.height);
-                isAuto&&(this.index++);
-                if(this.index==this.image.length){
-                    this.index=0;
-                }
+                if(isAuto){//黄灯无规律闪烁
+                    this.index=parseInt(Math.random()*2)
+                };
+                //if(this.index==this.image.length){
+                //    this.index=0;
+                //}
             }else{
                 this.width=this.image.width*this.s;
                 this.height=this.image.height*this.s;
@@ -75,7 +77,7 @@
         }
         //继承图形父类
         Object.setPrototypeOf(Brd.prototype,Img.prototype);
-        //以板卡的绘制函数
+        //以太网板卡的绘制函数
         Brd.prototype.draw=function(){
             ctx.fillStyle="#5D5D75";
             ctx.fillRect(this.x,this.y,this.width,this.height);
@@ -95,22 +97,23 @@
         }
         //继承图形父类
         Object.setPrototypeOf(Srn.prototype,Img.prototype);
-        //以板卡的绘制函数
+        //机框的绘制函数
         Srn.prototype.draw=function(){
             ctx.fillStyle="#C5C6CA";
             ctx.fillRect(this.x,this.y,this.width,this.height);
             ctx.strokeStyle="#676A73"
-            ctx.lineWidth=10*this.s;
+            ctx.lineWidth=20*this.s;
             ctx.strokeRect(this.x,this.y,this.width,this.height);
-            ctx.fillStyle="#e4393c";
+            ctx.fillStyle="#333";
             ctx.font=(this.s*22+'px helvetica');
             var w=ctx.measureText(this.name).width;
-            ctx.fillText(this.name,this.x,this.y-10*this.s);
+            ctx.fillText(this.name,this.x,this.y-19*this.s);
         }
         var images={
             img:[],
             col:24,//用来保存每排的端口数
             scale:option.defaultScale,
+            timer:null,//用于保存定时器
             init:function(){
                 var self=this;
                 c.onmousedown=function(e){
@@ -144,6 +147,10 @@
                     })
                     self.draw(false);
                 }, false)
+                this.timer=setInterval(function(){
+                    images.clear();
+                    images.draw(true);
+                },120)
             },
             start:function(data,ethImgs){//注意渲染顺序
                 var col=this.col;

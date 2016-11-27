@@ -12,23 +12,16 @@ $(document).ready(function(){
         t_up_nodata:"img/t_up_nodata3.png",
         b_up_nodata:"img/b_up_nodata3.png"
     },function(img){
-        var images=$("canvas").eth_switch({defaultScale:0.5});
+        var images=$("canvas").eth_switch({defaultScale:0.5,autoUpdata:false});
         var oldData=null;
         $.get("json/data.json",function(data){
             images.start(data,img);
             images.init();
-            var n=0;
             setInterval(function(){
-                n++;
-                images.clear(true);
-                images.draw(true);
-                if(n%30==0){//每等5秒发送一次请求，来更新数据
-                    n=0;
-                    $.get("json/data.json",function(data){
-                        images.refreshData(data);
-                    });
-                }
-            },150)
+                $.get("json/data.json",function(data){
+                    images.refreshData(data);
+                });
+            },5000)
         },"json")
     });
 });
