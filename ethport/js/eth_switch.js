@@ -109,6 +109,7 @@
         }
         var images={
             img:[],
+            col:24,//用来保存每排的端口数
             scale:option.defaultScale,
             init:function(){
                 var self=this;
@@ -145,9 +146,10 @@
                 }, false)
             },
             start:function(data,ethImgs){//注意渲染顺序
-                var col=24;//用来规定每排的端口数
+                var col=this.col;
                 var me=this;
-                this.img=[];
+                this.img={};
+                this.ethImgs=ethImgs;
                 var srnWidth=63*col+120,
                     srnHeight=0;
                 $.each(data.brd,function(i,v){
@@ -156,20 +158,21 @@
                 srnHeight+=142;
                 var x=(c.width-srnWidth*option.defaultScale)/2,
                     y=(c.height-srnHeight*option.defaultScale)/2;
-                this.addSrn(data.name,x,y,srnWidth,srnHeight);
+                this.addSrn(data.id,data.name,x,y,srnWidth,srnHeight);
                 $.each(data.brd,function(i,v){
                     var w=63*col+40,
                         h=Math.ceil(v.port_number/col)*57+40;
                     var xBrd=x+40*option.defaultScale,
                         yBrd=y+(40+(h+40)*i)*option.defaultScale;
-                    me.addBrd(v.brd_name,xBrd,yBrd,w,h);
+                    var brd_id="S"+data.id+ v.id;
+                    me.addBrd(brd_id,v.brd_name,xBrd,yBrd,w,h);
                     $.each(v.port,function(item,val){
                         var row=parseInt(item/col);
                         var bt=(row%2==0?"t_":"b_");
                         if(val.status=="up_normal"){
-                            var imgArr=[ethImgs[bt+"normal0"],ethImgs[bt+"normal1"]];
+                            var imgArr=[me.ethImgs[bt+"normal0"],me.ethImgs[bt+"normal1"]];
                         }else{
-                            var imgArr=ethImgs[bt+val.status];
+                            var imgArr=me.ethImgs[bt+val.status];
                         }
                         if((item+1)%col==0){
                             var c=col-1;
@@ -179,20 +182,39 @@
                         var portX=xBrd+(20+(c)*63)*option.defaultScale,
                             portY=yBrd+(20+row*57)*option.defaultScale;
                         if(imgArr){
-                            me.addEthPort(imgArr,item+1+"",portX,portY);
+                            me.addEthPort(brd_id+item,imgArr,item+1+"",portX,portY);
                         }
                     });
                 });
 
             },
-            addEthPort:function(img,name,x,y){//后进入数组的元素先渲染
-                this.img.push(new EthPort(img,name,x,y));
+            refreshData:function(data){//刷新数据（配合定时器用于动态数据展示）
+                var pro="S"+data.id;
+                var me=this;
+                $.each(data.brd,function(i,v){
+                    var pro="S"+data.id+v.id;
+                    $.each(v.port,function(item,val){
+                        var row=parseInt(item/me.col);
+                        var bt=(row%2==0?"t_":"b_");
+                        if(val.status=="up_normal"){
+                            var imgArr=[me.ethImgs[bt+"normal0"],me.ethImgs[bt+"normal1"]];
+                        }else{
+                            var imgArr=me.ethImgs[bt+val.status];
+                        }
+                        if(me.img[pro+item]&&imgArr){
+                            me.img[pro+item].image=imgArr;
+                        }
+                    });
+                });
             },
-            addBrd:function(name,x,y,width,height){
-                this.img.push(new Brd(name,x,y,width,height));
+            addEthPort:function(id,img,name,x,y){//后进入数组的元素先渲染
+                this.img[id]=new EthPort(img,name,x,y);
             },
-            addSrn:function(name,x,y,width,height){
-                this.img.push(new Srn(name,x,y,width,height));
+            addBrd:function(id,name,x,y,width,height){
+                this.img[id]=new Brd(name,x,y,width,height);
+            },
+            addSrn:function(id,name,x,y,width,height){
+                this.img["S"+id]=new Srn(name,x,y,width,height);
             },
             draw:function(isAuto){
                 $.each(this.img,function(i,v){
@@ -207,6 +229,7 @@
         return images;
     }
     $.fn.eth_switch=eth_switch;
+    eth_switch=null;//释放内存
     //canvas加载图片过程
     function L(canvasId,obj,fn){
         var c=document.getElementById(canvasId);
@@ -253,4 +276,5 @@
         }
     }
     $.L=L;
+    L=null;
 })()

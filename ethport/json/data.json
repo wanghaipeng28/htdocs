@@ -4,7 +4,7 @@
   "id":34,
   "brd":[
     {
-      "brd_id":345,
+      "id":345,
       "brd_name":"EA-CE-3451",
       "port_number":48,
       "port":[
@@ -31,7 +31,7 @@
         {"status":"up_normal","info":"eth-1-21","property":"e"},
         {"status":"shutdown","info":"eth-1-22","property":"e"},
         {"status":"up_normal","info":"eth-1-23","property":"e"},
-        {"status":"shutdown","info":"eth-1-24","property":"e"},
+        {"status":"up_normal","info":"eth-1-24","property":"e"},
         {"status":"up_normal","info":"eth-1-25","property":"e"},
         {"status":"up_normal","info":"eth-1-26","property":"o"},
         {"status":"shutdown","info":"eth-1-27","property":"e"},
@@ -59,11 +59,11 @@
       ]
     },
     {
-      "brd_id":346,
+      "id":346,
       "brd_name":"EA-CE-3452",
       "port_number":48,
       "port":[
-        {"status":"shutdown","info":"eth-1-1","property":"e"},
+        {"status":"up_normal","info":"eth-1-1","property":"e"},
         {"status":"up_normal","info":"eth-1-2","property":"e"},
         {"status":"up_normal","info":"eth-1-3","property":"e"},
         {"status":"up_normal","info":"eth-1-4","property":"e"},

@@ -15,7 +15,6 @@ $(document).ready(function(){
         var images=$("canvas").eth_switch({defaultScale:0.5});
         var oldData=null;
         $.get("json/data.json",function(data){
-            oldData=data;
             images.start(data,img);
             images.init();
             var n=0;
@@ -23,11 +22,10 @@ $(document).ready(function(){
                 n++;
                 images.clear(true);
                 images.draw(true);
-                if(n%120==0){//每等20秒发送一次请求，来更新数据
+                if(n%30==0){//每等5秒发送一次请求，来更新数据
                     n=0;
                     $.get("json/data.json",function(data){
-                        oldData=data;
-                        images.start(oldData,img);
+                        images.refreshData(data);
                     });
                 }
             },150)
