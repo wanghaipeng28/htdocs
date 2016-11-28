@@ -54,7 +54,8 @@
                 this.height=this.image[this.index].height*this.s;
                 ctx.drawImage(this.image[this.index],this.x,this.y,this.width,this.height);
                 if(isAuto){//黄灯无规律闪烁
-                    this.index=parseInt(Math.random()*2)
+                    this.index=parseInt(Math.random()*2);
+
                 };
                 //if(this.index==this.image.length){
                 //    this.index=0;
