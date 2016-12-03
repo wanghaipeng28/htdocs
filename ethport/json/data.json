@@ -18,7 +18,7 @@
         {"status":"up_normal","info":"eth-1-8","property":"e"},
         {"status":"up_normal","info":"eth-1-9","property":"e"},
         {"status":"up_normal","info":"eth-1-10","property":"e"},
-        {"status":"shutdown","info":"eth-1-11","property":"e"},
+        {"status":"up_normal","info":"eth-1-11","property":"e"},
         {"status":"up_normal","info":"eth-1-12","property":"o"},
         {"status":"up_nodata","info":"eth-1-13","property":"e"},
         {"status":"up_normal","info":"eth-1-14","property":"e"},

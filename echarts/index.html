@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>echarts.js-demo</title>
+    <style>
+        #main{
+            width: 900px;
+            height:500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+
+    <script src="js/echarts.min.js"></script>
+    <script>
+        var myChart = echarts.init(document.getElementById('main'));
+        var option={
+            title:{
+                text:'start'
+            },
+            tooltip:{},
+            legend:{
+                data:['有正常流量','无正常流量','shutdown']
+            },
+            xAxis:{
+                data:["海淀","东城","西城","朝阳","昌平","密云","怀柔","顺义"]
+            },
+            yAxis: {
+
+            },
+            series:[
+                {
+                    name:'有正常流量',
+                    type:'bar',
+                    data:[96,76,56,67,81,81,96,92]
+                },
+                {
+                    name:'无正常流量',
+                    type:'bar',
+                    data:[3,18,41,31,81,81,3,6]
+                },
+                {
+                    name:'shutdown',
+                    type:'bar',
+                    data:[1,6,3,2,8,1,1,2]
+                }
+            ],
+            backgroundColor:"#ddd",
+            color:['#61a0a8','#c4ccd3','#ca8622','#c23531','#2f4554',  '#d48265', '#91c7ae','#749f83',  '#bda29a','#6e7074', '#546570']
+        }
+
+
+
+        option1 = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'right',
+                data:['已用','可用','UP_noData','黑山扈','西单','A1','A2','A3','A4','A5']
+            },
+            series: [
+                {
+                    name:'端口状态',
+                    type:'pie',
+                    selectedMode: 'single',
+                    radius: [0, '20%'],
+
+                    label: {
+                        normal: {
+                            position: 'inner'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    data:[
+                        {
+                            value:1100,
+                            name:'已用'
+                        },
+                        {
+                            value:900,
+                            name:'可用'
+                        }
+                    ]
+                },
+                {
+                    name:'区域',
+                    type:'pie',
+                    radius: ['30%', '40%'],
+
+                    data:[
+                        {value:200, name:'黑山扈'},
+                        {value:400, name:'西单'},
+                        {value:200, name:'黑山扈'},
+                        {value:200, name:'西单'},
+                        {value:600, name:'黑山扈'},
+                        {value:400, name:'西单'}
+                    ]
+                },
+                {
+                    name:'机房',
+                    type:'pie',
+                    radius: ['65%', '80%'],
+
+                    data:[
+                        {value:50, name:'A1'},
+                        {value:150, name:'A2'},
+                        {value:300, name:'A3'},
+                        {value:400, name:'A4'},
+                        {value:100, name:'A5'},
+                        {value:100, name:'A6'},
+                        {value:100, name:'A7'},
+                        {value:100, name:'B4'},
+                        {value:100, name:'B6'},
+                        {value:100, name:'B7'},
+                        {value:100, name:'B8'},
+                        {value:100, name:'B0'},
+                        {value:100, name:'C1'},
+                        {value:50, name:'C2'},
+                        {value:50, name:'C4'}
+                    ]
+                }
+            ]
+        };
+        myChart.setOption(option1);
+        myChart.on('click', function (params) {
+            // 控制台打印数据的名称
+            console.log(params);
+        });
+    </script>
+</body>
+</html>
