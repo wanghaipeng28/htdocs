@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+	<button type="button" id="btn">点我下载</button>
+	<script src="jquery-1.11.3.js"></script>
+	<script>
+		
+		
+
+		function downloadFile(f,c){
+			$('<a href="'+URL.createObjectURL(new Blob([c]))+'" download="'+f+'"></a>')[0].click();			
+		}
+
+		$("#btn").click(function(){
+			downloadFile("test.txt","这是我的下载测试文件")
+		});
+
+		/***********以下摘自网上************/
+		//var a=document.getElementById("a");
+		//a.href=URL.createObjectURL(new Blob(['你大爷的']));
+
+		/*function downloadFile(fileName, content){
+			var aLink = document.createElement('a');
+			var blob = new Blob([content]);
+			var evt = document.createEvent("HTMLEvents");
+			evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错, 感谢 Barret Lee 的反馈
+			aLink.download = fileName;
+			aLink.href = URL.createObjectURL(blob);
+			aLink.dispatchEvent(evt);
+		}*/
+
+
+	</script>
+ </body>
+</html>
