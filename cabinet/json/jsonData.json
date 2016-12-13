@@ -1,0 +1,30 @@
+{
+  "name":"A1",
+  "device":[
+    {
+      "position_u":1,
+      "occupy":1,
+      "deviceName":"switch1"
+    },
+    {
+      "position_u":2,
+      "occupy":2,
+      "deviceName":"switch2"
+    },
+    {
+      "position_u":4,
+      "occupy":1,
+      "deviceName":"switch3"
+    },
+    {
+      "position_u":5,
+      "occupy":1,
+      "deviceName":"switch4"
+    },
+    {
+      "position_u":6,
+      "occupy":2,
+      "deviceName":"switch5"
+    }
+  ]
+}

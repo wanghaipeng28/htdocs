@@ -7,9 +7,9 @@
     }catch (err){
         throw new Error("依赖的jQuery函数不存在！");
     }
-    function cabinet_v(option){//参数待定
+    function engineRoom(option){//参数待定
         !option&&(option={});
-        !option.defaultScale&&(option.defaultScale=0.5);
+        !option.defaultScale&&(option.defaultScale=0.20);
         !option.maxScale&&(option.maxScale=1.3);
         !option.minScale&&(option.minScale=0.15);
         var canvas=this[0];
@@ -34,7 +34,8 @@
             this.y=y;
         }
         //构建机柜类
-        function Cabinet(name,x,y,width,height){
+        function Cabinet(name,x,y,width,height,isExist){
+            this.isExist=isExist;
             this.x=x;
             this.y=y;
             this.name=name;
@@ -46,37 +47,6 @@
         Object.setPrototypeOf(Cabinet.prototype,Img.prototype);
         //机柜的绘制函数
         Cabinet.prototype.draw=function(){
-            ctx.fillStyle="#e5e6eA";
-            ctx.fillRect(this.x,this.y,this.width,this.height);
-            ctx.strokeStyle="#676A73"
-            ctx.lineWidth=14*this.s;
-            ctx.strokeRect(this.x,this.y,this.width,this.height);
-            ctx.fillStyle="#e4393c";
-            ctx.font=(this.s*22+'px helvetica');
-            var w=ctx.measureText(this.name).width;
-            ctx.fillText(this.name,this.x,this.y-19*this.s);
-            ctx.strokeStyle="#666"
-            ctx.lineWidth=1;
-            ctx.strokeRect(this.x+70*this.s,this.y+60*this.s,this.width-140*this.s,this.height-120*this.s);
-            ctx.strokeStyle="#aaa"
-            for(var i=0;i<=42;i++){
-                ctx.strokeRect(this.x+this.width-70*this.s,this.y+(60+40*i)*this.s,35*this.s,1);
-                if(i>0){
-                    ctx.fillText(43-i+"",this.x+this.width-65*this.s,this.y+(55+40*i)*this.s);
-                }
-            }
-        }
-        //创建机房类
-        function Device(name,x,y,width,height,isExist){
-            this.isExist=isExist;
-            this.x=x;this.y=y;this.name=name;
-            Img.call(this);
-            this.width=width*this.s;this.height=height*this.s;
-        }
-        //继承图形父类
-        Object.setPrototypeOf(Device.prototype,Img.prototype);
-        //机房的绘制函数
-        Device.prototype.draw=function(){
             ctx.lineWidth=1;
             ctx.strokeStyle="#000";//绘制颜色
             ctx.strokeRect(this.x,this.y,this.width , this.height);
@@ -94,9 +64,29 @@
                 ctx.stroke();
             }
             ctx.fillStyle="#f00";
-            ctx.font=(this.s*40+'px helvetica');
+            ctx.font=(this.s*80+'px helvetica');
             var w=ctx.measureText(this.name).width;
             ctx.fillText(this.name,(this.width-w)/2+this.x,this.height+this.y+65*this.s);
+        }
+        //创建机房类
+        function Room(name,x,y,width,height){
+            this.x=x;this.y=y;this.name=name;
+            Img.call(this);
+            this.width=width*this.s;this.height=height*this.s;
+        }
+        //继承图形父类
+        Object.setPrototypeOf(Room.prototype,Img.prototype);
+        //机房的绘制函数
+        Room.prototype.draw=function(){
+            ctx.fillStyle="#e5e6eA";
+            ctx.fillRect(this.x,this.y,this.width,this.height);
+            ctx.strokeStyle="#676A73"
+            ctx.lineWidth=20*this.s;
+            ctx.strokeRect(this.x,this.y,this.width,this.height);
+            ctx.fillStyle="#333";
+            ctx.font=(this.s*22+'px helvetica');
+            var w=ctx.measureText(this.name).width;
+            ctx.fillText(this.name,this.x,this.y-19*this.s);
         }
         var images={
             img:{},
@@ -160,7 +150,7 @@
                     };
                 });
                 //绘制房间
-                this.addDevice("R",data.roomName,-200*option.defaultScale,-200*option.defaultScale,244*maxCol+400,392*maxRol+200);
+                this.addRoom("R",data.roomName,-200*option.defaultScale,-200*option.defaultScale,244*maxCol+400,392*maxRol+200);
                 //绘制机柜
                 for(var r=1;r<=maxRol;r++){
                     for(var c=1;c<=maxCol;c++){
@@ -183,13 +173,11 @@
                 });
                 return this;
             },
-            addCabinet:function(id,name,x,y,width,height){//后进入数组的元素先渲染
-                this.img[id]=new Cabinet(name,x,y,width,height);
-                return this;
+            addCabinet:function(pos,name,x,y,width,height,isExist){//后进入数组的元素先渲染
+                this.img[pos]=new Cabinet(name,x,y,width,height,isExist);
             },
-            addDevice:function(pos,name,x,y,width,height,isExist){
-                this.img[pos]=new Device(name,x,y,width,height,isExist);
-                return this;
+            addRoom:function(id,name,x,y,width,height){
+                this.img[id]=new Room(name,x,y,width,height);
             },
             draw:function(){
                 $.each(this.img,function(i,v){
@@ -222,6 +210,6 @@
         }
         return images;
     }
-    $.fn.cabinet_v=cabinet_v;
-    cabinet_v=null;//释放内存
+    $.fn.engineRoom=engineRoom;
+    engineRoom=null;//释放内存
 })()

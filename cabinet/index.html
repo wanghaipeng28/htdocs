@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>roomCabinet</title>
+    <title>cabinet</title>
     <style>
         canvas{
             background-color: #eee;
@@ -10,47 +10,23 @@
     </style>
 </head>
 <body>
-<div>
-    <canvas id="myCanvas" height="460" width="900"></canvas>
-</div>
-<script src="js/jquery-1.11.3.js"></script>
-<script src="js/cabinet.js"></script>
-<script>
-    var jsonData={
-        roomName:"数据中心北生产机房",
-        cabinet:[
-            {"id":1,"name":"A6"},
-            {"id":2,"name":"A1"},
-            {"id":3,"name":"A10"},
-            {"id":4,"name":"A12"},
-            {"id":5,"name":"A14"},
-            {"id":6,"name":"A15"},
-            {"id":7,"name":"A2"},
-            {"id":8,"name":"A3"},
-            {"id":9,"name":"A4"},
-            {"id":10,"name":"A5"},
-            {"id":11,"name":"A6"},
-            {"id":12,"name":"A7"},
-            {"id":13,"name":"A8"},
-            {"id":14,"name":"A9"},
-            {"id":15,"name":"B1"},
-            {"id":16,"name":"B11"},
-            {"id":17,"name":"B2"},
-            {"id":18,"name":"B3"},
-            {"id":19,"name":"B4"},
-            {"id":20,"name":"C1"},
-            {"id":21,"name":"C2"},
-            {"id":22,"name":"C3"},
-            {"id":23,"name":"C4"},
-            {"id":24,"name":"C5"},
-            {"id":25,"name":"C6"},
-            {"id":26,"name":"C7"},
-            {"id":27,"name":"C8"},
-            {"id":28,"name":"C9"},
-            {"id":29,"name":"D3"}
-        ]
-    }
-    $("#myCanvas").engineRoom().start(jsonData).init();
-</script>
+    <div>
+        <canvas id="myCanvas" height="460" width="850"></canvas>
+    </div>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/cabinet.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.get("json/jsonData.json",doResponse,"json");
+            function doResponse(d){
+                console.log(d);
+                $("#myCanvas").cabinet_v()
+                        .addCabinet(1,"A1(剩余U:10)",10,10,600,1800)
+                        .addDevice(2,"switch1",45,30,460,80,true)
+                        //.addDevice(3,"switch3",40,150,460,80,false)
+                        .init();
+            }
+        });
+    </script>
 </body>
 </html>
