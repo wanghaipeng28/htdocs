@@ -10,8 +10,8 @@
     function cabinet_v(option){//参数待定
         !option&&(option={});
         !option.defaultScale&&(option.defaultScale=0.5);
-        !option.maxScale&&(option.maxScale=1.3);
-        !option.minScale&&(option.minScale=0.15);
+        !option.maxScale&&(option.maxScale=1.5);
+        !option.minScale&&(option.minScale=0.2);
         var canvas=this[0];
         var ctx=canvas.getContext("2d");
         //创建图形父类
@@ -48,21 +48,21 @@
         Cabinet.prototype.draw=function(){
             ctx.fillStyle="#e5e6eA";
             ctx.fillRect(this.x,this.y,this.width,this.height);
-            ctx.strokeStyle="#676A73"
+            ctx.strokeStyle="#676A73";
             ctx.lineWidth=14*this.s;
             ctx.strokeRect(this.x,this.y,this.width,this.height);
             ctx.fillStyle="#e4393c";
             ctx.font=(this.s*22+'px helvetica');
             var w=ctx.measureText(this.name).width;
             ctx.fillText(this.name,this.x,this.y-19*this.s);
-            ctx.strokeStyle="#666"
+            ctx.strokeStyle="#666";
             ctx.lineWidth=1;
             ctx.strokeRect(this.x+70*this.s,this.y+60*this.s,this.width-140*this.s,this.height-120*this.s);
-            ctx.strokeStyle="#aaa"
+            ctx.strokeStyle="#aaa";
             for(var i=0;i<=42;i++){
-                ctx.strokeRect(this.x+this.width-70*this.s,this.y+(60+40*i)*this.s,35*this.s,1);
+                ctx.strokeRect(this.x+this.width-70*this.s,this.y+(60+40*i)*this.s,40*this.s,1);
                 if(i>0){
-                    ctx.fillText(43-i+"",this.x+this.width-65*this.s,this.y+(55+40*i)*this.s);
+                    ctx.fillText(43-i+"",this.x+this.width-55*this.s,this.y+(50+40*i)*this.s);
                 }
             }
         }
@@ -80,23 +80,26 @@
             ctx.lineWidth=1;
             ctx.strokeStyle="#000";//绘制颜色
             ctx.strokeRect(this.x,this.y,this.width , this.height);
-            if(this.isExist){
-                ctx.lineWidth = 2;
-                ctx.strokeStyle="#0f0";//绘制颜色
-                ctx.strokeRect(this.x+10*this.s,this.y+10*this.s , this.width-20*this.s,this.height-20*this.s);
-                ctx.strokeStyle ='#0f0';//线条颜色
-                ctx.beginPath();
-                ctx.moveTo(this.x+10*this.s , this.y+10*this.s);
-                ctx.lineTo(this.x+this.width-10*this.s , this.y+this.height-10*this.s);
-                ctx.moveTo(this.x+10*this.s , this.y+this.height-10*this.s);
-                ctx.lineTo(this.x+this.width-10*this.s , this.y+10*this.s);
-                ctx.closePath();//可以把这句注释掉再运行比较下不同
-                ctx.stroke();
-            }
-            ctx.fillStyle="#f00";
-            ctx.font=(this.s*40+'px helvetica');
+            ctx.lineWidth = 2;
+            ctx.strokeStyle="#000080";//绘制颜色
+            ctx.fillStyle="#171833";
+            ctx.fillRect(this.x+3*this.s,this.y+3*this.s , this.width-6*this.s,this.height-6*this.s);
+            ctx.strokeRect(this.x+3*this.s,this.y+3*this.s , this.width-6*this.s,this.height-6*this.s);
+            //指示灯
+            ctx.fillStyle="#0F0";
+            ctx.beginPath();
+            ctx.arc(this.x+this.width-60*this.s,this.y+this.height/3,5*this.s,0,Math.PI*2,true);
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle="#fff";
+            ctx.font=(10*this.s+'px helvetica');
             var w=ctx.measureText(this.name).width;
-            ctx.fillText(this.name,(this.width-w)/2+this.x,this.height+this.y+65*this.s);
+            ctx.fillText("RUN",this.x+this.width-50*this.s,this.y+this.height/3+4*this.s);
+            //设备名称
+            ctx.fillStyle="#fff";
+            ctx.font=(this.s*30+'px helvetica');
+            var w=ctx.measureText(this.name).width;
+            ctx.fillText(this.name,this.x+10*this.s,this.y+this.height-5*this.s);
         }
         var images={
             img:{},
