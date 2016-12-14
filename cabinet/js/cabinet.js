@@ -9,7 +9,7 @@
     }
     function cabinet_v(option){//参数待定
         !option&&(option={});
-        !option.defaultScale&&(option.defaultScale=0.5);
+        !option.defaultScale&&(option.defaultScale=0.9);
         !option.maxScale&&(option.maxScale=1.5);
         !option.minScale&&(option.minScale=0.2);
         var canvas=this[0];
@@ -67,8 +67,7 @@
             }
         }
         //创建机房类
-        function Device(name,x,y,width,height,isExist){
-            this.isExist=isExist;
+        function Device(name,x,y,width,height){
             this.x=x;this.y=y;this.name=name;
             Img.call(this);
             this.width=width*this.s;this.height=height*this.s;
@@ -88,13 +87,13 @@
             //指示灯
             ctx.fillStyle="#0F0";
             ctx.beginPath();
-            ctx.arc(this.x+this.width-60*this.s,this.y+this.height/3,5*this.s,0,Math.PI*2,true);
+            ctx.arc(this.x+this.width-70*this.s,this.y+this.height/3,5*this.s,0,Math.PI*2,true);
             ctx.closePath();
             ctx.fill();
             ctx.fillStyle="#fff";
             ctx.font=(10*this.s+'px helvetica');
             var w=ctx.measureText(this.name).width;
-            ctx.fillText("RUN",this.x+this.width-50*this.s,this.y+this.height/3+4*this.s);
+            ctx.fillText("RUN",this.x+this.width-60*this.s,this.y+this.height/3+4*this.s);
             //设备名称
             ctx.fillStyle="#fff";
             ctx.font=(this.s*30+'px helvetica');
@@ -142,43 +141,28 @@
             },
             start:function(data){//注意渲染顺序
                 var me=this;
-                var index={};
-                var img={};
-                for(var i=65;i<91;i++){
-                    index[String.fromCharCode(i)]=i-64;
-                }
-                //index={A: 1, B: 2, C: 3, D: 4, E: 5.....}
-                var maxCol= 0,maxRol=0;
-                $.each(data.cabinet,function(i,v){
-                    var cRArr=/^([A-Z])([0-9]+)/.exec(v.name);
-                    index[cRArr[1]]-0>maxRol&&(maxRol=index[cRArr[1]]-0);
-                    cRArr[2]-0>maxCol&&(maxCol=cRArr[2]-0);
-                    img[index[cRArr[1]]+"-"+cRArr[2]]={
-                        pos: index[cRArr[1]]+"-"+cRArr[2],
-                        name: v.name,
-                        x: 244*(cRArr[2]-1)*option.defaultScale,
-                        y: 392*(index[cRArr[1]]-1)*option.defaultScale,
-                        width: 240,
-                        height: 130
-                    };
+                var unused=48;
+                var device=[];
+                $.each(data.device,function(i,v){
+                    unused-= v.occupy;
+                    device.push({
+                        "id":"CD"+ v.position_u,
+                        "name": v.deviceName,
+                        "x":70*option.defaultScale,
+                        "y":((43- v.position_u)*40+60-v.occupy*40)*option.defaultScale,
+                        "w":460,
+                        "h": v.occupy*40
+                    })
+
                 });
-                //绘制房间
-                this.addDevice("R",data.roomName,-200*option.defaultScale,-200*option.defaultScale,244*maxCol+400,392*maxRol+200);
-                //绘制机柜
-                for(var r=1;r<=maxRol;r++){
-                    for(var c=1;c<=maxCol;c++){
-                        var imgVal=img[r+"-"+c];
-                        if(imgVal){
-                            this.addCabinet(imgVal.pos,imgVal.name,imgVal.x,imgVal.y,imgVal.width,imgVal.height,true);
-                        }else{
-                            this.addCabinet(r+"-"+c,"N",244*(c-1)*option.defaultScale,392*(r-1)*option.defaultScale,240,130,false);
-                        }
-                    }
-                }
+                this.addCabinet("C",data.name+"(空闲U位:"+unused+")",0,0,600,1800);
+                $.each(device,function(i,v){
+                    me.addDevice(v.id, v.name, v.x, v.y, v.w, v.h);
+                });
                 //视图剧中
-                var offsetX= (canvas.width-244*maxCol*option.defaultScale)/2,
-                    offsetY= (canvas.height-(392*maxRol-230)*option.defaultScale)/2;
-                var s= canvas.width*0.94/(244*maxCol+400)/option.defaultScale;
+                var offsetX= (canvas.width-600*option.defaultScale)/2,
+                    offsetY= (canvas.height-1800*option.defaultScale)/2;
+                var s= canvas.height*0.94/1800/option.defaultScale;
                 $.each(this.img,function(i,v){
                     var desX= v.x+offsetX,desY= v.y+offsetY;
                     v.move(desX, desY);
@@ -188,11 +172,9 @@
             },
             addCabinet:function(id,name,x,y,width,height){//后进入数组的元素先渲染
                 this.img[id]=new Cabinet(name,x,y,width,height);
-                return this;
             },
-            addDevice:function(pos,name,x,y,width,height,isExist){
-                this.img[pos]=new Device(name,x,y,width,height,isExist);
-                return this;
+            addDevice:function(pos,name,x,y,width,height){
+                this.img[pos]=new Device(name,x,y,width,height);
             },
             draw:function(){
                 $.each(this.img,function(i,v){
@@ -206,7 +188,7 @@
                     var mX=e.offsetX,mY=e.offsetY;
                     var tar=null;
                     $.each(me.img,function(i,v){
-                        if(v.constructor===Cabinet){
+                        if(v.constructor===Device){
                             if(mX> v.x&&mX<( v.x+ v.width)&&mY>v.y&&mY<(v.y+ v.height)){
                                 tar=v;
                             }

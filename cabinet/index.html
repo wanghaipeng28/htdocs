@@ -19,12 +19,7 @@
         $(document).ready(function(){
             $.get("json/jsonData.json",doResponse,"json");
             function doResponse(d){
-                console.log(d);
-                $("#myCanvas").cabinet_v()
-                        .addCabinet(1,"A1(空闲U位:10)",10,10,600,1800)
-                        .addDevice(2,"switch1",45,40,460,80,true)
-                        .addDevice(3,"switch3",45,120,460,40,true)
-                        .init();
+                $("#myCanvas").cabinet_v().start(d).init();
             }
         });
     </script>

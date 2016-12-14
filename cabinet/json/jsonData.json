@@ -1,5 +1,5 @@
 {
-  "name":"A1",
+  "name":"A12",
   "device":[
     {
       "position_u":1,
@@ -12,18 +12,23 @@
       "deviceName":"switch2"
     },
     {
-      "position_u":4,
+      "position_u":10,
       "occupy":1,
       "deviceName":"switch3"
     },
     {
-      "position_u":5,
+      "position_u":15,
       "occupy":1,
       "deviceName":"switch4"
     },
     {
-      "position_u":6,
-      "occupy":2,
+      "position_u":20,
+      "occupy":3,
+      "deviceName":"switch5"
+    },
+    {
+      "position_u":40,
+      "occupy":3,
       "deviceName":"switch5"
     }
   ]
