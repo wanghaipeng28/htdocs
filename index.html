@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>动态代码效果</title>
+  <style>
+	body{
+		margin:0px;
+		padding:0px;
+	}
+	#wrap{
+		background-color:#333;
+	}
+	pre{
+		color:#fff;
+		font-size:16px;
+		font-weight:bold;
+		padding:20px;
+		margin:0px;
+	}
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<pre id="pre">
+import os
+import re
+import urllib2
+import zlib
+from xml.etree import ElementTree
+from cStringIO import StringIO
+
+import babel.messages.pofile
+import werkzeug.utils
+import werkzeug.wrappers
+from openerp.addons.base.ir.ir_qweb import AssetsBundle, QWebTemplateNotFound
+from openerp.modules import get_module_resource
+from openerp.tools import topological_sort
+from openerp.tools.translate import _
+from openerp.tools import ustr
+from openerp import http
+
+from openerp.http import request, serialize_exception as _serialize_exception
+
+_logger = logging.getLogger(__name__)
+
+if hasattr(sys, 'frozen'):
+    # When running on compiled windows binary, we don't have access to package loader.
+    path = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'views'))
+    loader = jinja2.FileSystemLoader(path)
+else:
+    loader = jinja2.PackageLoader('openerp.addons.web', "views")
+
+env = jinja2.Environment(loader=loader, autoescape=True)
+env.filters["json"] = simplejson.dumps
+
+# 1 week cache for asset bundles as advised by Google Page Speed
+BUNDLE_MAXAGE = 60 * 60 * 24 * 7
+
+
+db_list = http.db_list
+
+db_monodb = http.db_monodb
+
+def serialize_exception(f):
+    @functools.wraps(f)
+    def wrap(*args, **kwargs):
+        try:
+            return f(*args, **kwargs)
+        except Exception, e:
+            _logger.exception("An exception occured during an http request")
+            se = _serialize_exception(e)
+            error = {
+                'code': 200,
+                'message': "Odoo Server Error",
+                'data': se
+            }
+            return werkzeug.exceptions.InternalServerError(simplejson.dumps(error))
+    return wrap
+
+def redirect_with_hash(*args, **kw):
+    """
+        .. deprecated:: 8.0
+
+        Use the ``http.redirect_with_hash()`` function instead.
+    """
+    return http.redirect_with_hash(*args, **kw)
+
+def abort_and_redirect(url):
+    r = request.httprequest
+    response = werkzeug.utils.redirect(url, 302)
+    response = r.app.get_response(r, response, explicit_session=False)
+    werkzeug.exceptions.abort(response)
+
+def ensure_db(redirect='/web/database/selector'):
+    # This helper should be used in web client auth="none" routes
+    # if those routes needs a db to work with.
+    # If the heuristics does not find any database, then the users will be
+    # redirected to db selector or any url specified by `redirect` argument.
+    # If the db is taken out of a query parameter, it will be checked against
+    # `http.db_filter()` in order to ensure it's legit and thus avoid db
+    # forgering that could lead to xss attacks.
+    db = request.params.get('db')
+
+    # Ensure db is legit
+    if db and db not in http.db_filter([db]):
+        db = None
+
+    if db and not request.session.db:
+        # User asked a specific database on a new session.
+        # That mean the nodb router has been used to find the route
+        # Depending on installed module in the database, the rendering of the page
+        # may depend on data injected by the database route dispatcher.
+        # Thus, we redirect the user to the same page but with the session cookie set.
+        # This will force using the database route dispatcher...
+        r = request.httprequest
+        url_redirect = r.base_url
+        if r.query_string:
+            # Can't use werkzeug.wrappers.BaseRequest.url with encoded hashes:
+            # https://github.com/amigrave/werkzeug/commit/b4a62433f2f7678c234cdcac6247a869f90a7eb7
+            url_redirect += '?' + r.query_string
+        response = werkzeug.utils.redirect(url_redirect, 302)
+        request.session.db = db
+        abort_and_redirect(url_redirect)
+
+    # if db not provided, use the session one
+    if not db and request.session.db and http.db_filter([request.session.db]):
+        db = request.session.db
+
+    # if no database provided and no database in session, use monodb
+    if not db:
+        db = db_monodb(request.httprequest)
+
+    # if no db can be found til here, send to the database selector
+    # the database selector will redirect to database manager if needed
+    if not db:
+        werkzeug.exceptions.abort(werkzeug.utils.redirect(redirect, 303))
+
+    # always switch the session to the computed db
+    if db != request.session.db:
+        request.session.logout()
+        abort_and_redirect(request.httprequest.url)
+
+    request.session.db = db
+		</pre>
+	</div>
+	<script>
+		var pre=document.getElementById("pre");
+		var wrap=document.getElementById("wrap");
+		var before_height=parseInt(getComputedStyle(wrap).height);
+		wrap.style.height=before_height+"px";
+		function a(){
+			var str=pre.innerHTML;
+			pre.innerHTML="";
+			var i=0;
+			pre.style.color="#fff";
+			var timer=setInterval(function(){
+				pre.innerHTML+=str[i];
+				i++;
+				if(i>=str.length){
+					clearInterval(timer);
+					a();
+				}
+				var height=parseInt(getComputedStyle(pre).height);
+				var outH=window.innerHeight;
+				if(height>outH*3/4){
+					var scrollH=height-outH*3/4;
+					document.body.scrollTop=scrollH;
+				}else{
+					document.body.scrollTop=0;
+				}
+			},30);
+		}
+		a();
+	</script>
+ </body>
+</html>
