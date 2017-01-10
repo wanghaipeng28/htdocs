@@ -165,15 +165,18 @@
                 });
                 srnHeight+=142;
                 var x=(c.width-srnWidth*option.defaultScale)/2,
-                    y=(c.height-srnHeight*option.defaultScale)/2;
+                    //y=(c.height-srnHeight*option.defaultScale)/2;
+										y=80*option.defaultScale;
                 this.addSrn(data.id,data.name,x,y,srnWidth,srnHeight);
+								var deepY=y+40*option.defaultScale;
                 $.each(data.brd,function(i,v){
                     var w=63*col+40,
                         h=Math.ceil(v.port_number/col)*57+40;
                     var xBrd=x+40*option.defaultScale,
-                        yBrd=y+(40+(h+40)*i)*option.defaultScale;
+                        yBrd=deepY;
                     var brd_id="S"+data.id+ v.id;
                     me.addBrd(brd_id,v.brd_name,xBrd,yBrd,w,h);
+										deepY+=(h+40)*option.defaultScale;
                     $.each(v.port,function(item,val){
                         var row=parseInt(item/col);
                         var bt=(row%2==0?"t_":"b_");
