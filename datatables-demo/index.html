@@ -4,31 +4,64 @@
     <meta charset="UTF-8">
     <title>datatables-demo</title>
     <link rel="stylesheet" href="css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="buttons-1.2.4/css/buttons.dataTables.css"/>
     <script src="jquery-1.11.3.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
+    <script src="buttons-1.2.4/js/dataTables.buttons.min.js"></script>
+    <script src="jszip.min.js"></script>
+    <script src="buttons-1.2.4/js/buttons.html5.min.js"></script>
+
 </head>
 <body>
+    <div id="id" class="class"></div>
     <table id="example" class="display" cellspacing="0" width="80%">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Position</th>
-                <th>Office</th>
-                <th>Extn.</th>
-                <th>Start date</th>
-                <th>Salary</th>
             </tr>
         </thead>
+        <tbody>
+            <tr>
+                <td>王海朋</td>
+                <td>2017年</td>
+            </tr>
+            <tr>
+                <td>冯岩</td>
+                <td>2017年</td>
+            </tr>
+        </tbody>
     </table>
     <script>
-        $(document).ready(function(){
-            $('#example').DataTable({
-				"serverSide": true,
+        /*$(document).ready(function(){
+            var table=$('#example').DataTable({
+				"serverSide": false,
 				"ajax": {
 					url:"data/data.json",
 					type:'POST'
-				}
+				},
+                //"sDom": '<"#id.class">',
+                buttons: [
+                    'copy', 'excel', 'pdf'
+                ]
 			});
+        });*/
+        $(document).ready(function() {
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'excelHtml5',
+                        customize: function(xlsx) {
+                            var sheet = xlsx.xl.worksheets['sheet1.xml']; // Loop over the cells in column `F`
+                            $('row c[r^="F"]', sheet).each( function () { // Get the value and strip the non numeric characters
+                                if ( $('is t', this).text().replace(/[^\d]/g, '') * 1 >= 500000 ) {
+                                    $(this).attr( 's', '20' );
+                                }
+                            });
+                        }
+                    }]
+            });
         });
     </script>
 </body>
