@@ -19,17 +19,13 @@
             <tr>
                 <th>Name</th>
                 <th>Position</th>
+                <th>city</th>
+                <th>id</th>
+                <th>date</th>
+                <th>工资</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>王海朋</td>
-                <td>2017年</td>
-            </tr>
-            <tr>
-                <td>冯岩</td>
-                <td>2017年</td>
-            </tr>
         </tbody>
     </table>
     <script>
@@ -48,19 +44,12 @@
         });*/
         $(document).ready(function() {
             $('#example').DataTable({
-                dom: 'Bfrtip',
+                ajax: "data/data.json",
+                dom: 'lfBtip',
                 buttons: [
-                    {
-                        extend: 'excelHtml5',
-                        customize: function(xlsx) {
-                            var sheet = xlsx.xl.worksheets['sheet1.xml']; // Loop over the cells in column `F`
-                            $('row c[r^="F"]', sheet).each( function () { // Get the value and strip the non numeric characters
-                                if ( $('is t', this).text().replace(/[^\d]/g, '') * 1 >= 500000 ) {
-                                    $(this).attr( 's', '20' );
-                                }
-                            });
-                        }
-                    }]
+                   'excelHtml5',
+                    //'copy'
+                ]
             });
         });
     </script>
