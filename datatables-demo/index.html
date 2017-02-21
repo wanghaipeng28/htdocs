@@ -44,12 +44,14 @@
         });*/
         $(document).ready(function() {
             $('#example').DataTable({
-                ajax: "data/data.json",
+                "ajax": "data/data.json",
                 dom: 'lfBtip',
                 buttons: [
                    'excelHtml5',
-                    //'copy'
+                    'copy'
                 ]
+				//"serverSide": true,
+				//"ajax": "xhr.php"
             });
         });
     </script>
