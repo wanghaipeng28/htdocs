@@ -22,7 +22,7 @@
                 <th>city</th>
                 <th>id</th>
                 <th>date</th>
-                <th>工资</th>
+                <th>salary</th>
             </tr>
         </thead>
         <tbody>
@@ -44,14 +44,45 @@
         });*/
         $(document).ready(function() {
             $('#example').DataTable({
-                "ajax": "data/data.json",
-                dom: 'lfBtip',
-                buttons: [
-                   'excelHtml5',
-                    'copy'
-                ]
-				//"serverSide": true,
-				//"ajax": "xhr.php"
+                /*dom: 'lfBtip',
+                 buttons: [
+                 'excelHtml5',
+                 'copy'
+                 ]*/
+				"processing": true,
+                "ajax": {
+					"url":"data/data.php",
+					"type": 'POST'
+				},
+                "columns": [
+                    { "data": "Name" },
+                    { "data": "Position" },
+                    { "data": "city" },
+                    { "data": "id" },
+                    { "data": "date" },
+                    { "data": "salary" }
+                ],
+				"serverSide": true,
+				language:{
+					"sProcessing": "处理中...",
+					"sLengthMenu": "每页显示 _MENU_ 条记录",
+					"sZeroRecords": "没有匹配结果",
+					"sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项结果",
+					"sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+					"sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+					"sInfoPostFix": "",
+					"sSearch": "全文查找:",
+					"sUrl": "",
+					"sEmptyTable": "未搜索任何数据...",
+					"sLoadingRecords": "载入中...",
+					"sInfoThousands": ",",
+					"oPaginate": {
+						"sFirst": "首页",
+						"sPrevious": "上页",
+						"sNext": "下页",
+						"sLast": "末页"
+					}
+				}
             });
         });
     </script>
