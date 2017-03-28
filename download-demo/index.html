@@ -11,17 +11,28 @@
  <body>
 	<button type="button" id="btn">点我下载</button>
 	<script src="jquery-1.11.3.js"></script>
+	<script src="jquery.csv.js"></script>
 	<script>
-		
+		$("#btn").click(function(){
+			downLoad("data/test.csv","w;lskjdfsa;kdjfasdlkfasd");
+		})
+
+		function downLoad(url,data){
+			var $inputContent = $('<input>').attr({ name: "data", value: data });
+			var $form = $("<form>");
+			$form.attr({ target: '_blank', method: 'post', action: url }).append($inputContent);
+			$form.submit();
+		}
+
 		
 
-		function downloadFile(f,c){
+		/*function downloadFile(f,c){
 			$('<a href="'+URL.createObjectURL(new Blob([c]))+'" download="'+f+'"></a>')[0].click();			
 		}
 
 		$("#btn").click(function(){
 			downloadFile("test.txt","这是我的下载测试文件")
-		});
+		});*/
 
 		/***********以下摘自网上************/
 		//var a=document.getElementById("a");
