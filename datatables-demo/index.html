@@ -28,6 +28,8 @@
         <tbody>
         </tbody>
     </table>
+    <input type="text" id="input" value="121314"/>
+    <button type="button" id="btn_reload">搜索</button>
     <script>
         /*$(document).ready(function(){
             var table=$('#example').DataTable({
@@ -43,7 +45,7 @@
 			});
         });*/
         $(document).ready(function() {
-            $('#example').DataTable({
+            var table = $('#example').DataTable({
                 /*dom: 'lfBtip',
                  buttons: [
                  'excelHtml5',
@@ -52,7 +54,10 @@
 				"processing": true,
                 "ajax": {
 					"url":"data/data.php",
-					"type": 'POST'
+					"type": 'POST',
+                    "data": function ( d ) {
+                        d.extra_search = $("#input").val();
+                    }
 				},
                 "columns": [
                     { "data": "Name" },
@@ -83,6 +88,9 @@
 						"sLast": "末页"
 					}
 				}
+            });
+            $("#btn_reload").click(function(){
+                table.ajax.reload();
             });
         });
     </script>
