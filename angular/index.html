@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>angulartest</title>
+    <script src="js/angular.min.js"></script>
+	<style>
+		.whp{
+			background-color:#0f0;
+		}
+	</style>
+</head>
+<body ng-app="myapp">
+{{1+1}}
+    <div ng-controller="mycontroller as ctr">
+        {{1+1}}
+        <button type="button" class="lg" ng-class="{'whp':!(cls)}" ng-click="ctr.add()">add</button>
+
+        <input type="checkbox" name = "name" ng-click="click()" ng-checked="all"/>
+
+        <input type="checkbox" name = "name" ng-model="name['t1']"/>
+        <input type="checkbox" name = "name" ng-model="name['t2']"/>
+        <input type="checkbox" name = "name" ng-model="name['t3']"/>
+    </div>
+<script>
+    angular.module("myapp",[]).controller("mycontroller",function($scope){
+		$scope.cls = false;
+        $scope.name = {t1:false,t2:false,t3:false};
+        $scope.all = true;
+        var ctr = this;
+        this.add = function(){
+			if($scope.cls){
+				$scope.cls = false;
+			}else{
+				$scope.cls = true;
+			}
+            
+        };
+
+        $scope.click = function(){
+            if($scope.all){
+                $scope.all = false;
+            }else{
+                $scope.all = true;
+            }
+            for(var i in $scope.name){
+                $scope.name[i] = $scope.all
+            }
+        }
+
+        $scope.$watch('name',function(n,o){
+			var bool = true;
+            
+            for(var i in $scope.name){
+                if(!$scope.name[i]){
+                    bool = false;
+                    break;
+                };
+            }
+			$scope.all = bool;
+        },true)
+    });
+</script>
+</body>
+</html>
