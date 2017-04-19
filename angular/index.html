@@ -3,7 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>angulartest</title>
-    <script src="js/angular.min.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+	<script src="js/angular.min.js"></script>
 	<style>
 		.whp{
 			background-color:#0f0;
@@ -21,7 +22,9 @@
         <input type="checkbox" name = "name" ng-model="name['t1']"/>
         <input type="checkbox" name = "name" ng-model="name['t2']"/>
         <input type="checkbox" name = "name" ng-model="name['t3']"/>
+        <button type="button" ng-click="ctr.click()">modal</button>
     </div>
+    <div id="test"></div>
 <script>
     angular.module("myapp",[]).controller("mycontroller",function($scope){
 		$scope.cls = false;
@@ -36,6 +39,10 @@
 			}
             
         };
+
+        this.click = function(){
+            test.innerHTML = "<div ng-controller='youcontroller as ctr'><p ng-bind='ctr.name'></p></div>"
+        }
 
         $scope.click = function(){
             if($scope.all){
@@ -60,6 +67,11 @@
 			$scope.all = bool;
         },true)
     });
+//    angular.module("othermodules",[]).controller("youcontroller",youcontroller);
+//    function youcontroller(){
+//        var ctr = this;
+//        ctr.name = "wanghaipeng";
+//    }
 </script>
 </body>
 </html>
