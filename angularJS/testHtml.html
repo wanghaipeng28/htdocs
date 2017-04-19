@@ -1,0 +1,17 @@
+<ul ng-controller="whpController as ctr">
+    <li ng-bind="ctr.name"></li>
+    <li ng-bind="ctr.age"></li>
+    <li ng-bind="ctr.sel"></li>
+    <li>
+        <input type="text" ng-blur="ctr.name='whp'" ng-focus="ctr.name='fy'" ng-model="ctr.age" ng-keyup="ctr.age=''" />
+    </li>
+    <li>
+        <select ng-model="ctr.sel">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <!--<option value=""></option>-->
+        </select>
+    </li>
+</ul>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-app="myapp">
+<div ng-controller="personController as t">
+    <p>{{t.age}}</p>
+    名： <input type="text" ng-model="person.firstName"><br>
+    姓： <input type="text" ng-model="person.lastName"><br>
+    <br>
+    姓名： {{person.firstName + " " + (person.lastName | lowercase)}}
+
+
+</div>
+<p>
+    <button ng-disabled="mySwitch">点我！</button>
+</p>
+
+<p>
+    <input type="checkbox" ng-model="mySwitch">按钮
+</p>
+<button ng-click="count=count+1">点我！</button>
+
+<p>{{ count }}</p>
+
+<form name="myForm" ng-controller="ExampleController as e">
+    Value1: <input Type="checkbox" ng-model="value1"> <br/>
+    <tt>value1 = {{value1}}</tt><br/>
+
+    <p>{{e.abc.name}}</p>
+
+    <p>{{e.abc.age}}</p>
+    <bb>lksadflkjlaskdf</bb>
+    <br/>
+
+    <button type="button" ng-click="click()">按钮</button>
+</form>
+
+
+
+<div id="div1">
+
+</div>
+
+
+
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/angular.js"></script>
+<script>
+    (function () {
+        angular.module("whp", [])
+    })();
+
+    (function () {
+        angular.module("whp").controller("whpController",function($scope,$interval){
+            this.name = "whp";
+            this.age = 28;
+            this.sel = "1";
+            var ctr = this;
+            $interval(function(){
+                ctr.age++;
+            },100);
+
+        })
+    })();
+
+    (function () {
+        angular.module("myAbc", ['whp'])
+    })();
+
+    (function () {
+        angular.module("myAbc").factory('abc', Abc);
+        function Abc() {
+            var service = {
+                name: "wanghaipeng",
+                age: 28,
+                fun: function () {
+                }
+            }
+            return service
+        }
+    })();
+    (function () {
+        angular.module("myAbc").service('abcd', Abc);
+        function Abc() {
+            this.name = "fengyan";
+            this.age = 29;
+        }
+    })();
+
+    (function () {
+        angular.module("myapp", ["myAbc"]).controller("personController", function ($scope) {
+            this.age = 28;
+            $scope.person = {
+                firstName: "John",
+                lastName: "Doe"
+            };
+        }).controller('ExampleController', Ndy);
+
+        Ndy.$inject = ["$scope", "abc", "abcd"];
+        function Ndy($scope, abc, d) {
+            $scope.value1 = true;
+            $scope.click = function(){
+
+                $("#div1").load("testHtml.html",function(data){
+                    //获取作用域对象
+                    var html = $(this).find("ul");
+                    var scope = html.scope();
+
+                    //获取注入器对象
+                    var injector = html.injector();
+
+                    //调用注入器，为程序提供$compile服务
+                    injector.invoke(function($compile){
+                        //编译DOM节点
+                        $compile(html)(scope);
+                    });
+                });
+
+            };
+            this.abc = abc;
+            console.log(d)
+        }
+    })();
+
+
+
+</script>
+
+</body>
+</html>
