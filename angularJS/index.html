@@ -55,9 +55,14 @@
     })();
 
     (function () {
-        angular.module("whp").controller("whpController",function($scope){
-            $scope.name = "whp";
-            $scope.age = 28;
+        angular.module("whp").controller("whpController",function($scope,$interval){
+            this.name = "whp";
+            this.age = 28;
+            this.sel = "1";
+            var ctr = this;
+            $interval(function(){
+                ctr.age++;
+            },100);
 
         })
     })();
