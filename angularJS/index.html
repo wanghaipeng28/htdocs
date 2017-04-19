@@ -100,26 +100,21 @@
             $scope.value1 = true;
             $scope.click = function(){
 
-                var html = $('<ul ng-controller="whpController">'+
-                        '<li ng-bind="name"></li>'+
-                        '<li ng-bind="age"></li>'+
-                        '<li>' +
-                            '<input type="text" ng-model="age" />' +
-                        '</li>'+
-                    '</ul>');
-                $("#div1").html(html);
+                $("#div1").load("testHtml.html",function(data){
+                    //获取作用域对象
+                    var html = $(this).find("ul");
+                    var scope = html.scope();
 
-                //获取作用域对象
-                var scope = html.scope();
+                    //获取注入器对象
+                    var injector = html.injector();
 
-                //获取注入器对象
-                var injector = html.injector();
-
-                //调用注入器，为程序提供$compile服务
-                injector.invoke(function($compile){
-                    //编译DOM节点
-                    $compile(html)(scope);
+                    //调用注入器，为程序提供$compile服务
+                    injector.invoke(function($compile){
+                        //编译DOM节点
+                        $compile(html)(scope);
+                    });
                 });
+
             };
             this.abc = abc;
             console.log(d)
