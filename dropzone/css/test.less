@@ -1,0 +1,32 @@
+.whp{
+  width: 600px;
+  position: relative;
+  z-index: 1;
+  .dz-preview{
+    display: none;
+  }
+  .child{
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    z-index: 3;
+    border: 1px solid #ddd;
+    textarea{
+      resize: none;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .discover{
+    z-index: 2;
+  }
+  .discover.active{
+    z-index: 4;
+    background-color: antiquewhite;
+    p{
+      color: #333333;
+      margin-top: 145px;
+      text-align: center;
+    }
+  }
+}

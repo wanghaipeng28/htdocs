@@ -1,18 +1,29 @@
 <!doctype html>
 <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/dropzone.css" />
-  <title>Document</title>
- </head>
- <body>
-	  <div id="test" class="dropzone"></div>
-	  <script src="js/jquery-1.11.3.min.js"></script>
-	  <script src="js/dropzone.js"></script>
-	  <script> 
-			$("#test").dropzone({ 
-				url: "data/updata.php"
-			})
-	   </script> 
- </body>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/dropzone.css" />
+		<link rel="stylesheet" href="css/test.css" />
+
+		<title>Document</title>
+	</head>
+	<body>
+
+		<!--<form action="data/updata.php" class="dropzone"></form>-->
+		<div id="fu_jian">
+
+		</div>
+		<button type="button" id="add_fu_jian">添加附件</button>
+		<div class="whp div_parent">
+			<div class="child">
+				<textarea></textarea>
+			</div>
+			<div class="child discover" id="discover">
+				<p>请将附件拖拽到该处上传附件！！！</p>
+			</div>
+		</div>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/dropzone.js"></script>
+		<script src="js/test.js"></script>
+	</body>
 </html>
