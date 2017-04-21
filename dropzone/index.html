@@ -9,10 +9,11 @@
 	</head>
 	<body>
 
+		<!-- 1-->
 		<!--<form action="data/updata.php" class="dropzone"></form>-->
-		<div id="fu_jian">
 
-		</div>
+		<!-- 2-->
+		<!--<div id="fu_jian"></div>
 		<button type="button" id="add_fu_jian">添加附件</button>
 		<div class="whp div_parent">
 			<div class="child">
@@ -21,9 +22,30 @@
 			<div class="child discover" id="discover">
 				<p>请将附件拖拽到该处上传附件！！！</p>
 			</div>
-		</div>
+		</div>-->
+
+		<!-- 3-->
+		<div class="dropzone-previews dropzone"></div>
+
+		<div id="whp3" style="height: 300px; border: 1px solid #0f0;"></div>
+
+
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/dropzone.js"></script>
-		<script src="js/test.js"></script>
+
+		<!--2 -->
+		<!--<script src="js/test.js"></script>-->
+
+		<!-- 3-->
+		<script>
+			new Dropzone("div#whp3", {
+				url:"data/updata.php",
+				previewsContainer: ".dropzone-previews",
+				// You probably don't want the whole body
+				// to be clickable to select files
+				clickable: false,
+				addRemoveLinks:true,
+			});
+		</script>
 	</body>
 </html>
