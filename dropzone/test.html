@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        .box{width:800px;height:600px;float:left;}
+        #box1{background-color:#ccc;}
+    </style>
+</head>
+<body>
+<div id="box1" class="box"></div>
+<div id="imgContainer"></div>
+</body>
+<script>
+    var box1Div,box2Div,msgDiv,img1;
+    window.onload = function(){
+        box1Div = document.getElementById('box1');
+
+        box1Div.ondragstart = function(e){
+            console.log('拖拽开始');
+        }
+
+
+        box1Div.ondragenter = function(e){
+            e.preventDefault();
+            console.log('拖拽进入');
+        }
+
+        box1Div.ondragover = function(e){
+            e.preventDefault();
+        }
+
+        box1Div.ondragleave = function(e){
+            e.preventDefault();
+            console.log('拖拽离开');
+        }
+
+        box1Div.ondrop = function(e){
+            e.preventDefault();
+            console.log('拖拽释放');
+            var f = e.dataTransfer.files[0];
+            //console.log(f);
+            //下面是图片获取到之后显示在imgContainer中的流程
+             var fileReader = new FileReader();
+             fileReader.onload=function(){
+                imgContainer.innerHTML = "<img src=\""+fileReader.result+"\">"
+             }
+             fileReader.readAsDataURL(f);
+        };
+    }
+</script>
+</html>
