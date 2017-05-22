@@ -11,11 +11,14 @@
 <body>
 <div id="box1" class="box"></div>
 <div id="imgContainer"></div>
+<input type="file" id="inputEle"/>
 </body>
 <script>
-    var box1Div,box2Div,msgDiv,img1;
+    var box1Div,input;
     window.onload = function(){
         box1Div = document.getElementById('box1');
+
+        input = document.getElementById('inputEle');
 
         box1Div.ondragstart = function(e){
             console.log('拖拽开始');
@@ -40,7 +43,7 @@
             e.preventDefault();
             console.log('拖拽释放');
             var f = e.dataTransfer.files[0];
-            //console.log(f);
+            input.files = e.dataTransfer.files;
             //下面是图片获取到之后显示在imgContainer中的流程
              var fileReader = new FileReader();
              fileReader.onload=function(){
