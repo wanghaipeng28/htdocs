@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js test</title>
+    <link rel="stylesheet" href="css/element_ui.css">
+</head>
+<body>
+    <div id="app">
+        <!--动态添加-->
+    </div>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/vue-2.4.2.js"></script>
+    <script src="js/element_ui.js"></script>
+    <script type="text/x-template" id="mytemp">
+        <div>
+            <div style="padding: 4px;">
+                <el-button type="primary" size="small" @click="addRow">新增</el-button>
+                <el-button type="danger" size="small" @click="deleteRows" v-if="enableDelete">批量删除</el-button>
+            </div>
+            <div>
+                <el-select v-model="value5" style="width:100%" multiple placeholder="请选择要显示的字段">
+                    <el-option
+                            v-for="item in cols"
+                            :key="item.prop"
+                            :label="item.label"
+                            :value="item.prop">
+                    </el-option>
+                </el-select>
+            </div>
+            <el-table :data="tableData" border @selection-change="handleSelectionChange">
+                <el-table-column type="selection" fixed></el-table-column>
+                <el-table-column v-for="item in cols" :key="item.prop" :prop="item.prop"
+                                 :label="item.label" :width="item.width" :fixed="item.fixed"
+                                 v-if="value5.indexOf(item.prop) != -1">
+                </el-table-column>
+                <el-table-column label="操作" width="170" fixed="right" v-show="true">
+                    <template scope="scope">
+                        <el-button @click="editRow(scope,tableData)" type="success" size="small">编辑</el-button>
+                        <el-button type="danger" @click="deleteRow(scope.row)" size="small">删除</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                    :current-page="currentPage" :page-sizes="page_sizes" :page-size="page_size"
+                    layout="total, sizes, prev, pager, next, jumper" :total="total">
+            </el-pagination>
+            <el-dialog :title="formData.id?'修改记录':'新增记录'" :visible.sync="dialogVisible" size="small">
+                <el-form ref="form" :model="formData" label-width="80px">
+                    <el-form-item label="姓名">
+                        <el-input v-model="formData.name"></el-input>
+                    </el-form-item>
+                    <el-form-item label="省份">
+                        <el-select v-model="formData.province" placeholder="请选择省份">
+                            <el-option label="北京" value="北京"></el-option>
+                            <el-option label="上海" value="上海"></el-option>
+                            <el-option label="广州" value="广州"></el-option>
+                            <el-option label="深圳" value="深圳"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="市区">
+                        <el-select v-model="formData.city" placeholder="请选择市区">
+                            <el-option label="北京" value="北京"></el-option>
+                            <el-option label="上海" value="上海"></el-option>
+                            <el-option label="广州" value="广州"></el-option>
+                            <el-option label="深圳" value="深圳"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="日期">
+                        <el-col :span="11">
+                            <el-date-picker type="date" placeholder="选择日期" v-model="formData.date"
+                                            style="width: 100%;">
+                            </el-date-picker>
+                        </el-col>
+                    </el-form-item>
+                    <el-form-item label="地址">
+                        <el-input v-model="formData.address"></el-input>
+                    </el-form-item>
+                    <el-form-item label="邮编">
+                        <el-input v-model="formData.zip"></el-input>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="onSubmit">{{formData.id?'确认修改':'确认创建'}}</el-button>
+                        <el-button @click="dialogVisible = false">取消</el-button>
+                    </el-form-item>
+                </el-form>
+            </el-dialog>
+        </div>
+    </script>
+    <script src="js/index.js"></script>
+</body>
+</html>
